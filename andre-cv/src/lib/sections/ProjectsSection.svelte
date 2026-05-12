@@ -23,7 +23,7 @@
 	use:animateOnView={{
 		selector: '[data-projects-reveal]',
 		y: 24,
-	delay: 90,
+		delay: 90,
 		duration: 850,
 		threshold: 0.14
 	}}
@@ -57,21 +57,20 @@
 			</div>
 
 			<div
-	class="-mx-6 no-scrollbar flex snap-x gap-5 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0"
->
-	{#each featuredProjects as project, index}
-		<ProjectCard
-		className="min-w-[88%] snap-start md:min-w-0"
-			{project}
-			index={index + 1}
-			accent={projectAccents[index % projectAccents.length]}
-			onclick={() => {
-				selectedProject = project;
-			}}
-
-		/>
-	{/each}
-</div>
+				class="-mx-6 no-scrollbar flex snap-x gap-5 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0"
+			>
+				{#each featuredProjects as project, index}
+					<ProjectCard
+						className="w-[88%] shrink-0 snap-start md:w-full md:min-w-0"
+						{project}
+						index={index + 1}
+						accent={projectAccents[index % projectAccents.length]}
+						onclick={() => {
+							selectedProject = project;
+						}}
+					/>
+				{/each}
+			</div>
 		</div>
 
 		<div class="space-y-10">

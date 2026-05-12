@@ -54,7 +54,7 @@
 		</div>
 
 		<div class="hidden md:block">
-			<Button href="#contact" label="let’s talk!" variant="secondary" />
+			<Button href="#contact" label="let’s talk!" variant="primary" />
 		</div>
 
 		<button

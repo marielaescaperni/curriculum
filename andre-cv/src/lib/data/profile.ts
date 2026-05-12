@@ -1,5 +1,5 @@
 export const profile = {
-	name: 'Andre Escalante',
+	name: 'Mariela Escalante',
 
 	role: 'UX/UI Designer & Front-End Developer',
 
@@ -11,7 +11,7 @@ export const profile = {
 		'I design and build thoughtful digital experiences that combine usability, visual clarity and modern front-end development.',
 
 	intro: `
-		I’m a UX/UI Designer and Front-End Developer with over seven years of experience
+		I’m a UX/UI Designer and Front-End Developer with over eight years of experience
 		working on SaaS platforms, enterprise software and digital products.
 		
 		My background in programming allows me to bridge the gap between design and development,
@@ -27,9 +27,5 @@ export const profile = {
 	`,
 
 	socials: {
-		linkedin: '',
-		github: '',
-		portfolio:
-			'https://www.figma.com/design/juDtUs0Mu4Ym2s07wdnFnb/Mariela-Escalante---Portfolio-and-CV?m=auto&t=o3oxz8qhWuyBTwYu-6'
-	}
-};
+		linkedin: 'http://www.linkedin.com/in/mariela-escalante'
+}};

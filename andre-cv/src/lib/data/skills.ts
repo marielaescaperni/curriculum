@@ -21,6 +21,13 @@ export const skills = {
 		'JavaScript',
 		'TypeScript',
 		'Git',
-		'GitHub'
+		'GitHub',
+		'EasyPanel',
+		'Vercel',
+		'Strapi CMS',
+		'Payload CMS',
+		'SEO',
+		'AI',
+		'A11y'
 	]
 };

@@ -141,8 +141,6 @@ export const featuredProjects: Project[] = [
 				'/projects/telecom-open-api/connector-selection.png',
 				'/projects/telecom-open-api/form-flow.png',
 				'/projects/telecom-open-api/success-state.png',
-				'/projects/telecom-open-api/error-state.png',
-				'/projects/telecom-open-api/email-template.png'
 			]
 		}
 	},

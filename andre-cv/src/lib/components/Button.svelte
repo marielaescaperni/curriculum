@@ -1,5 +1,5 @@
 <script lang="ts">
-type Variant = 'primary' | 'secondary';
+type Variant = 'primary' | 'secondary' | 'terciary';
 
 	type Props = {
 		href: string;
@@ -58,6 +58,19 @@ type Variant = 'primary' | 'secondary';
 	.button-secondary:hover {
 		background: #4abf9d;
 		color: #ffffff;
+		box-shadow: 0 18px 40px rgba(74, 191, 157, 0.26);
+	}
+
+	.button-terciary {
+		background: transparent;
+		color: #111111;
+		border: 2px solid #111111;
+	}
+
+	.button-terciary:hover {
+		background: transparent;
+		color: #ffffff;
+		border: 2px solid #ffffff;
 		box-shadow: 0 18px 40px rgba(74, 191, 157, 0.26);
 	}
 

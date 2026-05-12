@@ -36,7 +36,7 @@
 	}}
 >
 	<div class="mx-auto max-w-6xl space-y-10">
-		<div class="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+		<div class="grid gap-6 md:grid-cols-1 items-center text-center mx-auto">
 			<div class="space-y-4">
 				<p
 					data-skills-reveal
@@ -47,19 +47,11 @@
 
 				<h2
 					data-skills-reveal
-					class="max-w-xl font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl"
+					class="font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl"
 				>
-					The little systems behind the magic.
+					The little systems behind the magic ;)
 				</h2>
 			</div>
-
-			<p
-				data-skills-reveal
-				class="max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl"
-			>
-				A mix of design thinking, visual craft and front-end implementation — because I like
-				working where ideas become real, usable things.
-			</p>
 		</div>
 
 		<div class="grid gap-4 md:grid-cols-2">
