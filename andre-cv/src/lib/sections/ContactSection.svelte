@@ -2,7 +2,7 @@
 	import Button from '$lib/components/Button.svelte';
 </script>
 
-<section id="contact" class="px-6 py-24">
+<section id="contact" class="px-6 py-24 scroll-mt-[90px]">
 	<div
 		class="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-main-gradient p-10 text-black md:p-16"
 	>

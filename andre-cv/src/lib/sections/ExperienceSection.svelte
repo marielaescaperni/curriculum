@@ -1,7 +1,78 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import { experience } from '$lib/data/experience';
+	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
 </script>
+
+{#snippet experienceCard(item)}
+	<article
+		data-experience-reveal
+		class="group h-full rounded-[var(--radius-panel)] border border-white/70 bg-white/40 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/60 md:p-8"
+	>
+		<div class="flex items-start justify-between gap-4">
+			<div>
+				<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
+					{item.period}
+				</p>
+
+				<h3
+					class="mt-4 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] md:text-4xl"
+				>
+					{item.role}
+				</h3>
+
+				<p class="mt-3 text-base font-medium text-[var(--color-text-secondary)]">
+					{item.company}
+				</p>
+			</div>
+
+			<span
+				class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/70"
+			>
+				work
+			</span>
+		</div>
+
+		<p class="mt-6 text-base leading-relaxed text-[var(--color-text-secondary)]">
+			{item.description}
+		</p>
+
+		{#if item.projects}
+			<div class="mt-7 space-y-3">
+				<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]">
+					Selected projects
+				</p>
+
+				<div class="flex flex-wrap gap-2">
+					{#each item.projects as project}
+						{#if project.url}
+							<a
+								href={project.url}
+								target="_blank"
+								rel="noreferrer"
+								class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70"
+							>
+								<span class="font-medium text-[var(--color-text-primary)]">
+									{project.name}
+								</span>
+
+								<span class="material-symbols-rounded text-base">arrow_outward</span>
+							</a>
+						{:else}
+							<div
+								class="rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70"
+							>
+								<span class="font-medium text-[var(--color-text-primary)]">
+									{project.name}
+								</span>
+							</div>
+						{/if}
+					{/each}
+				</div>
+			</div>
+		{/if}
+	</article>
+{/snippet}
 
 <section
 	id="experience"
@@ -31,82 +102,28 @@
 			</h2>
 		</div>
 
-		<div
-			class="-mx-6 no-scrollbar flex snap-x gap-5 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0"
-		>
-			{#each experience as item}
-				<article
-					data-experience-reveal
-					class="group min-w-[88%] snap-start rounded-[var(--radius-panel)] border border-white/70 bg-white/40 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/60 md:min-w-0 md:p-8"
-				>
-					<div class="flex items-start justify-between gap-4">
-						<div>
-							<p
-								class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
-							>
-								{item.period}
-							</p>
-
-							<h3
-								class="mt-4 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] md:text-4xl"
-							>
-								{item.role}
-							</h3>
-
-							<p class="mt-3 text-base font-medium text-[var(--color-text-secondary)]">
-								{item.company}
-							</p>
-						</div>
-
-						<span
-							class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/70"
-						>
-							work
-						</span>
-					</div>
-
-					<p class="mt-6 text-base leading-relaxed text-[var(--color-text-secondary)]">
-						{item.description}
-					</p>
-
-					{#if item.projects}
-						<div class="mt-7 space-y-3">
-							<p
-								class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]"
-							>
-								Selected projects
-							</p>
-
-							<div class="flex flex-wrap gap-2">
-								{#each item.projects as project}
-									{#if project.url}
-	<a
-		href={project.url}
-		target="_blank"
-		rel="noreferrer"
-		class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70"
+		<div class="md:hidden">
+	<EmblaCarousel
+		className="-mx-6 px-6 pb-4"
+		containerClassName="gap-5"
+		options={{
+			align: 'start',
+			containScroll: 'trimSnaps',
+			dragFree: false
+		}}
 	>
-		<span class="font-medium text-[var(--color-text-primary)]">
-			{project.name}
-		</span>
+		{#each experience as item}
+			<div class="min-w-0 flex-[0_0_84%]">
+				{@render experienceCard(item)}
+			</div>
+		{/each}
+	</EmblaCarousel>
+</div>
 
-		<span class="material-symbols-rounded text-base">arrow_outward</span>
-	</a>
-{:else}
-	<div
-		class="rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70"
-	>
-		<span class="font-medium text-[var(--color-text-primary)]">
-			{project.name}
-		</span>
-	</div>
-{/if}
-								{/each}
-							</div>
-						</div>
-					{/if}
-				</article>
-			{/each}
-		</div>
+<div class="hidden gap-6 md:grid md:grid-cols-2">
+	{#each experience as item}
+		{@render experienceCard(item)}
+	{/each}
+</div>
 	</div>
 </section>

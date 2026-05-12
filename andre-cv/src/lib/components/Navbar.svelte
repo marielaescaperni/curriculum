@@ -5,9 +5,9 @@
 	let isClosing = $state(false);
 
 	const navItems = [
-		{ title: 'Work', href: '#projects' },
-		{ title: 'About', href: '#about' },
-		{ title: 'Experience', href: '#experience' }
+			{ title: 'About', href: '#about' },
+			{ title: 'Work', href: '#projects' },
+			{ title: 'Experience', href: '#experience' }
 	];
 
 	function openMenu() {

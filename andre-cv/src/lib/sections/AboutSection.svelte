@@ -26,7 +26,7 @@
 
 <section
 	id="about"
-	class="px-6"
+	class="px-6 scroll-mt-[90px]"
 	use:animateOnView={{
 		selector: '[data-about-reveal]',
 		y: 24,

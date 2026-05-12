@@ -26,7 +26,7 @@
 
 <section
 	id="skills"
-	class="px-6 pt-20 lg:pt-30"
+	class="px-6 pt-20 lg:pt-30 scroll-mt-[90px]"
 	use:animateOnView={{
 		selector: '[data-skills-reveal]',
 		y: 24,

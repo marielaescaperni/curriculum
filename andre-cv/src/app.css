@@ -113,3 +113,8 @@ img {
 		var(--gradient-orange) 100%
 	);
 }
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 90px;
+}

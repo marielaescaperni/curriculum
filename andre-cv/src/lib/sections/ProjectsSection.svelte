@@ -4,6 +4,7 @@
 	import ProjectModal from '$lib/components/projects/ProjectModal.svelte';
 	import { featuredProjects, secondaryProjects } from '$lib/data/projects';
 	import type { Project } from '$lib/types/project';
+	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
 
 	let selectedProject = $state<Project | null>(null);
 	let openSecondaryProject = $state<string | null>(null);
@@ -19,7 +20,7 @@
 
 <section
 	id="projects"
-	class="px-6 pt-16 md:pt-24"
+	class="px-6 pt-16 md:pt-24 scroll-mt-[90px]"
 	use:animateOnView={{
 		selector: '[data-projects-reveal]',
 		y: 24,
@@ -56,21 +57,43 @@
 				</p>
 			</div>
 
-			<div
-				class="-mx-6 no-scrollbar flex snap-x gap-5 overflow-x-auto px-6 pb-4 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 md:pb-0"
-			>
-				{#each featuredProjects as project, index}
-					<ProjectCard
-						className="w-[88%] shrink-0 snap-start md:w-full md:min-w-0"
-						{project}
-						index={index + 1}
-						accent={projectAccents[index % projectAccents.length]}
-						onclick={() => {
-							selectedProject = project;
-						}}
-					/>
-				{/each}
-			</div>
+		<div class="md:hidden">
+	<EmblaCarousel
+		className="-mx-6 px-6 pb-4"
+		containerClassName="gap-5"
+		options={{
+			align: 'start',
+			containScroll: 'trimSnaps',
+			dragFree: false
+		}}
+	>
+		{#each featuredProjects as project, index}
+			<ProjectCard
+				className="min-w-0 flex-[0_0_84%]"
+				{project}
+				index={index + 1}
+				accent={projectAccents[index % projectAccents.length]}
+				onclick={() => {
+					selectedProject = project;
+				}}
+			/>
+		{/each}
+	</EmblaCarousel>
+</div>
+
+<div class="hidden gap-6 md:grid md:grid-cols-2">
+	{#each featuredProjects as project, index}
+		<ProjectCard
+			className="w-full min-w-0"
+			{project}
+			index={index + 1}
+			accent={projectAccents[index % projectAccents.length]}
+			onclick={() => {
+				selectedProject = project;
+			}}
+		/>
+	{/each}
+</div>
 		</div>
 
 		<div class="space-y-10">
