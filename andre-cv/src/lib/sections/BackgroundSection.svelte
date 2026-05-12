@@ -99,6 +99,7 @@
 								{item.title}
 							</h4>
 
+
 							<p class="mt-3 text-sm text-[var(--color-text-muted)]">
 								{item.location}
 							</p>
@@ -106,6 +107,18 @@
 							<p class="mt-4 text-base leading-relaxed text-[var(--color-text-secondary)]">
 								{item.description}
 							</p>
+
+							{#if item.link}
+								<a
+									class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)] transition hover:translate-x-1"
+									href={item.link}
+									target="_blank"
+									rel="noreferrer"
+								>
+									{item.linkLabel}
+									<span class="material-symbols-rounded text-base">arrow_forward</span>
+								</a>
+							{/if}
 						</article>
 					{/each}
 				</div>
