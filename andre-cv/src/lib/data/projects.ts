@@ -293,3 +293,5 @@ export const secondaryProjects: SecondaryProject[] = [
 		accent: 'var(--gradient-pink)'
 	}
 ];
+
+export const projects = featuredProjects;
