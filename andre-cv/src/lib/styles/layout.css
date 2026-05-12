@@ -1,0 +1,22 @@
+.container-page {
+	width: min(calc(100% - 2rem), var(--container-page));
+	margin-inline: auto;
+}
+
+.container-content {
+	width: min(calc(100% - 2rem), var(--container-content));
+	margin-inline: auto;
+}
+
+.container-reading {
+	width: min(calc(100% - 2rem), var(--container-reading));
+	margin-inline: auto;
+}
+
+.section-space {
+	padding-block: var(--section-y);
+}
+
+.section-space-sm {
+	padding-block: clamp(4rem, 7vw, 7rem);
+}
