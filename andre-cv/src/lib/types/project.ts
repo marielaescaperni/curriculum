@@ -57,6 +57,7 @@ export type Project = {
 	subtitle: string;
 	period: string;
 	description: string;
+	projectNote?: string;
 	tags: string[];
 	proof?: ProjectProof;
 	thumbnail?: string;
