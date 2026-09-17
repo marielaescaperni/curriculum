@@ -2,6 +2,7 @@
 	import type { Project } from '$lib/types/project';
 
 	let { project } = $props<{ project: Project }>();
+	let heroImage = $derived(project.heroMedia ?? project.thumbnail);
 </script>
 
 <section class="case-shell pt-12 md:pt-16">
@@ -31,11 +32,11 @@
 		</div>
 	</div>
 
-	{#if project.thumbnail}
+	{#if heroImage}
 		<div class="surface-panel mt-10 overflow-hidden p-3 sm:p-4">
 			<img
-				src={project.thumbnail}
-				alt={`${project.title} interface preview`}
+				src={heroImage}
+				alt={`${project.title} product interface`}
 				class="w-full rounded-[1.5rem] object-cover"
 			/>
 		</div>
