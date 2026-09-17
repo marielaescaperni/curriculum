@@ -65,17 +65,17 @@
 
 	.button-primary:hover {
 		background: #a7e4ff;
-		color: #147ca6;
+		color: #0d4f68;
 		box-shadow: 0 18px 40px rgba(100, 199, 238, 0.28);
 	}
 
 	.button-secondary {
 		background: #ffffff;
-		color: #4abf9d;
+		color: #21745e;
 	}
 
 	.button-secondary:hover {
-		background: #4abf9d;
+		background: #21745e;
 		color: #ffffff;
 		box-shadow: 0 18px 40px rgba(74, 191, 157, 0.26);
 	}
