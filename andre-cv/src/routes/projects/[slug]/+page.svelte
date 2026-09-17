@@ -8,14 +8,14 @@
 	import CaseSolution from '$lib/components/case-study/CaseSolution.svelte';
 	import CaseValidation from '$lib/components/case-study/CaseValidation.svelte';
 	import CaseNavigation from '$lib/components/case-study/CaseNavigation.svelte';
-	import { featuredProjects } from '$lib/data/projects';
+	import { caseStudyProjects } from '$lib/data/projects';
 	import type { Project } from '$lib/types/project';
 
 	let { data } = $props<{ data: { project: Project } }>();
 	let project = $derived(data.project);
 
-	let currentIndex = $derived(featuredProjects.findIndex((item) => item.slug === project.slug));
-	let nextProject = $derived(featuredProjects[(currentIndex + 1) % featuredProjects.length]);
+	let currentIndex = $derived(caseStudyProjects.findIndex((item) => item.slug === project.slug));
+	let nextProject = $derived(caseStudyProjects[(currentIndex + 1) % caseStudyProjects.length]);
 </script>
 
 <svelte:head>
