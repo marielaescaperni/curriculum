@@ -7,7 +7,7 @@
 	import SkillsSection from '$lib/sections/SkillsSection.svelte';
 	import ProjectsSection from '$lib/sections/ProjectsSection.svelte';
 	import ExperienceSection from '$lib/sections/ExperienceSection.svelte';
-import BackgroundSection from '$lib/sections/BackgroundSection.svelte';
+	import BackgroundSection from '$lib/sections/BackgroundSection.svelte';
 	import ContactSection from '$lib/sections/ContactSection.svelte';
 </script>
 
