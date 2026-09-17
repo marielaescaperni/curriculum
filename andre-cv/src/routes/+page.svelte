@@ -33,10 +33,10 @@
 	<HeroSection />
 	<ProofStrip />
 	<ProjectsSection />
-	<AboutSection />
 	<SkillsSection />
 	<ExperienceSection />
 	<BackgroundSection />
+	<AboutSection />
 	<ContactSection />
 </main>
 
