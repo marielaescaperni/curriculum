@@ -9,6 +9,10 @@ export const telecomOpenApi: Project = {
 	description:
 		'Designed a visual connector-testing experience that translated complex API, JSON and telecom workflows into a guided product for nontechnical users.',
 	tags: ['Enterprise UX', 'Product Design', 'No-code UX', 'User Flows', 'User Validation'],
+	proof: {
+		value: '20–30 → 2.5 min',
+		label: 'Validation completion time'
+	},
 	thumbnail: '/projects/telecom-open-api/hero.png',
 	heroMedia: '/projects/telecom-open-api/final-product.png',
 	meta: {
