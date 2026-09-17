@@ -25,7 +25,7 @@
 </script>
 
 <section
-	class="px-6"
+	class="px-6 pt-20 md:pt-24"
 	use:animateOnView={{
 		selector: '[data-about-reveal]',
 		y: 24,
