@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import { experience } from '$lib/data/experience';
-	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
+
+	const primaryExperience = experience.slice(0, 4);
+	const earlierExperience = experience.slice(4);
 </script>
 
 {#snippet experienceCard(item)}
@@ -62,21 +64,31 @@
 		<div class="mx-auto max-w-3xl space-y-4 text-center">
 			<p data-experience-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-muted)]">Experience</p>
 			<h2 data-experience-reveal class="font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl">Where I’ve designed, built and shipped products.</h2>
-			<p data-experience-reveal class="text-lg leading-relaxed text-[var(--color-text-secondary)]">A path across product design, UX/UI, research and front-end — increasingly focused on complex SaaS and enterprise experiences.</p>
+			<p data-experience-reveal class="text-lg leading-relaxed text-[var(--color-text-secondary)]">Recent roles where product design, research, accessibility and implementation increasingly came together.</p>
 		</div>
 
-		<div class="md:hidden">
-			<EmblaCarousel className="-mx-6 px-6 pb-4" containerClassName="gap-5" options={{ align: 'start', containScroll: 'trimSnaps', dragFree: false }}>
-				{#each experience as item}
-					<div class="min-w-0 flex-[0_0_84%]">{@render experienceCard(item)}</div>
-				{/each}
-			</EmblaCarousel>
-		</div>
-
-		<div class="hidden gap-6 md:grid md:grid-cols-2">
-			{#each experience as item}
+		<div class="grid gap-6 md:grid-cols-2">
+			{#each primaryExperience as item}
 				{@render experienceCard(item)}
 			{/each}
+		</div>
+
+		<div data-experience-reveal class="surface-card p-6 md:p-8">
+			<div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+				<div>
+					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]">Earlier experience</p>
+					<p class="mt-3 text-lg font-semibold text-[var(--color-text-primary)]">
+						{earlierExperience.map((item) => item.company).join(' · ')}
+					</p>
+					<p class="mt-2 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+						Earlier work across digital products, campaigns and front-end development. Full chronology and details are available in my CV.
+					</p>
+				</div>
+				<a href="/cv" class="inline-flex shrink-0 items-center gap-2 font-semibold text-[var(--color-text-primary)] transition hover:translate-x-1">
+					Check my CV
+					<span class="material-symbols-rounded text-lg" aria-hidden="true">arrow_forward</span>
+				</a>
+			</div>
 		</div>
 	</div>
 </section>
