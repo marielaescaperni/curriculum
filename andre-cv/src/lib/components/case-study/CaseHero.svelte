@@ -37,6 +37,7 @@
 			<img
 				src={heroImage}
 				alt={`${project.title} product interface`}
+				decoding="async"
 				class="w-full rounded-[1.5rem] object-cover"
 			/>
 		</div>
