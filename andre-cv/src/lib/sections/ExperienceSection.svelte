@@ -3,7 +3,8 @@
 	import { experience } from '$lib/data/experience';
 
 	const primaryExperience = experience.slice(0, 4);
-	const earlierExperience = experience.slice(4);
+	const publicisExperience = experience[4];
+	const earlierExperience = experience.slice(5);
 </script>
 
 {#snippet experienceCard(item)}
@@ -72,6 +73,12 @@
 				{@render experienceCard(item)}
 			{/each}
 		</div>
+
+		{#if publicisExperience}
+			<div class="grid">
+				{@render experienceCard(publicisExperience)}
+			</div>
+		{/if}
 
 		<div data-experience-reveal class="surface-card p-6 md:p-8">
 			<div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
