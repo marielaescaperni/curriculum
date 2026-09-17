@@ -23,11 +23,15 @@
 	<meta name="description" content={project.seo.description} />
 	<link rel="canonical" href={`https://mariela-escalante.vercel.app/projects/${project.slug}`} />
 	<meta property="og:type" content="article" />
+	<meta property="og:url" content={`https://mariela-escalante.vercel.app/projects/${project.slug}`} />
 	<meta property="og:title" content={project.seo.title} />
 	<meta property="og:description" content={project.seo.description} />
 	{#if project.thumbnail}
 		<meta property="og:image" content={`https://mariela-escalante.vercel.app${project.thumbnail}`} />
 	{/if}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={project.seo.title} />
+	<meta name="twitter:description" content={project.seo.description} />
 </svelte:head>
 
 <div class="case-study-page bg-site min-h-screen text-primary">
