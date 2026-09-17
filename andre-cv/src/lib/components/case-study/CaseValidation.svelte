@@ -36,19 +36,23 @@
 
 <section class="case-shell case-section-space pt-0">
 	<div class="case-editorial-grid">
-		<h2 class="case-heading">Impact</h2>
-		<div class="grid gap-4">
-			{#each project.impact as item}
-				<div class="flex gap-4">
-					<span class="text-pink-500 mt-0.5 font-bold" aria-hidden="true">✦</span>
-					<p class="case-copy">{item}</p>
+		<div>
+			<p class="text-pink-500 text-xs font-bold uppercase tracking-[0.14em]">Outcome</p>
+			<h2 class="case-heading mt-3">Impact</h2>
+		</div>
+
+		<div class="grid gap-5">
+			{#each project.impact as item, index}
+				<div class="grid grid-cols-[auto_1fr] gap-5 border-b border-black/10 pb-5 last:border-b-0 last:pb-0">
+					<span class="font-display text-3xl font-bold text-pink-500" aria-hidden="true">0{index + 1}</span>
+					<p class="case-copy pt-1">{item}</p>
 				</div>
 			{/each}
 		</div>
 	</div>
 
 	{#if project.reflection.length > 0}
-		<div class="case-editorial-grid mt-16">
+		<div class="case-editorial-grid mt-12">
 			<h2 class="case-heading">What I'd Improve Next</h2>
 			<div class="surface-card p-6 sm:p-8">
 				<ul class="space-y-4">
