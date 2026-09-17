@@ -5,6 +5,7 @@
 	import CaseOwnership from '$lib/components/case-study/CaseOwnership.svelte';
 	import CaseEvidence from '$lib/components/case-study/CaseEvidence.svelte';
 	import CaseDecisions from '$lib/components/case-study/CaseDecisions.svelte';
+	import CaseSolution from '$lib/components/case-study/CaseSolution.svelte';
 	import CaseValidation from '$lib/components/case-study/CaseValidation.svelte';
 	import CaseNavigation from '$lib/components/case-study/CaseNavigation.svelte';
 	import { featuredProjects } from '$lib/data/projects';
@@ -36,6 +37,7 @@
 	<CaseOwnership {project} />
 	<CaseEvidence {project} />
 	<CaseDecisions {project} />
+	<CaseSolution {project} />
 	<CaseValidation {project} />
 	<CaseNavigation nextSlug={nextProject.slug} nextTitle={nextProject.title} />
 </div>
