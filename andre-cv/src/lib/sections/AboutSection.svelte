@@ -5,18 +5,18 @@
 	const notes = [
 		{
 			label: 'How I design',
-			text: 'I like interfaces that feel clear, calm and easy to trust.',
+			text: 'I simplify complex workflows without losing the details users actually need.',
 			accent: 'var(--gradient-purple)'
 		},
 		{
-			label: 'How I build',
-			text: 'I enjoy translating design decisions into thoughtful front-end details.',
-			accent: 'var(--gradient-blue)'
+			label: 'How I collaborate',
+			text: 'I work closely with product, engineering and stakeholders from discovery through delivery.',
+			accent: 'var(--gradient-pink)'
 		},
 		{
-			label: 'How I collaborate',
-			text: 'I care about clarity, kindness and making complex things feel lighter.',
-			accent: 'var(--gradient-pink)'
+			label: 'How I build',
+			text: 'I use my front-end background to bridge design decisions and production implementation.',
+			accent: 'var(--gradient-blue)'
 		}
 	];
 
@@ -37,10 +37,7 @@
 >
 	<div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
 		<div class="space-y-5">
-			<p
-				data-about-reveal
-				class="text-xs font-semibold uppercase tracking-[0.28em] text-neutral-500"
-			>
+			<p data-about-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-neutral-500">
 				About me
 			</p>
 
@@ -70,12 +67,9 @@
 						style:--card-accent={note.accent}
 						class="group rounded-3xl border border-white/70 bg-white/45 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] hover:border-transparent hover:bg-[var(--card-accent)]"
 					>
-						<p
-							class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 transition duration-300 group-hover:text-white/75"
-						>
+						<p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 transition duration-300 group-hover:text-white/75">
 							{note.label}
 						</p>
-
 						<p class="text-sm leading-relaxed text-neutral-700 transition duration-300 group-hover:text-white">
 							{note.text}
 						</p>
