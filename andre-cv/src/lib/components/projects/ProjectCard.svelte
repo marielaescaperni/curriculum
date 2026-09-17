@@ -58,7 +58,7 @@
 
 		<div class="mt-4 flex items-start justify-between gap-6">
 			<h3 class="line-clamp-2 font-display text-4xl font-semibold leading-none tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">{project.title}</h3>
-			<span class="material-symbols-rounded shrink-0 rounded-full bg-[var(--project-accent)] p-3 text-white transition duration-300 group-hover:rotate-[-12deg] group-hover:scale-110">arrow_outward</span>
+			<span aria-hidden="true" class="material-symbols-rounded shrink-0 rounded-full bg-[var(--project-accent)] p-3 text-white transition duration-300 group-hover:rotate-[-12deg] group-hover:scale-110">arrow_outward</span>
 		</div>
 
 		<p class="mt-5 line-clamp-4 text-base leading-relaxed text-[var(--color-text-secondary)]">{project.description}</p>
