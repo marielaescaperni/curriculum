@@ -68,7 +68,7 @@ export const telecomOpenApi: Project = {
 		title: 'Cross-office validation challenge',
 		description:
 			'A nontechnical participant from the legal team successfully completed the connector-testing workflow in 2.5 minutes during a cross-office challenge involving approximately 200 people. The previous workflow typically required 20–30 minutes.',
-		metrics: ['~200 challenge participants', '20–30 min → 2.5 min', 'Successful nontechnical completion']
+		metrics: ['20–30 min → 2.5 min', 'Successful nontechnical completion', '~200 people in the challenge']
 	},
 	impact: [
 		'Lowered the barrier to completing connector testing.',
