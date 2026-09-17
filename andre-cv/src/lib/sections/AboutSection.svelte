@@ -25,8 +25,7 @@
 </script>
 
 <section
-	id="about"
-	class="px-6 scroll-mt-[90px]"
+	class="px-6"
 	use:animateOnView={{
 		selector: '[data-about-reveal]',
 		y: 24,
@@ -35,7 +34,7 @@
 		threshold: 0.18
 	}}
 >
-	<div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+	<div id="about" class="mx-auto grid max-w-6xl scroll-mt-[120px] gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
 		<div class="space-y-5">
 			<p data-about-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-neutral-500">
 				About me
