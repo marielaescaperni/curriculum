@@ -22,6 +22,7 @@ export const telecomOpenApi: Project = {
 		'Telecom Open API was designed to make complex telecom connector testing accessible to people who did not necessarily have deep experience with APIs, JSON structures or telecom network systems.',
 	challenge:
 		'Telecom connector testing traditionally required technical knowledge of APIs, JSON and network systems. The goal was to create a visual experience that preserved the technical logic required for a connector to work while making the workflow understandable to less technical users.',
+	designGoal: 'Expose the right amount of complexity at the right moment.',
 	ownership: [
 		'User flow design',
 		'Interaction design',
@@ -64,6 +65,11 @@ export const telecomOpenApi: Project = {
 				'Users needed to understand what the connector test had done without already being API experts.'
 		}
 	],
+	solution: {
+		title: 'The Final Product',
+		description:
+			'The final experience turns connector testing into a guided sequence while keeping the technical information users need visible and understandable.'
+	},
 	validation: {
 		title: 'Cross-office validation challenge',
 		description:
