@@ -14,18 +14,6 @@ export const secondaryProjects: SecondaryProject[] = [
 		accent: 'var(--gradient-blue)'
 	},
 	{
-		slug: 'mapper-bpm-rework',
-		title: 'Mapper BPM Rework',
-		role: 'UX/UI Designer',
-		period: '2023',
-		description:
-			'Reworked a complex BPM mapper interface to make it clearer and more approachable for users with limited programming experience.',
-		highlight:
-			'Simplified field structure, validation states and mapping interactions while preserving the technical flexibility of the existing Symphonica environment.',
-		tags: ['Enterprise UX', 'Complex Workflows', 'Usability', 'Design Systems'],
-		accent: 'var(--gradient-orange)'
-	},
-	{
 		slug: 'intraway-website-rework',
 		title: 'Intraway Website Rework',
 		role: 'UX/UI Designer',
