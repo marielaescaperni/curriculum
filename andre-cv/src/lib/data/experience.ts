@@ -1,86 +1,69 @@
 export const experience = [
 	{
 		company: 'CX Dev',
-		role: 'UX Designer & Front-End Developer',
-		period: 'Aug 2024 — Present',
-
+		role: 'UX/UI Engineer',
+		period: 'Aug 2024 — Aug 2026',
 		description:
-			'Working across UX/UI design and front-end development for multiple digital products and SaaS platforms.',
-
+			'Led end-to-end product design and UX engineering for SaaS products, working across product requirements, user flows, accessibility, behavioral analytics, implementation and design QA alongside product and engineering.',
 		projects: [
+			{
+				name: 'Phreeli',
+				role: 'Product Design · UX Engineering',
+				period: '2025 — 2026',
+				url: 'https://www.phreeli.com/',
+				description:
+					'Designed and shipped accessible customer-facing telecom experiences from product requirements through production implementation.'
+			},
 			{
 				name: 'Lot Vault — Cecilian Partners',
 				role: 'UX/UI Designer',
 				period: 'Aug 2024 — Mar 2025',
 				url: 'https://www.cecilianpartners.com/products/lot-vault',
-
 				description:
-					'Designed user flows and interfaces for a real estate SaaS platform, translating complex business requirements into clear and scalable experiences.'
-			},
-
-			{
-				name: 'Phreeli',
-				role: 'Front-End Developer',
-				period: 'Mar 2025 — Present',
-				url: 'https://www.phreeli.com/',
-
-				description:
-					'Developing responsive and scalable interfaces while collaborating closely with product and design teams.'
+					'Designed user flows and interfaces for a real-estate SaaS platform, translating complex business requirements into clear and scalable experiences.'
 			}
 		]
 	},
-
 	{
 		company: 'Freelance',
-		role: 'UX/UI Senior',
+		role: 'Senior UX/UI Designer',
 		period: 'Oct 2023 — Aug 2024',
-
 		description:
-			'Worked on workflows, design systems and complex software solutions while leading UX/UI initiatives for clients.'
+			'Designed end-to-end SaaS and digital product experiences from discovery and information architecture through scalable design systems and production-ready UI.'
 	},
-
 	{
 		company: 'Intraway',
 		role: 'UX/UI Designer',
 		period: 'Mar 2022 — Oct 2023',
-
 		description:
-			'Led the restructuring of Symphony software, standardizing modules and improving workflows alongside development teams.'
+			'Designed complex enterprise products and workflows, including Symphonica and Telecom Open API, with a focus on simplifying technical experiences for nontechnical users.'
 	},
-
 	{
 		company: 'inConcert',
 		role: 'UX/UI Designer',
 		period: 'Mar 2020 — Mar 2022',
-
 		description:
-			'Conducted UX research, usability testing and prototyping for enterprise products and branding projects.'
+			'Designed native Android and responsive web experiences for the Omnichannel Contact Center, including customer-service workflows, chatbot and agent-assistance experiences.'
 	},
-
 	{
 		company: 'Publicis Impetu',
 		role: 'UX/UI Designer',
 		period: 'Oct 2019 — Mar 2020',
-
 		description:
-			'Worked on branding, marketing and digital experiences for brands including Loreal, Nestle, Movistar and Fiat.'
+			'Designed digital experiences and campaign interfaces for brands including L’Oréal, Nestlé, Movistar and FIAT.'
 	},
-
 	{
 		company: 'N Shoke',
-		role: 'UX/UI Designer Junior',
+		role: 'Junior UX/UI Designer',
 		period: 'Sep 2018 — Oct 2019',
-
 		description:
-			'Worked on branding, marketing assets and advertising campaign designs for multiple clients.'
+			'Designed interfaces, branding and digital campaign experiences for multiple clients.'
 	},
-
 	{
 		company: 'Sitven',
 		role: 'Front-End Developer',
 		period: 'Mar 2017 — Sep 2018',
-
 		description:
-			'Developed and maintained internal front-end applications using HTML, CSS and JavaScript.'
+			'Developed and maintained responsive interfaces for internal platforms using HTML, CSS and JavaScript.'
 	}
 ];
