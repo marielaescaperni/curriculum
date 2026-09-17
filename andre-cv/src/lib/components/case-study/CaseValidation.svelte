@@ -19,10 +19,10 @@
 				</div>
 
 				{#if project.validation.metrics.length > 0}
-					<div class="grid min-w-[220px] gap-3">
+					<div class="grid w-full min-w-0 gap-3 lg:w-auto lg:min-w-[220px] lg:max-w-[340px]">
 						{#each project.validation.metrics as metric, index}
-							<div class={index === 0 ? 'rounded-2xl bg-white/10 p-5 text-center' : 'rounded-2xl border border-white/10 p-4 text-center'}>
-								<p class={index === 0 ? 'font-display text-4xl font-bold text-pink-300' : 'text-sm font-semibold text-white/80'}>
+							<div class={index === 0 ? 'min-w-0 rounded-2xl bg-white/10 p-5 text-center' : 'min-w-0 rounded-2xl border border-white/10 p-4 text-center'}>
+								<p class={index === 0 ? 'font-display break-words text-3xl font-bold leading-[1.05] text-pink-300 sm:text-4xl' : 'break-words text-sm font-semibold text-white/80'}>
 									{metric}
 								</p>
 							</div>
