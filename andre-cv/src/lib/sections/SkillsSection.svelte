@@ -6,28 +6,28 @@
 		{
 			title: 'Product & UX',
 			kicker: 'From messy problems to clear product direction',
-			items: capabilities.productUx,
+			items: capabilities.productUx.slice(0, 6),
 			accent: 'var(--gradient-pink)',
 			icon: 'strategy'
 		},
 		{
 			title: 'Research & Validation',
 			kicker: 'Grounding decisions in evidence',
-			items: capabilities.researchValidation,
+			items: capabilities.researchValidation.slice(0, 6),
 			accent: 'var(--gradient-purple)',
 			icon: 'query_stats'
 		},
 		{
 			title: 'Systems & Accessibility',
 			kicker: 'Making experiences scalable and inclusive',
-			items: capabilities.systemsAccessibility,
+			items: capabilities.systemsAccessibility.slice(0, 6),
 			accent: 'var(--gradient-green)',
 			icon: 'accessibility_new'
 		},
 		{
 			title: 'UX Engineering',
 			kicker: 'Keeping design decisions connected to production',
-			items: capabilities.uxEngineering,
+			items: capabilities.uxEngineering.slice(0, 6),
 			accent: 'var(--gradient-blue)',
 			icon: 'code'
 		}
@@ -54,7 +54,7 @@
 				What I bring to a product team.
 			</h2>
 			<p data-skills-reveal class="text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl">
-				I work across product strategy, research, systems, accessibility and implementation — especially where those disciplines need to stay connected.
+				A focused view of the capabilities I use most often. The full toolset and ATS keywords live in my CV.
 			</p>
 		</div>
 
