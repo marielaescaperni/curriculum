@@ -8,8 +8,8 @@
 	let closeButton = $state<HTMLButtonElement>();
 
 	const navItems = [
-		{ title: 'About', href: '/#about' },
 		{ title: 'Case Studies', href: '/#projects' },
+		{ title: 'About', href: '/#about' },
 		{ title: 'Experience', href: '/#experience' }
 	];
 
