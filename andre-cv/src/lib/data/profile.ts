@@ -1,31 +1,30 @@
 export const profile = {
 	name: 'Mariela Escalante',
 
-	role: 'UX/UI Designer & Front-End Developer',
-
-	location: 'Uruguay',
+	role: 'Senior Product Designer · UX/UI Engineer',
 
 	email: 'marielaescalantep@gmail.com',
 
-	tagline:
-		'I design and build thoughtful digital experiences that combine usability, visual clarity and modern front-end development.',
+	tagline: 'I turn complex products into clear, accessible experiences.',
 
 	intro: `
-		I’m a UX/UI Designer and Front-End Developer with over eight years of experience
-		working on SaaS platforms, enterprise software and digital products.
+		I’m a Senior Product Designer and UX/UI Engineer with 8+ years of experience
+		designing SaaS, enterprise, native mobile and responsive web products.
 		
-		My background in programming allows me to bridge the gap between design and development,
-		translating complex requirements into clear and functional user experiences.
+		I work across discovery, research, interaction design, high-fidelity UI,
+		accessibility, implementation and design QA.
 	`,
 
 	about: `
-		I specialize in UX/UI design, design systems and front-end development using modern technologies
-		such as SvelteKit and Tailwind CSS.
+		My technical background lets me work especially closely with engineering.
+		I’m comfortable moving between product thinking, UX research, design systems,
+		accessibility and production front-end.
 		
-		I enjoy building products that feel intuitive, scalable and visually polished while maintaining
-		close collaboration with development and product teams.
+		That helps me design solutions that are thoughtful for users, realistic to build
+		and ready to ship.
 	`,
 
 	socials: {
-		linkedin: 'http://www.linkedin.com/in/mariela-escalante'
-}};
+		linkedin: 'https://www.linkedin.com/in/mariela-escalante'
+	}
+};
