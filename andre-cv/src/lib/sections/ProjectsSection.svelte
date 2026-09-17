@@ -132,13 +132,17 @@
 			</div>
 
 			{#if archiveProjects.length}
-				<details data-projects-reveal class="surface-card p-6 md:p-8">
-					<summary class="cursor-pointer list-none font-semibold text-[var(--color-text-primary)]">
+				<details
+					data-projects-reveal
+					style:--project-accent={'var(--gradient-peach)'}
+					class="group rounded-[var(--radius-card)] border border-white/70 bg-white/45 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--project-accent)] md:p-8"
+				>
+					<summary class="cursor-pointer list-none font-semibold text-[var(--color-text-primary)] transition duration-300 group-hover:text-white">
 						Earlier web & visual work
 					</summary>
 					<div class="mt-5 flex flex-wrap gap-2">
 						{#each archiveProjects as project}
-							<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-sm text-[var(--color-text-secondary)]">
+							<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-sm text-[var(--color-text-secondary)] transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-white">
 								{project.title} · {project.period}
 							</span>
 						{/each}
