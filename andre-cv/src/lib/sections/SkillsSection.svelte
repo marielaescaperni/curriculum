@@ -75,7 +75,7 @@
 									{group.title}
 								</h3>
 							</div>
-							<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/20 group-hover:text-black">
+							<span aria-hidden="true" class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/20 group-hover:text-black">
 								{group.icon}
 							</span>
 						</div>
