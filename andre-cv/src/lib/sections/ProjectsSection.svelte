@@ -16,8 +16,7 @@
 </script>
 
 <section
-	id="projects"
-	class="px-6 pt-16 md:pt-24 scroll-mt-[90px]"
+	class="px-6 pt-16 md:pt-24"
 	use:animateOnView={{
 		selector: '[data-projects-reveal]',
 		y: 24,
@@ -26,7 +25,7 @@
 		threshold: 0.14
 	}}
 >
-	<div class="mx-auto max-w-6xl space-y-20">
+	<div id="projects" class="mx-auto max-w-6xl scroll-mt-[120px] space-y-20">
 		<div class="space-y-10">
 			<div class="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
 				<div class="space-y-4">
