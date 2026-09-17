@@ -2,9 +2,10 @@
 	import Button from '$lib/components/Button.svelte';
 </script>
 
-<section id="contact" class="px-6 py-24 scroll-mt-[90px]">
+<section class="px-6 py-24">
 	<div
-		class="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-main-gradient p-10 text-black md:p-16"
+		id="contact"
+		class="relative mx-auto max-w-6xl scroll-mt-[120px] overflow-hidden rounded-3xl bg-main-gradient p-10 text-black md:p-16"
 	>
 		<div class="bg-main-gradient absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-30 blur-3xl"></div>
 
@@ -23,12 +24,12 @@
 				<Button href="mailto:marielaescalantep@gmail.com" label="Send me an email" variant="primary" />
 
 				<Button
-	href="https://calendly.com/marielaescalantep"
-	label="Book a call! :)"
-	variant="terciary"
-	target="_blank"
-	rel="noreferrer"
-/>
+					href="https://calendly.com/marielaescalantep"
+					label="Book a call! :)"
+					variant="terciary"
+					target="_blank"
+					rel="noreferrer"
+				/>
 			</div>
 		</div>
 	</div>
