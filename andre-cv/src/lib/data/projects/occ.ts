@@ -9,6 +9,10 @@ export const occ: Project = {
 	description:
 		'Designed native Android and responsive web experiences for an omnichannel customer-service product, including research, chatbot and agent-assistance workflows.',
 	tags: ['Native Mobile', 'Responsive Web', 'UX Research', 'AI-assisted UX', 'Enterprise UX'],
+	proof: {
+		value: 'Android + Web',
+		label: 'One product across two platforms'
+	},
 	meta: {
 		role: 'UX/UI Designer',
 		company: 'inConcert',
