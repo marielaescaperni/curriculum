@@ -23,6 +23,12 @@ export type ProjectSeo = {
 	description: string;
 };
 
+export type ProjectSolution = {
+	title: string;
+	description: string;
+	highlights?: string[];
+};
+
 // Compatibility fields keep the current portfolio UI working while the
 // long-form case-study template is migrated to the richer data model.
 export type ProjectDetails = {
@@ -53,10 +59,12 @@ export type Project = {
 	meta: ProjectMeta;
 	context: string;
 	challenge: string;
+	designGoal?: string;
 	ownership: string[];
 	constraints: string[];
 	evidence: string[];
 	decisions: ProjectDecision[];
+	solution?: ProjectSolution;
 	validation?: ProjectValidation;
 	impact: string[];
 	reflection: string[];
