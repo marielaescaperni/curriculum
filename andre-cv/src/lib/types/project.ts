@@ -47,6 +47,7 @@ export type Project = {
 	description: string;
 	tags: string[];
 	thumbnail?: string;
+	heroMedia?: string;
 	details: ProjectDetails;
 
 	meta: ProjectMeta;
