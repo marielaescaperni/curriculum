@@ -1,11 +1,67 @@
 <script lang="ts">
 	import { cvData } from '$lib/data/cv';
 
-	const capabilityGroups = [
-		{ label: 'Product & UX', items: cvData.capabilities.productUx },
-		{ label: 'Research & Validation', items: cvData.capabilities.researchValidation },
-		{ label: 'Systems & Accessibility', items: cvData.capabilities.systemsAccessibility },
-		{ label: 'UX Engineering', items: cvData.capabilities.uxEngineering }
+	const competencyGroups = [
+		{
+			label: 'Product & UX Design',
+			items: [
+				'End-to-End Product Design',
+				...cvData.capabilities.productUx,
+				'UX Research',
+				'Wireframing',
+				'Accessibility & Inclusive Design (WCAG)',
+				'Design QA'
+			]
+		},
+		{
+			label: 'Methodologies & Analytics',
+			items: [
+				'Design Thinking',
+				'User-Centered Design',
+				'A/B Testing',
+				'Heatmaps',
+				'Behavioral Analytics',
+				'Hotjar',
+				'PostHog'
+			]
+		},
+		{
+			label: 'Design Systems & Collaboration',
+			items: [
+				'Design Systems',
+				'Component Libraries',
+				'Reusable UI Patterns',
+				'Design Documentation',
+				'Developer Handoff',
+				'Cross-Functional Collaboration',
+				'Stakeholder Communication'
+			]
+		},
+		{
+			label: 'Tools & Front-End',
+			items: [
+				'Figma',
+				'Figma Make',
+				'Cursor',
+				'Gemini',
+				'Claude',
+				'Adobe XD',
+				'Photoshop',
+				'Illustrator',
+				'SvelteKit',
+				'Svelte 5',
+				'TypeScript',
+				'JavaScript',
+				'HTML5',
+				'CSS3',
+				'Tailwind CSS',
+				'Git',
+				'GitHub',
+				'Jira',
+				'Notion',
+				'Visual Studio Code'
+			]
+		}
 	];
 </script>
 
@@ -13,14 +69,15 @@
 	<title>Mariela Escalante | CV</title>
 	<meta
 		name="description"
-		content="CV of Mariela Escalante, Senior Product Designer and UX/UI Engineer with 8+ years of experience across SaaS, enterprise, mobile, accessibility and UX engineering."
+		content="CV of Mariela Escalante, Senior Product Designer and UX/UI Engineer with 8+ years of experience across SaaS, enterprise software, native mobile, accessibility and UX engineering."
 	/>
+	<link rel="canonical" href="https://mariela-escalante.vercel.app/cv" />
 </svelte:head>
 
 <div class="min-h-screen bg-[#f3f1ec] px-4 py-8 text-[#111] sm:px-6 md:py-12 print:bg-white print:p-0">
 	<div class="mx-auto max-w-5xl">
-		<div class="mb-6 flex items-center justify-between gap-4 print:hidden">
-			<a href="/" class="text-sm font-semibold text-secondary hover:text-primary">← Back to portfolio</a>
+		<div class="mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
+			<a href="/" class="text-sm font-semibold text-secondary transition hover:text-primary">← Back to portfolio</a>
 			<button
 				type="button"
 				onclick={() => window.print()}
@@ -30,153 +87,160 @@
 			</button>
 		</div>
 
-		<article class="rounded-[2rem] bg-white p-7 shadow-[0_24px_80px_rgba(17,17,17,0.08)] sm:p-10 md:p-14 print:rounded-none print:p-0 print:shadow-none">
-			<header class="border-b border-black/10 pb-8">
-				<p class="text-xs font-bold uppercase tracking-[0.2em] text-pink-500">Curriculum Vitae</p>
-				<h1 class="mt-3 font-display text-5xl font-bold tracking-[-0.05em] sm:text-6xl">{cvData.profile.name}</h1>
-				<p class="mt-3 text-xl font-semibold text-secondary">{cvData.profile.role}</p>
-				<div class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-secondary">
+		<article class="cv-document rounded-[2rem] bg-white p-7 shadow-[0_24px_80px_rgba(17,17,17,0.08)] sm:p-10 md:p-14 print:rounded-none print:p-0 print:shadow-none">
+			<header class="border-b border-black/15 pb-7 print:pb-4">
+				<h1 class="font-display text-5xl font-bold tracking-[-0.05em] sm:text-6xl print:text-[26pt]">
+					{cvData.profile.name}
+				</h1>
+				<p class="mt-2 text-xl font-semibold text-secondary print:text-[12pt]">
+					{cvData.profile.cvRole}
+				</p>
+				<div class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-secondary print:text-[9.5pt]">
 					<a href={`mailto:${cvData.profile.email}`}>{cvData.profile.email}</a>
-					<a href={cvData.profile.socials.linkedin}>LinkedIn</a>
-					<a href="https://mariela-escalante.vercel.app/">Portfolio</a>
+					<span aria-hidden="true">|</span>
+					<a href="https://mariela-escalante.vercel.app/">mariela-escalante.vercel.app</a>
+					<span aria-hidden="true">|</span>
+					<a href={cvData.profile.socials.linkedin}>linkedin.com/in/mariela-escalante</a>
 				</div>
 			</header>
 
 		<section class="cv-section">
-			<h2>Summary</h2>
-			<p>{cvData.profile.heroSummary}</p>
+			<h2>Professional Summary</h2>
+			<p>{cvData.profile.professionalSummary}</p>
 		</section>
 
 		<section class="cv-section">
-			<h2>Core capabilities</h2>
-			<div class="grid gap-5 sm:grid-cols-2">
-				{#each capabilityGroups as group}
-					<div>
-						<h3>{group.label}</h3>
-						<p>{group.items.join(' · ')}</p>
-					</div>
+			<h2>Core Competencies</h2>
+			<div class="space-y-3 print:space-y-1.5">
+				{#each competencyGroups as group}
+					<p>
+						<strong>{group.label}:</strong>
+						{group.items.join(', ')}
+					</p>
 				{/each}
 			</div>
-			<div class="mt-5 grid gap-5 sm:grid-cols-2">
-				<div>
-					<h3>AI-assisted workflow</h3>
-					<p>{cvData.capabilities.aiWorkflow.join(' · ')}</p>
-				</div>
-				<div>
-					<h3>Additional tools</h3>
-					<p>{cvData.capabilities.additionalTools.join(' · ')}</p>
-				</div>
-			</div>
 		</section>
 
 		<section class="cv-section">
-			<h2>Experience</h2>
-			<div class="space-y-7">
+			<h2>Professional Experience</h2>
+			<div class="space-y-7 print:space-y-4">
 				{#each cvData.experience as item}
-					<div class="break-inside-avoid">
+					<section class="experience-entry break-inside-avoid">
 						<div class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
 							<div>
 								<h3>{item.role}</h3>
 								<p class="font-semibold text-primary">{item.company}</p>
 							</div>
-							<p class="text-sm font-medium text-secondary">{item.period}</p>
+							<p class="text-sm font-semibold text-secondary print:text-[9.5pt]">{item.period}</p>
 						</div>
-						<p class="mt-2">{item.description}</p>
-						{#if item.projects}
-							<div class="mt-3 space-y-2 border-l-2 border-pink-200 pl-4">
-								{#each item.projects as project}
-									<div>
-										<p class="font-semibold text-primary">{project.name} · {project.role}</p>
-										<p>{project.description}</p>
-									</div>
-								{/each}
-							</div>
-						{/if}
-					</div>
+
+						<ul class="mt-3 space-y-2 pl-5 print:mt-1.5 print:space-y-1">
+							{#each item.cvBullets as bullet}
+								<li>{bullet}</li>
+							{/each}
+						</ul>
+					</section>
 				{/each}
 			</div>
 		</section>
 
-		<div class="grid gap-8 md:grid-cols-2">
-			<section class="cv-section border-b-0 pb-0">
-				<h2>Education</h2>
-				<div class="space-y-5">
-					{#each cvData.education as item}
-						<div>
-							<h3>{item.title}</h3>
-							<p>{item.institution}</p>
-							<p class="text-sm text-secondary">{item.period}</p>
-						</div>
-					{/each}
-				</div>
-			</section>
-
-			<section class="cv-section border-b-0 pb-0">
-				<h2>Recognition & languages</h2>
-				{#each cvData.awards as item}
-					<div>
-						<h3>{item.title}</h3>
-						<p>{item.description}</p>
-					</div>
+		<section class="cv-section border-b-0 pb-0">
+			<h2>Education, Recognition & Languages</h2>
+			<div class="space-y-3">
+				{#each cvData.education as item}
+					<p>
+						<strong>{item.title}:</strong> {item.institution} | {item.period}
+					</p>
 				{/each}
-				<div class="mt-5 space-y-1">
-					{#each cvData.languages as language}
-						<p><strong>{language.name}</strong> — {language.level}</p>
-					{/each}
-				</div>
-			</section>
-		</div>
+
+				{#each cvData.awards as item}
+					<p><strong>{item.title}:</strong> {item.description}</p>
+				{/each}
+
+				<p>
+					<strong>Languages:</strong>
+					{cvData.languages.map((language) => `${language.name}: ${language.level}`).join(' | ')}
+				</p>
+			</div>
+		</section>
 		</article>
 	</div>
 </div>
 
 <style>
 	.cv-section {
-		padding: 2rem 0;
-		border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+		padding: 1.65rem 0;
+		border-bottom: 1px solid rgba(17, 17, 17, 0.12);
 	}
 
 	.cv-section h2 {
-		margin-bottom: 1rem;
+		margin-bottom: 0.85rem;
 		font-family: var(--font-display);
-		font-size: 1.75rem;
-		font-weight: 700;
-		letter-spacing: -0.03em;
+		font-size: 1.55rem;
+		font-weight: 750;
+		letter-spacing: -0.025em;
 	}
 
 	.cv-section h3 {
+		font-family: var(--font-display);
+		font-size: 1.15rem;
 		font-weight: 750;
+		line-height: 1.2;
 		color: var(--color-text-primary);
 	}
 
-	.cv-section p {
-		line-height: 1.6;
+	.cv-section p,
+	.cv-section li {
+		line-height: 1.55;
 		color: var(--color-text-secondary);
+	}
+
+	.cv-section ul {
+		list-style: disc;
 	}
 
 	@media print {
 		@page {
 			size: A4;
-			margin: 14mm;
+			margin: 12mm 14mm;
 		}
 
-		:global(.case-study-page),
-		:global(header.fixed) {
-			display: none !important;
+		.cv-document {
+			font-family: Arial, Helvetica, sans-serif;
 		}
 
 		.cv-section {
-			padding: 1rem 0;
+			padding: 0.7rem 0;
 		}
 
 		.cv-section h2 {
-			font-size: 1.35rem;
-			margin-bottom: 0.6rem;
+			margin-bottom: 0.35rem;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 11pt;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.01em;
 		}
 
-		.cv-section p {
+		.cv-section h3 {
+			font-family: Arial, Helvetica, sans-serif;
 			font-size: 10.5pt;
-			line-height: 1.45;
+		}
+
+		.cv-section p,
+		.cv-section li {
+			font-size: 9.35pt;
+			line-height: 1.32;
+		}
+
+		.experience-entry {
+			page-break-inside: avoid;
+			break-inside: avoid-page;
+		}
+
+		a {
+			text-decoration: none;
+			color: #111111;
 		}
 	}
 </style>
