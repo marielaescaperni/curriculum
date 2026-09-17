@@ -49,7 +49,6 @@
 {/snippet}
 
 <section
-	id="experience"
 	class="px-6 pt-16 md:pt-24"
 	use:animateOnView={{
 		selector: '[data-experience-reveal]',
@@ -59,7 +58,7 @@
 		threshold: 0.18
 	}}
 >
-	<div class="mx-auto max-w-6xl space-y-10">
+	<div id="experience" class="mx-auto max-w-6xl scroll-mt-[120px] space-y-10">
 		<div class="mx-auto max-w-3xl space-y-4 text-center">
 			<p data-experience-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-muted)]">Experience</p>
 			<h2 data-experience-reveal class="font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl">Where I’ve designed, built and shipped products.</h2>
