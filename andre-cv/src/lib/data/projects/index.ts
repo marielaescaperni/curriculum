@@ -5,7 +5,7 @@ import { connectorStudio } from './connector-studio';
 import { mapperBpmRework } from './mapper-bpm-rework';
 import { secondaryProjects } from './secondary';
 
-export const featuredProjects = [phreeli, telecomOpenApi, occ, connectorStudio];
+export const featuredProjects = [telecomOpenApi, phreeli, connectorStudio, occ];
 
 // Full case studies include the four featured projects plus additional deep dives.
 export const caseStudyProjects = [...featuredProjects, mapperBpmRework];
