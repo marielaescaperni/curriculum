@@ -5,6 +5,6 @@ export const languages = [
 	},
 	{
 		name: 'English',
-		level: 'Advanced Intermediate · B2'
+		level: 'Professional Working Proficiency (B2)'
 	}
 ];
