@@ -4,8 +4,8 @@
 
 	let isMenuOpen = $state(false);
 	let isClosing = $state(false);
-	let menuButton: HTMLButtonElement;
-	let closeButton: HTMLButtonElement;
+	let menuButton = $state<HTMLButtonElement>();
+	let closeButton = $state<HTMLButtonElement>();
 
 	const navItems = [
 		{ title: 'About', href: '/#about' },
