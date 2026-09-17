@@ -3,6 +3,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 
 	import HeroSection from '$lib/sections/HeroSection.svelte';
+	import ProofStrip from '$lib/sections/ProofStrip.svelte';
 	import AboutSection from '$lib/sections/AboutSection.svelte';
 	import SkillsSection from '$lib/sections/SkillsSection.svelte';
 	import ProjectsSection from '$lib/sections/ProjectsSection.svelte';
@@ -15,9 +16,10 @@
 
 <main>
 	<HeroSection />
+	<ProofStrip />
+	<ProjectsSection />
 	<AboutSection />
 	<SkillsSection />
-	<ProjectsSection />
 	<ExperienceSection />
 	<BackgroundSection />
 	<ContactSection />
