@@ -54,7 +54,7 @@
 				What I bring to a product team.
 			</h2>
 			<p data-skills-reveal class="text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl">
-				A focused view of the capabilities I use most often. The full toolset and ATS keywords live in my CV.
+				A focused view of the capabilities I use most often. The full toolkit and technical stack are available in my CV.
 			</p>
 		</div>
 
@@ -68,21 +68,21 @@
 					<div class="relative z-10">
 						<div class="flex items-start justify-between gap-6">
 							<div>
-								<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-white/70">
+								<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-black/65">
 									{group.kicker}
 								</p>
-								<h3 class="mt-3 font-display text-4xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition duration-300 group-hover:text-white md:text-5xl">
+								<h3 class="mt-3 font-display text-4xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition duration-300 group-hover:text-black md:text-5xl">
 									{group.title}
 								</h3>
 							</div>
-							<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/20 group-hover:text-white">
+							<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/20 group-hover:text-black">
 								{group.icon}
 							</span>
 						</div>
 
 						<div class="mt-8 flex flex-wrap gap-3">
 							{#each group.items as skill}
-								<span class="rounded-full border border-white/70 bg-white/55 px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-white">
+								<span class="rounded-full border border-white/70 bg-white/55 px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-black">
 									{skill}
 								</span>
 							{/each}
@@ -99,12 +99,12 @@
 		>
 			<div class="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-center">
 				<div>
-					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-white/70">AI-assisted workflow</p>
-					<h3 class="mt-3 font-display text-3xl font-semibold tracking-[-0.04em] transition duration-300 group-hover:text-white">Faster exploration, same design judgment.</h3>
+					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-black/65">AI-assisted workflow</p>
+					<h3 class="mt-3 font-display text-3xl font-semibold tracking-[-0.04em] transition duration-300 group-hover:text-black">Faster exploration, same design judgment.</h3>
 				</div>
 				<div class="flex flex-wrap gap-3">
 					{#each capabilities.aiWorkflow as tool}
-						<span class="rounded-full border border-white/70 bg-white/60 px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-white">{tool}</span>
+						<span class="rounded-full border border-white/70 bg-white/60 px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-black">{tool}</span>
 					{/each}
 				</div>
 			</div>
