@@ -30,6 +30,8 @@
 						<img
 							src={image}
 							alt={`${project.title} research or workflow artifact ${index + 1}`}
+							loading="lazy"
+							decoding="async"
 							class="w-full rounded-[1.35rem] object-cover"
 						/>
 					</div>
