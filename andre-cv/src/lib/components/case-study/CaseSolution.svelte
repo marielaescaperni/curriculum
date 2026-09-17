@@ -39,6 +39,8 @@
 							<img
 								src={image}
 								alt={`${project.title} final product screen ${index + 1}`}
+								loading="lazy"
+								decoding="async"
 								class="w-full rounded-[1.35rem] object-cover"
 							/>
 						</div>
