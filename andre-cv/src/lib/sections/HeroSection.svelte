@@ -50,7 +50,7 @@
 
 				<div data-hero-reveal class="mt-9 flex flex-wrap gap-4">
 					<Button href="#projects" label="view my work ;D" variant="primary" />
-					<Button href="#contact" label="let’s talk!" variant="secondary" />
+					<Button href="#contact" label="Let's talk" variant="secondary" />
 				</div>
 			</div>
 
