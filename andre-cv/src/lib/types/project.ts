@@ -27,6 +27,7 @@ export type ProjectSolution = {
 	title: string;
 	description: string;
 	highlights?: string[];
+	media?: string[];
 };
 
 // Compatibility fields keep the current portfolio UI working while the
@@ -63,6 +64,7 @@ export type Project = {
 	ownership: string[];
 	constraints: string[];
 	evidence: string[];
+	evidenceMedia?: string[];
 	decisions: ProjectDecision[];
 	solution?: ProjectSolution;
 	validation?: ProjectValidation;
