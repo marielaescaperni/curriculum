@@ -32,6 +32,13 @@
 		</div>
 	</div>
 
+	{#if project.projectNote}
+		<div class="mt-8 rounded-[1.5rem] border border-black/10 bg-white/60 p-5 shadow-[0_12px_40px_rgba(17,17,17,0.05)] backdrop-blur-md sm:p-6">
+			<p class="text-pink-500 text-xs font-bold uppercase tracking-[0.14em]">Project note</p>
+			<p class="text-secondary mt-3 max-w-4xl leading-7">{project.projectNote}</p>
+		</div>
+	{/if}
+
 	{#if heroImage}
 		<div class="surface-panel mt-10 overflow-hidden p-3 sm:p-4">
 			<img
