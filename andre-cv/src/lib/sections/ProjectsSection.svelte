@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import ProjectCard from '$lib/components/projects/ProjectCard.svelte';
-	import { featuredProjects, secondaryProjects } from '$lib/data/projects';
+	import { featuredProjects, secondaryProjects, archiveProjects } from '$lib/data/projects';
 	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
 
 	let openSecondaryProject = $state<string | null>(null);
@@ -76,7 +76,7 @@
 					<h2 data-projects-reveal class="font-display text-4xl font-semibold leading-none tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">Other selected work</h2>
 				</div>
 				<p data-projects-reveal class="max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)]">
-					Additional product, website and visual-design work that adds context to the broader path behind the case studies above.
+					Additional product work that reinforces the same strengths shown in the featured case studies.
 				</p>
 			</div>
 
@@ -130,6 +130,21 @@
 					</button>
 				{/each}
 			</div>
+
+			{#if archiveProjects.length}
+				<details data-projects-reveal class="surface-card p-6 md:p-8">
+					<summary class="cursor-pointer list-none font-semibold text-[var(--color-text-primary)]">
+						Earlier web & visual work
+					</summary>
+					<div class="mt-5 flex flex-wrap gap-2">
+						{#each archiveProjects as project}
+							<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-sm text-[var(--color-text-secondary)]">
+								{project.title} · {project.period}
+							</span>
+						{/each}
+					</div>
+				</details>
+			{/if}
 		</div>
 	</div>
 </section>
