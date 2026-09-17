@@ -25,7 +25,7 @@
 		threshold: 0.14
 	}}
 >
-	<div id="projects" class="mx-auto max-w-6xl scroll-mt-[120px] space-y-20">
+	<div id="projects" class="mx-auto max-w-6xl scroll-mt-[124px] md:scroll-mt-[132px] space-y-20">
 		<div class="space-y-10">
 			<div class="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
 				<div class="space-y-4">
@@ -87,12 +87,12 @@
 					style:--project-accent={'var(--gradient-orange)'}
 					class="group relative overflow-hidden rounded-[var(--radius-card)] border border-white/70 bg-white/45 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--project-accent)]"
 				>
-					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition group-hover:text-white/70">2023 · UX/UI Designer · Full case study</p>
+					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition group-hover:text-black/65">2023 · UX/UI Designer · Full case study</p>
 					<div class="mt-4 flex items-start justify-between gap-4">
-						<h3 class="font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition group-hover:text-white">Mapper BPM Rework</h3>
-						<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 transition group-hover:bg-white/20 group-hover:text-white">arrow_outward</span>
+						<h3 class="font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition group-hover:text-black">Mapper BPM Rework</h3>
+						<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 transition group-hover:bg-white/20 group-hover:text-black">arrow_outward</span>
 					</div>
-					<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition group-hover:text-white/85">Reworked a JSON-heavy BPM mapper into a clearer visual workflow for users with limited programming experience.</p>
+					<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition group-hover:text-black/80">Reworked a JSON-heavy BPM mapper into a clearer visual workflow for users with limited programming experience.</p>
 				</a>
 
 				{#each secondaryProjects as project, index}
@@ -108,20 +108,20 @@
 						<div class="relative z-10">
 							<div class="flex items-start justify-between gap-4">
 								<div>
-									<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-white/70">{project.period} · {project.role}</p>
-									<h3 class="mt-4 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition duration-300 group-hover:text-white">{project.title}</h3>
+									<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-black/65">{project.period} · {project.role}</p>
+									<h3 class="mt-4 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition duration-300 group-hover:text-black">{project.title}</h3>
 								</div>
-								<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 text-[var(--color-text-primary)] transition duration-300 group-hover:bg-white/20 group-hover:text-white">{openSecondaryProject === project.slug ? 'remove' : 'add'}</span>
+								<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 text-[var(--color-text-primary)] transition duration-300 group-hover:bg-white/20 group-hover:text-black">{openSecondaryProject === project.slug ? 'remove' : 'add'}</span>
 							</div>
 
-							<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition duration-300 group-hover:text-white/85">{project.description}</p>
+							<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition duration-300 group-hover:text-black/80">{project.description}</p>
 
 							{#if openSecondaryProject === project.slug}
 								<div class="mt-6 space-y-5">
-									<p class="rounded-2xl border border-white/60 bg-white/45 p-4 text-sm leading-relaxed text-[var(--color-text-secondary)] backdrop-blur-md transition duration-300 group-hover:border-white/20 group-hover:bg-white/15 group-hover:text-white">{project.highlight}</p>
+									<p class="rounded-2xl border border-white/60 bg-white/45 p-4 text-sm leading-relaxed text-[var(--color-text-secondary)] backdrop-blur-md transition duration-300 group-hover:border-white/20 group-hover:bg-white/15 group-hover:text-black">{project.highlight}</p>
 									<div class="flex flex-wrap gap-2">
 										{#each project.tags as tag}
-											<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-xs font-medium text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-white">{tag}</span>
+											<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-xs font-medium text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-black">{tag}</span>
 										{/each}
 									</div>
 								</div>
@@ -132,22 +132,22 @@
 			</div>
 
 			{#if archiveProjects.length}
-				<details
+				<div
 					data-projects-reveal
 					style:--project-accent={'var(--gradient-peach)'}
 					class="group rounded-[var(--radius-card)] border border-white/70 bg-white/45 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--project-accent)] md:p-8"
 				>
-					<summary class="cursor-pointer list-none font-semibold text-[var(--color-text-primary)] transition duration-300 group-hover:text-white">
+					<p class="font-semibold text-[var(--color-text-primary)] transition duration-300">
 						Earlier web & visual work
-					</summary>
+					</p>
 					<div class="mt-5 flex flex-wrap gap-2">
 						{#each archiveProjects as project}
-							<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-sm text-[var(--color-text-secondary)] transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-white">
+							<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-sm text-[var(--color-text-secondary)] transition duration-300 group-hover:border-black/10 group-hover:bg-white/70 group-hover:text-[var(--color-text-primary)]">
 								{project.title} · {project.period}
 							</span>
 						{/each}
 					</div>
-				</details>
+				</div>
 			{/if}
 		</div>
 	</div>
