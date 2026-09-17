@@ -14,18 +14,6 @@ export const secondaryProjects: SecondaryProject[] = [
 		accent: 'var(--gradient-blue)'
 	},
 	{
-		slug: 'intraway-website-rework',
-		title: 'Intraway Website Rework',
-		role: 'UX/UI Designer',
-		period: '2023',
-		description:
-			'Restructured the website to focus on Intraway as a company and separate it from Symphonica as a product.',
-		highlight:
-			'Helped improve positioning, clarity and organic traffic through better structure, clearer product storytelling and SEO-focused content.',
-		tags: ['Website', 'UX/UI', 'SEO', 'Information Architecture'],
-		accent: 'var(--gradient-blue)'
-	},
-	{
 		slug: 'partners-site-symphonica',
 		title: 'Partners Site Symphonica',
 		role: 'UX/UI Designer',
@@ -48,17 +36,28 @@ export const secondaryProjects: SecondaryProject[] = [
 			'Created registration, validation, email verification and account-ready states to support a smoother onboarding experience.',
 		tags: ['Onboarding', 'UX Flow', 'Forms', 'Validation'],
 		accent: 'var(--gradient-green)'
+	}
+];
+
+export const archiveProjects: SecondaryProject[] = [
+	{
+		slug: 'intraway-website-rework',
+		title: 'Intraway Website Rework',
+		role: 'UX/UI Designer',
+		period: '2023',
+		description: 'Website restructuring, product storytelling and SEO-focused information architecture.',
+		highlight: 'Earlier web and brand work that complements the product-design case studies.',
+		tags: ['Website', 'UX/UI', 'SEO'],
+		accent: 'var(--gradient-blue)'
 	},
 	{
 		slug: 'symphonica-website-rework',
 		title: 'Symphonica Website Rework',
 		role: 'UX/UI Designer',
 		period: '2022',
-		description:
-			'Restructured Symphonica’s website to showcase the product and improve SEO positioning.',
-		highlight:
-			'Reorganized content to better communicate product value, use cases, customer success stories and conversion paths.',
-		tags: ['Website', 'UX/UI', 'SEO', 'SaaS'],
+		description: 'Product website restructuring and conversion-focused storytelling.',
+		highlight: 'Earlier web and brand work that complements the product-design case studies.',
+		tags: ['Website', 'UX/UI', 'SaaS'],
 		accent: 'var(--gradient-orange)'
 	},
 	{
@@ -66,11 +65,9 @@ export const secondaryProjects: SecondaryProject[] = [
 		title: 'Helpso Branding',
 		role: 'UX/UI Designer · Graphic Designer',
 		period: '2021',
-		description:
-			'Created the branding identity and visual system for a delivery application in Ecuador.',
-		highlight:
-			'Developed a playful visual language across app, website, vehicle branding, merchandise and marketing materials.',
-		tags: ['Branding', 'Visual Identity', 'App Design', 'Marketing'],
+		description: 'Brand identity and visual-system work for a delivery application.',
+		highlight: 'Earlier visual-design work.',
+		tags: ['Branding', 'Visual Identity'],
 		accent: 'var(--gradient-green)'
 	},
 	{
@@ -78,11 +75,9 @@ export const secondaryProjects: SecondaryProject[] = [
 		title: 'Dra. Carla Barber Website and Store',
 		role: 'UX/UI Designer',
 		period: '2020',
-		description:
-			'Designed a beauty and skincare website with e-commerce structure and a clean visual experience.',
-		highlight:
-			'Worked across website layout, product presentation, visual hierarchy and a soft beauty-focused browsing experience.',
-		tags: ['Website', 'E-commerce', 'Beauty', 'UX/UI'],
+		description: 'Beauty and skincare website and e-commerce design.',
+		highlight: 'Earlier website and e-commerce work.',
+		tags: ['Website', 'E-commerce'],
 		accent: 'var(--gradient-pink)'
 	},
 	{
@@ -90,11 +85,9 @@ export const secondaryProjects: SecondaryProject[] = [
 		title: 'Dr. Fernandez Blanco Website',
 		role: 'UX/UI Designer',
 		period: '2020',
-		description:
-			'Created a medical aesthetic website focused on explaining treatments and guiding users toward consultation.',
-		highlight:
-			'Designed a content-heavy experience with treatment information, trust-building sections and clear conversion paths.',
-		tags: ['Website', 'Healthcare', 'UX/UI', 'Landing'],
+		description: 'Medical-aesthetic website focused on treatments and consultation.',
+		highlight: 'Earlier website design work.',
+		tags: ['Website', 'Healthcare'],
 		accent: 'var(--gradient-pink)'
 	}
 ];
