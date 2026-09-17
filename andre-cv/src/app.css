@@ -53,7 +53,7 @@
 }
 
 html {
-	scroll-behavior: smooth;
+	scroll-padding-top: 90px;
 }
 
 body {
@@ -112,9 +112,4 @@ img {
 		var(--gradient-pink) 75%,
 		var(--gradient-orange) 100%
 	);
-}
-
-html {
-	scroll-behavior: smooth;
-	scroll-padding-top: 90px;
 }
