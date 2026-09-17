@@ -35,6 +35,8 @@
 			<img
 				src={project.thumbnail}
 				alt={`${project.title} preview`}
+				loading="lazy"
+				decoding="async"
 				class="h-full w-full scale-[1.03] object-cover object-top transition duration-1000 ease-out group-hover:scale-[1.06]"
 			/>
 		{:else}
@@ -60,6 +62,13 @@
 		</div>
 
 		<p class="mt-5 line-clamp-4 text-base leading-relaxed text-[var(--color-text-secondary)]">{project.description}</p>
+
+		{#if project.proof}
+			<div class="mt-6 rounded-2xl border border-black/8 bg-white/60 p-4 backdrop-blur-md">
+				<p class="font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)]">{project.proof.value}</p>
+				<p class="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-text-muted)]">{project.proof.label}</p>
+			</div>
+		{/if}
 
 		<div class="mt-auto pt-7">
 			<div class="flex flex-wrap gap-2">
