@@ -10,6 +10,7 @@ export const phreeli: Project = {
 		'Designed and implemented accessible customer-facing telecom experiences while working across product requirements, UX, front-end delivery and design QA.',
 	tags: ['Product Design', 'Accessibility', 'UX Engineering', 'SaaS', 'Design QA'],
 	thumbnail: '/projects/phreeli/hero.png',
+	heroMedia: '/projects/phreeli/phreeli-1.png',
 	meta: {
 		role: 'Product Design · UX Engineering',
 		company: 'CX Dev',
@@ -21,6 +22,8 @@ export const phreeli: Project = {
 		'Phreeli is a telecommunications product with customer-facing purchase, account and support experiences that needed to remain clear, responsive and accessible across complex telecom workflows.',
 	challenge:
 		'Translate telecom requirements and complex account flows into experiences that felt simple and trustworthy while meeting accessibility requirements and remaining realistic to implement.',
+	designGoal:
+		'Make complex telecom journeys feel clear and trustworthy while building accessibility into the product from design through implementation.',
 	ownership: [
 		'Product requirements and user flows',
 		'UX/UI design',
@@ -52,13 +55,31 @@ export const phreeli: Project = {
 				'Design and front-end work were handled closely so responsive behavior, interaction states and reusable patterns stayed aligned.',
 			rationale:
 				'This reduced the gap between intended UX behavior and the experience ultimately shipped.'
+		},
+		{
+			title: 'Use behavioral evidence to guide iteration',
+			description:
+				'A/B testing, heatmaps, Hotjar and PostHog were used to identify friction in navigation, information architecture and conversion-related flows.',
+			rationale:
+				'Behavioral data helped ground design iterations in observed user behavior instead of relying only on assumptions.'
 		}
 	],
+	solution: {
+		title: 'Accessible experiences, carried through to production',
+		description:
+			'The work connected product design, accessibility and front-end implementation so interaction details, responsive behavior and accessibility requirements remained aligned through delivery.',
+		highlights: [
+			'Purchase, account and support experiences designed around complex telecom requirements.',
+			'Accessibility patterns implemented with keyboard, focus, ARIA, semantic and contrast considerations.',
+			'Production UI built with SvelteKit, TypeScript and Tailwind CSS.'
+		],
+		media: ['/projects/phreeli/phreeli-2.png']
+	},
 	validation: {
-		title: 'Accessibility validation',
+		title: 'Accessibility validation in the delivery workflow',
 		description:
 			'Accessibility was reviewed with a client-side QA specialist with visual impairment using NVDA, alongside keyboard, focus, ARIA, semantic and contrast checks.',
-		metrics: []
+		metrics: ['NVDA screen-reader review', 'Keyboard + focus validation', 'ARIA + semantic checks']
 	},
 	impact: [
 		'Shipped production-ready purchase and support experiences.',
@@ -90,6 +111,6 @@ export const phreeli: Project = {
 		],
 		metrics: [],
 		tools: ['Figma', 'SvelteKit', 'TypeScript', 'Tailwind CSS', 'NVDA', 'Hotjar', 'PostHog'],
-		gallery: ['/projects/phreeli/phreeli-1.png', '/projects/phreeli/phreeli-2.png']
+		gallery: ['/projects/phreeli/phreeli-2.png']
 	}
 };
