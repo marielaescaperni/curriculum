@@ -7,6 +7,9 @@ export const profile = {
 
 	tagline: 'I turn complex products into clear, accessible experiences.',
 
+	heroSummary:
+		'8+ years designing SaaS, enterprise, native mobile and responsive web products — from discovery and research through accessibility, production-ready UI and front-end implementation.',
+
 	intro: `
 		I’m a Senior Product Designer and UX/UI Engineer with 8+ years of experience
 		designing SaaS, enterprise, native mobile and responsive web products.
