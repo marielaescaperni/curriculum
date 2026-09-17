@@ -89,7 +89,7 @@ export const connectorStudio: Project = {
 		title: 'Research and product validation',
 		description:
 			'86 people were invited to participate in the survey and 64 responded. Product behavior was also evaluated with Hotjar as the experience evolved.',
-		metrics: ['~6 minute connector setup/management flow', '86 contacted · 64 participants', '10–14 → 27–35 monthly users']
+		metrics: ['~6 min setup flow', '86 contacted · 64 participants', '10–14 → 27–35 monthly users']
 	},
 	impact: [
 		'Users could create and manage connectors in around six minutes in the redesigned flow.',
