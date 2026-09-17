@@ -83,7 +83,7 @@
 				onclick={() => window.print()}
 				class="rounded-full bg-black px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5"
 			>
-				Print / Save PDF
+				Download my CV
 			</button>
 		</div>
 
@@ -104,65 +104,65 @@
 				</div>
 			</header>
 
-		<section class="cv-section">
-			<h2>Professional Summary</h2>
-			<p>{cvData.profile.professionalSummary}</p>
-		</section>
+			<section class="cv-section">
+				<h2>Professional Summary</h2>
+				<p>{cvData.profile.professionalSummary}</p>
+			</section>
 
-		<section class="cv-section">
-			<h2>Core Competencies</h2>
-			<div class="space-y-3 print:space-y-1.5">
-				{#each competencyGroups as group}
-					<p>
-						<strong>{group.label}:</strong>
-						{group.items.join(', ')}
-					</p>
-				{/each}
-			</div>
-		</section>
+			<section class="cv-section">
+				<h2>Core Competencies</h2>
+				<div class="space-y-3 print:space-y-1.5">
+					{#each competencyGroups as group}
+						<p>
+							<strong>{group.label}:</strong>
+							{group.items.join(', ')}
+						</p>
+					{/each}
+				</div>
+			</section>
 
-		<section class="cv-section">
-			<h2>Professional Experience</h2>
-			<div class="space-y-7 print:space-y-4">
-				{#each cvData.experience as item}
-					<section class="experience-entry break-inside-avoid">
-						<div class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
-							<div>
-								<h3>{item.role}</h3>
-								<p class="font-semibold text-primary">{item.company}</p>
+			<section class="cv-section">
+				<h2>Professional Experience</h2>
+				<div class="space-y-7 print:space-y-4">
+					{#each cvData.experience as item}
+						<section class="experience-entry break-inside-avoid">
+							<div class="flex flex-col justify-between gap-1 sm:flex-row sm:items-baseline">
+								<div>
+									<h3>{item.role}</h3>
+									<p class="font-semibold text-primary">{item.company}</p>
+								</div>
+								<p class="text-sm font-semibold text-secondary print:text-[9.5pt]">{item.period}</p>
 							</div>
-							<p class="text-sm font-semibold text-secondary print:text-[9.5pt]">{item.period}</p>
-						</div>
 
-						<ul class="mt-3 space-y-2 pl-5 print:mt-1.5 print:space-y-1">
-							{#each item.cvBullets as bullet}
-								<li>{bullet}</li>
-							{/each}
-						</ul>
-					</section>
-				{/each}
-			</div>
-		</section>
+							<ul class="mt-3 space-y-2 pl-5 print:mt-1.5 print:space-y-1">
+								{#each item.cvBullets as bullet}
+									<li>{bullet}</li>
+								{/each}
+							</ul>
+						</section>
+					{/each}
+				</div>
+			</section>
 
-		<section class="cv-section border-b-0 pb-0">
-			<h2>Education, Recognition & Languages</h2>
-			<div class="space-y-3">
-				{#each cvData.education as item}
+			<section class="cv-section border-b-0 pb-0">
+				<h2>Education, Recognition & Languages</h2>
+				<div class="space-y-3">
+					{#each cvData.education as item}
+						<p>
+							<strong>{item.title}:</strong> {item.institution} | {item.period}
+						</p>
+					{/each}
+
+					{#each cvData.awards as item}
+						<p><strong>{item.title}:</strong> {item.description}</p>
+					{/each}
+
 					<p>
-						<strong>{item.title}:</strong> {item.institution} | {item.period}
+						<strong>Languages:</strong>
+						{cvData.languages.map((language) => `${language.name}: ${language.level}`).join(' | ')}
 					</p>
-				{/each}
-
-				{#each cvData.awards as item}
-					<p><strong>{item.title}:</strong> {item.description}</p>
-				{/each}
-
-				<p>
-					<strong>Languages:</strong>
-					{cvData.languages.map((language) => `${language.name}: ${language.level}`).join(' | ')}
-				</p>
-			</div>
-		</section>
+				</div>
+			</section>
 		</article>
 	</div>
 </div>
