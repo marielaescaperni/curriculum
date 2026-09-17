@@ -3,6 +3,7 @@ export {
 	featuredProjects,
 	caseStudyProjects,
 	secondaryProjects,
+	archiveProjects,
 	projects,
 	phreeli,
 	telecomOpenApi,
