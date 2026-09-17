@@ -1,68 +1,5 @@
 <script lang="ts">
-	import { cvData } from '$lib/data/cv';
-
-	const competencyGroups = [
-		{
-			label: 'Product & UX Design',
-			items: [
-				'End-to-End Product Design',
-				...cvData.capabilities.productUx,
-				'UX Research',
-				'Wireframing',
-				'Accessibility & Inclusive Design (WCAG)',
-				'Design QA'
-			]
-		},
-		{
-			label: 'Methodologies & Analytics',
-			items: [
-				'Design Thinking',
-				'User-Centered Design',
-				'A/B Testing',
-				'Heatmaps',
-				'Behavioral Analytics',
-				'Hotjar',
-				'PostHog'
-			]
-		},
-		{
-			label: 'Design Systems & Collaboration',
-			items: [
-				'Design Systems',
-				'Component Libraries',
-				'Reusable UI Patterns',
-				'Design Documentation',
-				'Developer Handoff',
-				'Cross-Functional Collaboration',
-				'Stakeholder Communication'
-			]
-		},
-		{
-			label: 'Tools & Front-End',
-			items: [
-				'Figma',
-				'Figma Make',
-				'Cursor',
-				'Gemini',
-				'Claude',
-				'Adobe XD',
-				'Photoshop',
-				'Illustrator',
-				'SvelteKit',
-				'Svelte 5',
-				'TypeScript',
-				'JavaScript',
-				'HTML5',
-				'CSS3',
-				'Tailwind CSS',
-				'Git',
-				'GitHub',
-				'Jira',
-				'Notion',
-				'Visual Studio Code'
-			]
-		}
-	];
+	import { cvData, cvCompetencyGroups } from '$lib/data/cv';
 </script>
 
 <svelte:head>
@@ -78,13 +15,9 @@
 	<div class="mx-auto max-w-5xl">
 		<div class="mb-6 flex flex-wrap items-center justify-between gap-3 print:hidden">
 			<a href="/" class="text-sm font-semibold text-secondary transition hover:text-primary">← Back to portfolio</a>
-			<button
-				type="button"
-				onclick={() => window.print()}
-				class="save-pdf-button"
-			>
+			<a href="/cv/download" class="save-pdf-button" download>
 				Save as PDF
-			</button>
+			</a>
 		</div>
 
 		<article class="cv-document rounded-[2rem] bg-white p-7 shadow-[0_24px_80px_rgba(17,17,17,0.08)] sm:p-10 md:p-14 print:rounded-none print:p-0 print:shadow-none">
@@ -112,7 +45,7 @@
 			<section class="cv-section">
 				<h2>Core Competencies</h2>
 				<div class="space-y-3 print:space-y-1.5">
-					{#each competencyGroups as group}
+					{#each cvCompetencyGroups as group}
 						<p>
 							<strong>{group.label}:</strong>
 							{group.items.join(', ')}
