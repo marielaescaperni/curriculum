@@ -8,6 +8,8 @@ export const occ: Project = {
 	period: '2020 — 2022',
 	description:
 		'Designed native Android and responsive web experiences for an omnichannel customer-service product, including research, chatbot and agent-assistance workflows.',
+	projectNote:
+		'This case study reflects my work on OCC between 2020 and 2022. The product and brand have evolved significantly since then, so current inConnect interfaces are intentionally not shown here.',
 	tags: ['Native Mobile', 'Responsive Web', 'UX Research', 'AI-assisted UX', 'Enterprise UX'],
 	proof: {
 		value: 'Android + Web',
