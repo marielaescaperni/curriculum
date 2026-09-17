@@ -6,11 +6,12 @@
 	let isClosing = $state(false);
 	let menuButton = $state<HTMLButtonElement>();
 	let closeButton = $state<HTMLButtonElement>();
+	let mobileMenu = $state<HTMLDivElement>();
 
 	const navItems = [
 		{ title: 'Case Studies', href: '/#projects' },
-		{ title: 'About', href: '/#about' },
-		{ title: 'Experience', href: '/#experience' }
+		{ title: 'Experience', href: '/#experience' },
+		{ title: 'About me', href: '/#about' }
 	];
 
 	async function openMenu() {
@@ -37,8 +38,44 @@
 	}
 
 	function handleKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape' && isMenuOpen) closeMenu();
+		if (!isMenuOpen) return;
+
+		if (event.key === 'Escape') {
+			closeMenu();
+			return;
+		}
+
+		if (event.key === 'Tab' && mobileMenu) {
+			const focusable = Array.from(
+				mobileMenu.querySelectorAll<HTMLElement>(
+					'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+				)
+			).filter((element) => !element.hasAttribute('disabled'));
+
+			if (focusable.length === 0) return;
+
+			const first = focusable[0];
+			const last = focusable[focusable.length - 1];
+
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+			} else if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
+		}
 	}
+
+	$effect(() => {
+		if (typeof document === 'undefined') return;
+
+		document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+
+		return () => {
+			document.body.style.overflow = '';
+		};
+	});
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
@@ -48,8 +85,8 @@
 		class="mx-auto flex w-full max-w-[min(100%,74rem)] items-center justify-between rounded-full border-transparent bg-white/10 px-3 py-3 shadow-[0_24px_80px_rgba(17,17,17,0.12)] backdrop-blur-2xl md:max-w-fit md:justify-center md:gap-8"
 		aria-label="Main navigation"
 	>
-		<a href="/" class="motion-base flex items-center gap-3 rounded-full bg-white px-3 py-2">
-			<img src="/mariela-logo.svg" alt="Mariela Escalante logo" class="h-9 w-7.5" />
+		<a href="/" aria-label="Mariela Escalante home" class="motion-base flex items-center gap-3 rounded-full bg-white px-3 py-2">
+			<img src="/mariela-logo.svg" alt="" class="h-9 w-7.5" />
 		</a>
 
 		<div class="hidden items-center gap-6 md:flex">
@@ -75,6 +112,7 @@
 			class="motion-base flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary backdrop-blur-xl md:hidden"
 			aria-label="Toggle navigation menu"
 			aria-expanded={isMenuOpen}
+			aria-controls="mobile-navigation"
 		>
 			<span class="material-symbols-rounded text-[26px] text-indigo-500">{isMenuOpen ? 'close' : 'menu'}</span>
 		</button>
@@ -93,13 +131,18 @@
 		></button>
 
 		<div
+			bind:this={mobileMenu}
+			id="mobile-navigation"
+			role="dialog"
+			aria-modal="true"
+			aria-label="Mobile navigation"
 			class="absolute inset-x-0 top-0 min-h-screen bg-[#111111] px-6 pb-10 pt-6 text-white"
 			class:animate-slide-down={!isClosing}
 			class:animate-slide-up={isClosing}
 		>
 			<div class="flex items-center justify-between">
-				<a href="/" onclick={closeMenu} class="flex items-center gap-3">
-					<img src="/mariela-logo.svg" alt="Mariela Escalante logo" class="h-10 w-auto" />
+				<a href="/" aria-label="Mariela Escalante home" onclick={closeMenu} class="flex items-center gap-3">
+					<img src="/mariela-logo.svg" alt="" class="h-10 w-auto" />
 				</a>
 
 				<button
