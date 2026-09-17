@@ -81,9 +81,9 @@
 			<button
 				type="button"
 				onclick={() => window.print()}
-				class="rounded-full bg-black px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5"
+				class="save-pdf-button"
 			>
-				Download my CV
+				Save as PDF
 			</button>
 		</div>
 
@@ -168,6 +168,36 @@
 </div>
 
 <style>
+	.save-pdf-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 999px;
+		background: #111111;
+		color: #ffffff !important;
+		padding: 0.8rem 1.15rem;
+		font-size: 0.875rem;
+		font-weight: 800;
+		line-height: 1;
+		transition:
+			transform 240ms var(--ease-out-soft),
+			background-color 240ms var(--ease-out-soft),
+			color 240ms var(--ease-out-soft),
+			box-shadow 240ms var(--ease-out-soft);
+	}
+
+	.save-pdf-button:hover {
+		transform: translateY(-2px);
+		background: #a7e4ff;
+		color: #147ca6 !important;
+		box-shadow: 0 18px 40px rgba(100, 199, 238, 0.28);
+	}
+
+	.save-pdf-button:focus-visible {
+		outline: 3px solid rgba(100, 199, 238, 0.45);
+		outline-offset: 4px;
+	}
+
 	.cv-section {
 		padding: 1.65rem 0;
 		border-bottom: 1px solid rgba(17, 17, 17, 0.12);
