@@ -1,8 +1,11 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import { tick } from 'svelte';
 
 	let isMenuOpen = $state(false);
 	let isClosing = $state(false);
+	let menuButton: HTMLButtonElement;
+	let closeButton: HTMLButtonElement;
 
 	const navItems = [
 		{ title: 'About', href: '/#about' },
@@ -10,8 +13,10 @@
 		{ title: 'Experience', href: '/#experience' }
 	];
 
-	function openMenu() {
+	async function openMenu() {
 		isMenuOpen = true;
+		await tick();
+		closeButton?.focus();
 	}
 
 	function closeMenu() {
@@ -19,6 +24,7 @@
 		setTimeout(() => {
 			isMenuOpen = false;
 			isClosing = false;
+			menuButton?.focus();
 		}, 300);
 	}
 
@@ -29,7 +35,13 @@
 		}
 		openMenu();
 	}
+
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape' && isMenuOpen) closeMenu();
+	}
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <header class="fixed left-0 top-6 z-50 w-full px-4">
 	<nav
@@ -57,6 +69,7 @@
 		</div>
 
 		<button
+			bind:this={menuButton}
 			type="button"
 			onclick={toggleMenu}
 			class="motion-base flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary backdrop-blur-xl md:hidden"
@@ -90,6 +103,7 @@
 				</a>
 
 				<button
+					bind:this={closeButton}
 					type="button"
 					onclick={closeMenu}
 					class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white"
