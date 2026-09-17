@@ -93,7 +93,7 @@
 				</div>
 				<a href="/cv" class="inline-flex shrink-0 items-center gap-2 font-semibold text-[var(--color-text-primary)] transition hover:translate-x-1">
 					Check my CV
-					<span aria-hidden="true" class="material-symbols-rounded text-lg" aria-hidden="true">arrow_forward</span>
+					<span aria-hidden="true" class="material-symbols-rounded text-lg">arrow_forward</span>
 				</a>
 			</div>
 		</div>
