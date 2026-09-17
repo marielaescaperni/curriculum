@@ -2,7 +2,8 @@
 	import type { Project } from '$lib/types/project';
 
 	let { project } = $props<{ project: Project }>();
-	let productScreens = $derived(project.details.gallery.filter((image) => image !== project.heroMedia));
+	let fallbackScreens = $derived(project.details.gallery.filter((image) => image !== project.heroMedia));
+	let productScreens = $derived(project.solution?.media ?? fallbackScreens);
 </script>
 
 {#if project.solution || productScreens.length > 0}
