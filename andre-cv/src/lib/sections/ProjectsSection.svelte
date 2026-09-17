@@ -90,7 +90,7 @@
 					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition group-hover:text-black/65">2023 · UX/UI Designer · Full case study</p>
 					<div class="mt-4 flex items-start justify-between gap-4">
 						<h3 class="font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition group-hover:text-black">Mapper BPM Rework</h3>
-						<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 transition group-hover:bg-white/20 group-hover:text-black">arrow_outward</span>
+						<span aria-hidden="true" class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 transition group-hover:bg-white/20 group-hover:text-black">arrow_outward</span>
 					</div>
 					<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition group-hover:text-black/80">Reworked a JSON-heavy BPM mapper into a clearer visual workflow for users with limited programming experience.</p>
 				</a>
@@ -99,6 +99,8 @@
 					<button
 						type="button"
 						data-projects-reveal
+						aria-expanded={openSecondaryProject === project.slug}
+						aria-controls={`secondary-${project.slug}`}
 						style:--project-accent={project.accent ?? projectAccents[index % projectAccents.length]}
 						onclick={() => {
 							openSecondaryProject = openSecondaryProject === project.slug ? null : project.slug;
@@ -111,13 +113,13 @@
 									<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-black/65">{project.period} · {project.role}</p>
 									<h3 class="mt-4 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition duration-300 group-hover:text-black">{project.title}</h3>
 								</div>
-								<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 text-[var(--color-text-primary)] transition duration-300 group-hover:bg-white/20 group-hover:text-black">{openSecondaryProject === project.slug ? 'remove' : 'add'}</span>
+								<span aria-hidden="true" class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 text-[var(--color-text-primary)] transition duration-300 group-hover:bg-white/20 group-hover:text-black">{openSecondaryProject === project.slug ? 'remove' : 'add'}</span>
 							</div>
 
 							<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition duration-300 group-hover:text-black/80">{project.description}</p>
 
 							{#if openSecondaryProject === project.slug}
-								<div class="mt-6 space-y-5">
+								<div id={`secondary-${project.slug}`} class="mt-6 space-y-5">
 									<p class="rounded-2xl border border-white/60 bg-white/45 p-4 text-sm leading-relaxed text-[var(--color-text-secondary)] backdrop-blur-md transition duration-300 group-hover:border-white/20 group-hover:bg-white/15 group-hover:text-black">{project.highlight}</p>
 									<div class="flex flex-wrap gap-2">
 										{#each project.tags as tag}
