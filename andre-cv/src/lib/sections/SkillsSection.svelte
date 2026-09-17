@@ -92,15 +92,19 @@
 			{/each}
 		</div>
 
-		<div data-skills-reveal class="surface-card p-6 md:p-8">
+		<div
+			data-skills-reveal
+			style:--skill-accent={'var(--gradient-peach)'}
+			class="group relative overflow-hidden rounded-[var(--radius-panel)] border border-white/70 bg-white/45 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--skill-accent)] md:p-8"
+		>
 			<div class="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-center">
 				<div>
-					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]">AI-assisted workflow</p>
-					<h3 class="mt-3 font-display text-3xl font-semibold tracking-[-0.04em]">Faster exploration, same design judgment.</h3>
+					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-white/70">AI-assisted workflow</p>
+					<h3 class="mt-3 font-display text-3xl font-semibold tracking-[-0.04em] transition duration-300 group-hover:text-white">Faster exploration, same design judgment.</h3>
 				</div>
 				<div class="flex flex-wrap gap-3">
 					{#each capabilities.aiWorkflow as tool}
-						<span class="rounded-full border border-white/70 bg-white/60 px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">{tool}</span>
+						<span class="rounded-full border border-white/70 bg-white/60 px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)] transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-white">{tool}</span>
 					{/each}
 				</div>
 			</div>
