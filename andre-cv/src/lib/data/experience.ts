@@ -74,11 +74,11 @@ export const experience = [
 		role: 'UX/UI Designer',
 		period: 'Oct 2019 — Mar 2020',
 		description:
-			'Designed digital experiences and campaign interfaces for brands including L’Oréal, Nestlé, Movistar and FIAT.',
+			'Worked across UX/UI, web layout, content management and digital asset production for brands including FIAT, Nestlé, Movistar, L’Oréal, Tienda Inglesa and Sarubbi.',
 		cvBullets: [
-			'Designed digital experiences, campaign interfaces, and visual assets for brands including L’Oréal, Nestlé, Movistar, and FIAT.',
-			'Worked across UX/UI, branding, marketing, and digital campaigns, adapting creative concepts into clear, user-focused digital experiences.',
-			'Collaborated with creative and multidisciplinary teams to deliver consistent digital work across brands and channels.'
+			'Designed and laid out websites, landing pages, campaign interfaces, and digital experiences for brands including FIAT, Nestlé, Movistar, L’Oréal, Tienda Inglesa, and Sarubbi.',
+			'Managed and updated website content, adapting layouts and content to campaign and brand requirements while maintaining visual consistency.',
+			'Edited and prepared visual resources for web and social channels in collaboration with creative and multidisciplinary teams.'
 		]
 	},
 	{
