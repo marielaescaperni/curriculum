@@ -6,7 +6,7 @@
 
 	const navItems = [
 		{ title: 'About', href: '/#about' },
-		{ title: 'Work', href: '/#projects' },
+		{ title: 'Case Studies', href: '/#projects' },
 		{ title: 'Experience', href: '/#experience' }
 	];
 
@@ -33,7 +33,7 @@
 
 <header class="fixed left-0 top-6 z-50 w-full px-4">
 	<nav
-		class="mx-auto flex w-full max-w-[min(100%,54rem)] items-center justify-between rounded-full border-transparent bg-white/10 px-3 py-3 shadow-[0_24px_80px_rgba(17,17,17,0.12)] backdrop-blur-2xl md:max-w-fit md:justify-center md:gap-2"
+		class="mx-auto flex w-full max-w-[min(100%,62rem)] items-center justify-between rounded-full border-transparent bg-white/10 px-3 py-3 shadow-[0_24px_80px_rgba(17,17,17,0.12)] backdrop-blur-2xl md:max-w-fit md:justify-center md:gap-2"
 		aria-label="Main navigation"
 	>
 		<a href="/" class="motion-base flex items-center gap-3 rounded-full bg-white px-3 py-2">
@@ -42,14 +42,18 @@
 
 		<div class="hidden items-center gap-1 md:flex">
 			{#each navItems as item}
-				<a href={item.href} class="motion-base rounded-full px-8 py-3 text-sm font-semibold text-secondary hover:bg-black/5 hover:text-primary md:px-6 md:text-base">
+				<a
+					href={item.href}
+					class="motion-base rounded-full px-5 py-2.5 text-sm font-semibold text-secondary hover:bg-black/5 hover:text-primary"
+				>
 					{item.title}
 				</a>
 			{/each}
 		</div>
 
-		<div class="hidden md:block">
-			<Button href="/#contact" label="let’s talk!" variant="primary" />
+		<div class="hidden items-center gap-2 md:flex">
+			<Button href="/cv" label="CV" variant="secondary" size="compact" />
+			<Button href="/#contact" label="let’s talk!" variant="primary" size="compact" />
 		</div>
 
 		<button
@@ -101,8 +105,9 @@
 				{/each}
 			</div>
 
-			<div class="mt-12 border-t border-white/15 pt-8">
-				<Button href="/#contact" label="let’s talk!" variant="secondary" onclick={closeMenu} />
+			<div class="mt-12 flex flex-col gap-3 border-t border-white/15 pt-8">
+				<Button href="/cv" label="View CV" variant="secondary" onclick={closeMenu} />
+				<Button href="/#contact" label="let’s talk!" variant="primary" onclick={closeMenu} />
 			</div>
 
 			<div class="absolute bottom-10 right-6">
