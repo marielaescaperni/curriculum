@@ -7,7 +7,7 @@
 </script>
 
 <section
-	class="section-space relative overflow-hidden px-4 pt-44"
+	class="relative overflow-hidden px-6 pb-20 pt-36 md:pb-24 md:pt-40"
 	use:animateOnView={{
 		selector: '[data-hero-reveal]',
 		y: 24,
@@ -16,14 +16,14 @@
 		threshold: 0.16
 	}}
 >
-	<div class="container-page mt-10 md:mt-10 lg:mt-0">
-		<div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+	<div class="mx-auto max-w-6xl">
+		<div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
 			<div>
 				<p data-hero-reveal class="mb-5 text-sm font-semibold text-secondary md:text-base">
 					{profile.role}
 				</p>
 
-				<div class="mb-8 flex flex-wrap gap-3">
+				<div class="mb-7 flex flex-wrap gap-3">
 					{#each highlights as item}
 						<span
 							data-hero-reveal
@@ -36,19 +36,19 @@
 
 				<h1
 					data-hero-reveal
-					class="font-display max-w-5xl text-6xl font-semibold leading-[0.86] tracking-tight text-[var(--color-text-primary)] md:text-8xl lg:text-9xl"
+					class="font-display max-w-4xl text-5xl font-semibold leading-[0.9] tracking-tight text-[var(--color-text-primary)] md:text-7xl lg:text-8xl"
 				>
 					I turn <span class="brand-gradient-text">complex products</span> into clear, accessible experiences.
 				</h1>
 
 				<p
 					data-hero-reveal
-					class="mt-8 max-w-3xl text-xl leading-relaxed text-secondary md:text-2xl"
+					class="mt-7 max-w-2xl text-lg leading-relaxed text-secondary md:text-xl"
 				>
 					{profile.heroSummary}
 				</p>
 
-				<div data-hero-reveal class="mt-10 flex flex-wrap gap-4">
+				<div data-hero-reveal class="mt-9 flex flex-wrap gap-4">
 					<Button href="#projects" label="view my work ;D" variant="primary" />
 					<Button href="#contact" label="let’s talk!" variant="secondary" />
 				</div>
@@ -56,10 +56,10 @@
 
 			<div data-hero-reveal class="relative flex justify-center lg:justify-end">
 				<div
-					class="absolute inset-x-8 top-14 h-72 rounded-full bg-[linear-gradient(135deg,var(--gradient-pink),var(--gradient-blue),var(--gradient-green))] opacity-30 blur-3xl"
+					class="absolute inset-x-8 top-14 h-64 rounded-full bg-[linear-gradient(135deg,var(--gradient-pink),var(--gradient-blue),var(--gradient-green))] opacity-30 blur-3xl"
 				></div>
 
-				<div class="surface-card relative w-full max-w-[34rem] overflow-hidden p-6 md:p-8">
+				<div class="surface-card relative w-full max-w-[30rem] overflow-hidden p-6 md:p-7">
 					<div
 						class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(17,17,17,0.04)_1px,transparent_1px)] bg-[size:3rem_3rem]"
 					></div>
@@ -69,17 +69,17 @@
 							Design + product + code
 						</p>
 
-						<div data-hero-reveal class="mt-8 flex justify-center">
+						<div data-hero-reveal class="mt-6 flex justify-center">
 							<img
 								src="/avatar.png"
 								alt="Digital avatar of Mariela Escalante"
-								class="float-soft w-full max-w-[22rem] drop-shadow-2xl"
+								class="float-soft w-full max-w-[18rem] drop-shadow-2xl"
 							/>
 						</div>
 
-						<div class="mt-8 grid gap-3 sm:grid-cols-3">
+						<div class="mt-6 grid gap-3 sm:grid-cols-3">
 							<div data-hero-reveal class="rounded-3xl border border-soft bg-surface p-4">
-								<p class="font-display text-4xl font-semibold leading-none">8+</p>
+								<p class="font-display text-3xl font-semibold leading-none">8+</p>
 								<p class="mt-2 text-sm text-secondary">Years designing products</p>
 							</div>
 
@@ -94,7 +94,7 @@
 							</div>
 						</div>
 
-						<p data-hero-reveal class="mt-6 text-sm leading-relaxed text-secondary">
+						<p data-hero-reveal class="mt-5 text-sm leading-relaxed text-secondary">
 							I’m most useful where complex product thinking, thoughtful interaction design and implementation need to stay connected.
 						</p>
 					</div>
