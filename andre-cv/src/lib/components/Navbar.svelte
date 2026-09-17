@@ -52,8 +52,8 @@
 		</div>
 
 		<div class="hidden items-center gap-3 md:flex">
-			<Button href="/cv" label="check my cv" variant="secondary" size="compact" />
-			<Button href="/#contact" label="let’s talk!" variant="primary" size="compact" />
+			<Button href="/cv" label="Check my CV" variant="secondary" size="compact" />
+			<Button href="/#contact" label="Let's talk" variant="primary" size="compact" />
 		</div>
 
 		<button
@@ -106,8 +106,8 @@
 			</div>
 
 			<div class="mt-12 flex flex-col gap-3 border-t border-white/15 pt-8">
-				<Button href="/cv" label="check my cv" variant="secondary" onclick={closeMenu} />
-				<Button href="/#contact" label="let’s talk!" variant="primary" onclick={closeMenu} />
+				<Button href="/cv" label="Check my CV" variant="secondary" onclick={closeMenu} />
+				<Button href="/#contact" label="Let's talk" variant="secondary" onclick={closeMenu} />
 			</div>
 
 			<div class="absolute bottom-10 right-6">
