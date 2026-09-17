@@ -36,7 +36,7 @@
 
 				<h1
 					data-hero-reveal
-					class="font-display max-w-4xl text-5xl font-semibold leading-[0.9] tracking-tight text-[var(--color-text-primary)] md:text-7xl lg:text-8xl"
+					class="font-display max-w-4xl text-balance text-5xl font-semibold leading-[0.92] tracking-tight text-[var(--color-text-primary)] md:text-6xl lg:text-[4.5rem] xl:text-[4.9rem]"
 				>
 					I turn <span class="brand-gradient-text">complex products</span> into clear, accessible experiences.
 				</h1>
@@ -59,7 +59,7 @@
 					class="absolute inset-x-8 top-14 h-64 rounded-full bg-[linear-gradient(135deg,var(--gradient-pink),var(--gradient-blue),var(--gradient-green))] opacity-30 blur-3xl"
 				></div>
 
-				<div class="surface-card relative w-full max-w-[30rem] overflow-hidden p-6 md:p-7">
+				<div class="surface-card relative w-full max-w-[26rem] overflow-hidden p-5 md:p-6">
 					<div
 						class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(17,17,17,0.04)_1px,transparent_1px)] bg-[size:3rem_3rem]"
 					></div>
@@ -71,9 +71,12 @@
 
 						<div data-hero-reveal class="mt-6 flex justify-center">
 							<img
-								src="/avatar.png"
-								alt="Digital avatar of Mariela Escalante"
-								class="float-soft w-full max-w-[18rem] drop-shadow-2xl"
+								src="/profile-photo.jpg"
+								alt=""
+								width="240"
+								height="300"
+								decoding="async"
+								class="w-full max-w-[14rem] rounded-[2rem] border border-white/70 object-cover shadow-[0_20px_60px_rgba(17,17,17,0.16)]"
 							/>
 						</div>
 
