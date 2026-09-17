@@ -9,6 +9,10 @@ export const connectorStudio: Project = {
 	description:
 		'Designed a connector-management experience that simplified complex telecom workflows while working within existing backend constraints.',
 	tags: ['UX Research', 'Enterprise UX', 'Design Systems', 'User Testing', 'SaaS'],
+	proof: {
+		value: '10–14 → 27–35',
+		label: 'Monthly users after early releases'
+	},
 	thumbnail: '/projects/connector-studio/hero.png',
 	heroMedia: '/projects/connector-studio/create-connector.png',
 	meta: {
