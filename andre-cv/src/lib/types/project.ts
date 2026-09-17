@@ -23,6 +23,11 @@ export type ProjectSeo = {
 	description: string;
 };
 
+export type ProjectProof = {
+	value: string;
+	label: string;
+};
+
 export type ProjectSolution = {
 	title: string;
 	description: string;
@@ -53,6 +58,7 @@ export type Project = {
 	period: string;
 	description: string;
 	tags: string[];
+	proof?: ProjectProof;
 	thumbnail?: string;
 	heroMedia?: string;
 	details: ProjectDetails;
