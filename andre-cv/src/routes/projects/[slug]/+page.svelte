@@ -1,82 +1,41 @@
 <script lang="ts">
-  let { data } = $props<{
-    data: {
-      project: {
-        slug: string;
-        title: string;
-        role: string;
-        period: string;
-        summary: string;
-        description: string;
-        tags: string[];
-        heroMedia?: string;
-        overview: string;
-        contributions: string[];
-      };
-    };
-  }>();
+	import CaseStudyHeader from '$lib/components/case-study/CaseStudyHeader.svelte';
+	import CaseHero from '$lib/components/case-study/CaseHero.svelte';
+	import CaseOverview from '$lib/components/case-study/CaseOverview.svelte';
+	import CaseOwnership from '$lib/components/case-study/CaseOwnership.svelte';
+	import CaseEvidence from '$lib/components/case-study/CaseEvidence.svelte';
+	import CaseDecisions from '$lib/components/case-study/CaseDecisions.svelte';
+	import CaseValidation from '$lib/components/case-study/CaseValidation.svelte';
+	import CaseNavigation from '$lib/components/case-study/CaseNavigation.svelte';
+	import { featuredProjects } from '$lib/data/projects';
+	import type { Project } from '$lib/types/project';
 
-  let { project } = data;
+	let { data } = $props<{ data: { project: Project } }>();
+	let project = $derived(data.project);
+
+	let currentIndex = $derived(featuredProjects.findIndex((item) => item.slug === project.slug));
+	let nextProject = $derived(featuredProjects[(currentIndex + 1) % featuredProjects.length]);
 </script>
 
-<section class="bg-site text-primary min-h-screen py-16">
-  <div class="mx-auto w-full max-w-6xl px-6 md:px-10 xl:px-16">
-    <a href="/#projects" class="text-secondary inline-flex text-lg transition hover:text-white">
-      ← Back to projects
-    </a>
+<svelte:head>
+	<title>{project.seo.title}</title>
+	<meta name="description" content={project.seo.description} />
+	<link rel="canonical" href={`https://mariela-escalante.vercel.app/projects/${project.slug}`} />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={project.seo.title} />
+	<meta property="og:description" content={project.seo.description} />
+	{#if project.thumbnail}
+		<meta property="og:image" content={`https://mariela-escalante.vercel.app${project.thumbnail}`} />
+	{/if}
+</svelte:head>
 
-    <div class="mt-8 max-w-4xl">
-      <p class="text-secondary text-lg">{project.role} · {project.period}</p>
-
-      <h1 class="mt-3 text-5xl leading-[0.95] tracking-tight md:text-7xl">
-        {project.title}
-      </h1>
-
-      <p class="text-secondary mt-6 text-2xl leading-[1.2] opacity-90">
-        {project.summary}
-      </p>
-    </div>
-
-    <div class="mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-4">
-      <div class="flex h-[320px] items-center justify-center rounded-[1.5rem] bg-white/6 text-white/35 md:h-[440px]">
-        Project media placeholder
-      </div>
-    </div>
-
-    <div class="mt-14 grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-      <div>
-        <h2 class="text-3xl tracking-tight md:text-4xl">Overview</h2>
-        <p class="text-secondary mt-5 text-lg leading-[1.4]">
-          {project.overview}
-        </p>
-
-        <h2 class="mt-12 text-3xl tracking-tight md:text-4xl">Project description</h2>
-        <p class="text-secondary mt-5 text-lg leading-[1.4]">
-          {project.description}
-        </p>
-      </div>
-
-      <aside class="rounded-[1.75rem] border border-white/10 bg-white/5 p-6">
-        <h3 class="text-2xl tracking-tight">What I did</h3>
-
-        <ul class="text-secondary mt-5 space-y-4 text-lg leading-[1.35]">
-          {#each project.contributions as item}
-            <li>{item}</li>
-          {/each}
-        </ul>
-
-        <div class="mt-8">
-          <h4 class="text-xl">Tags</h4>
-
-          <div class="mt-4 flex flex-wrap gap-2">
-            {#each project.tags as tag}
-              <span class="rounded-full bg-white/6 px-3 py-1 text-sm text-white/70">
-                {tag}
-              </span>
-            {/each}
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
+<div class="case-study-page bg-site min-h-screen text-primary">
+	<CaseStudyHeader />
+	<CaseHero {project} />
+	<CaseOverview {project} />
+	<CaseOwnership {project} />
+	<CaseEvidence {project} />
+	<CaseDecisions {project} />
+	<CaseValidation {project} />
+	<CaseNavigation nextSlug={nextProject.slug} nextTitle={nextProject.title} />
+</div>
