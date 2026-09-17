@@ -3,7 +3,7 @@ import { telecomOpenApi } from './telecom-open-api';
 import { occ } from './occ';
 import { connectorStudio } from './connector-studio';
 import { mapperBpmRework } from './mapper-bpm-rework';
-import { secondaryProjects } from './secondary';
+import { archiveProjects, secondaryProjects } from './secondary';
 
 export const featuredProjects = [telecomOpenApi, phreeli, connectorStudio, occ];
 
@@ -19,5 +19,6 @@ export {
 	occ,
 	connectorStudio,
 	mapperBpmRework,
-	secondaryProjects
+	secondaryProjects,
+	archiveProjects
 };
