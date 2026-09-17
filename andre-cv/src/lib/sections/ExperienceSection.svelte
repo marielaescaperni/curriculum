@@ -19,7 +19,7 @@
 				<p class="mt-3 text-base font-medium text-[var(--color-text-secondary)]">{item.company}</p>
 			</div>
 
-			<span class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/70">work</span>
+			<span aria-hidden="true" class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-3 text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:rotate-[-8deg] group-hover:bg-white/70">work</span>
 		</div>
 
 		<p class="mt-6 text-base leading-relaxed text-[var(--color-text-secondary)]">{item.description}</p>
@@ -32,12 +32,12 @@
 						{#if project.name === 'Phreeli'}
 							<a href="/projects/phreeli" class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70">
 								<span class="font-medium text-[var(--color-text-primary)]">{project.name}</span>
-								<span class="material-symbols-rounded text-base">arrow_outward</span>
+								<span aria-hidden="true" class="material-symbols-rounded text-base">arrow_outward</span>
 							</a>
 						{:else if project.url}
 							<a href={project.url} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white/70">
 								<span class="font-medium text-[var(--color-text-primary)]">{project.name}</span>
-								<span class="material-symbols-rounded text-base">arrow_outward</span>
+								<span aria-hidden="true" class="material-symbols-rounded text-base">arrow_outward</span>
 							</a>
 						{:else}
 							<div class="rounded-full border border-white/70 bg-white/45 px-4 py-2 text-sm text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md">
@@ -93,7 +93,7 @@
 				</div>
 				<a href="/cv" class="inline-flex shrink-0 items-center gap-2 font-semibold text-[var(--color-text-primary)] transition hover:translate-x-1">
 					Check my CV
-					<span class="material-symbols-rounded text-lg" aria-hidden="true">arrow_forward</span>
+					<span aria-hidden="true" class="material-symbols-rounded text-lg" aria-hidden="true">arrow_forward</span>
 				</a>
 			</div>
 		</div>
