@@ -2,6 +2,7 @@ export const profile = {
 	name: 'Mariela Escalante',
 
 	role: 'Senior Product Designer · UX/UI Engineer',
+	cvRole: 'Senior Product Designer | UX/UI Engineer',
 
 	email: 'marielaescalantep@gmail.com',
 
@@ -9,6 +10,9 @@ export const profile = {
 
 	heroSummary:
 		'8+ years designing SaaS, enterprise, native mobile and responsive web products — from discovery and research through accessibility, production-ready UI and front-end implementation.',
+
+	professionalSummary:
+		'Senior Product Designer and UX/UI Engineer with 8+ years of experience designing SaaS, enterprise software, native mobile, and responsive web products from discovery through delivery. Combines product thinking, UX research, interaction and visual design, accessibility and inclusive design, AI-assisted workflows, design systems, behavioral analytics, and front-end expertise to simplify complex experiences and deliver intuitive, production-ready products.',
 
 	intro: `
 		I’m a Senior Product Designer and UX/UI Engineer with 8+ years of experience
