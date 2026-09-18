@@ -34,7 +34,7 @@
 		threshold: 0.18
 	}}
 >
-	<div id="about" class="mx-auto grid max-w-6xl scroll-mt-[124px] md:scroll-mt-[132px] gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
+	<div id="about" class="mx-auto grid max-w-6xl scroll-mt-4 gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
 		<div class="space-y-5">
 			<p data-about-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-neutral-500">
 				About me
