@@ -25,7 +25,7 @@
 		threshold: 0.14
 	}}
 >
-	<div id="projects" class="mx-auto max-w-6xl scroll-mt-[124px] md:scroll-mt-[132px] space-y-20">
+	<div id="projects" class="mx-auto max-w-6xl scroll-mt-4 space-y-20">
 		<div class="space-y-10">
 			<div class="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
 				<div class="space-y-4">
