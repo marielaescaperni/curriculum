@@ -37,7 +37,7 @@
 
 <div class="case-study-page bg-site min-h-screen text-primary">
 	<CaseStudyHeader />
-	<CaseProgressNav />
+	<CaseProgressNav {project} />
 	<CaseHero {project} />
 	<CaseOverview {project} />
 	<CaseOwnership {project} />
