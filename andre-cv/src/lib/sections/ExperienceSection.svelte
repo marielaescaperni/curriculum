@@ -2,12 +2,14 @@
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import { experience } from '$lib/data/experience';
 
+	type ExperienceItem = (typeof experience)[number];
+
 	const primaryExperience = experience.slice(0, 4);
 	const publicisExperience = experience[4];
 	const earlierExperience = experience.slice(5);
 </script>
 
-{#snippet experienceCard(item)}
+{#snippet experienceCard(item: ExperienceItem)}
 	<article
 		data-experience-reveal
 		class="group h-full rounded-[var(--radius-panel)] border border-white/70 bg-white/40 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/60 md:p-8"
