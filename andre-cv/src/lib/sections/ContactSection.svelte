@@ -5,7 +5,7 @@
 <section class="px-6 py-24">
 	<div
 		id="contact"
-		class="relative mx-auto max-w-6xl scroll-mt-[124px] md:scroll-mt-[132px] overflow-hidden rounded-3xl bg-main-gradient p-10 text-black md:p-16"
+		class="relative mx-auto max-w-6xl scroll-mt-4 overflow-hidden rounded-3xl bg-main-gradient p-10 text-black md:p-16"
 	>
 		<div class="bg-main-gradient absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-30 blur-3xl"></div>
 
