@@ -122,7 +122,7 @@
 	.save-pdf-button:hover {
 		transform: translateY(-2px);
 		background: #a7e4ff;
-		color: #147ca6 !important;
+		color: #0d4f68 !important;
 		box-shadow: 0 18px 40px rgba(100, 199, 238, 0.28);
 	}
 

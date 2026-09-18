@@ -7,7 +7,7 @@
 </script>
 
 {#if project.solution || productScreens.length > 0}
-	<section class="case-shell case-section-space pt-0">
+	<section id="solution" class="case-shell case-section-space scroll-mt-28 pt-0">
 		<div class="max-w-3xl">
 			<p class="text-pink-500 text-xs font-bold uppercase tracking-[0.14em]">The solution</p>
 			<h2 class="case-heading mt-3">{project.solution?.title ?? 'The Final Product'}</h2>

@@ -5,7 +5,7 @@
 </script>
 
 {#if project.validation}
-	<section class="case-shell case-section-space pt-0">
+	<section id="validation" class="case-shell case-section-space scroll-mt-28 pt-0">
 		<div class="surface-dark overflow-hidden p-6 sm:p-8 lg:p-10">
 			<div class="grid items-start gap-8 lg:grid-cols-[1fr_auto] lg:gap-12">
 				<div>
@@ -34,7 +34,7 @@
 	</section>
 {/if}
 
-<section class="case-shell case-section-space pt-0">
+<section id="impact" class="case-shell case-section-space scroll-mt-28 pt-0">
 	<div class="case-editorial-grid">
 		<div>
 			<p class="text-pink-500 text-xs font-bold uppercase tracking-[0.14em]">Outcome</p>

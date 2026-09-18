@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CaseStudyHeader from '$lib/components/case-study/CaseStudyHeader.svelte';
+	import CaseProgressNav from '$lib/components/case-study/CaseProgressNav.svelte';
 	import CaseHero from '$lib/components/case-study/CaseHero.svelte';
 	import CaseOverview from '$lib/components/case-study/CaseOverview.svelte';
 	import CaseOwnership from '$lib/components/case-study/CaseOwnership.svelte';
@@ -36,6 +37,7 @@
 
 <div class="case-study-page bg-site min-h-screen text-primary">
 	<CaseStudyHeader />
+	<CaseProgressNav {project} />
 	<CaseHero {project} />
 	<CaseOverview {project} />
 	<CaseOwnership {project} />
