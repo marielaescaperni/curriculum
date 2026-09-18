@@ -4,7 +4,7 @@
 	let { project } = $props<{ project: Project }>();
 </script>
 
-<section id="context" class="case-shell case-section-space scroll-mt-28">
+<section id="context" class="case-shell case-section-space scroll-mt-4">
 	<div class="surface-card p-6 sm:p-8 lg:p-10">
 		<div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
 			<div>
