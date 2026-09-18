@@ -4,7 +4,7 @@
 	let { project } = $props<{ project: Project }>();
 </script>
 
-<section id="decisions" class="case-shell case-section-space scroll-mt-28 pt-0">
+<section id="decisions" class="case-shell case-section-space scroll-mt-4 pt-0">
 	<div class="mb-8 max-w-4xl">
 		<p class="text-pink-500 text-xs font-bold uppercase tracking-[0.14em]">Product design decisions</p>
 		<h2 class="font-display mt-3 text-4xl font-bold tracking-[-0.035em] sm:text-5xl">
