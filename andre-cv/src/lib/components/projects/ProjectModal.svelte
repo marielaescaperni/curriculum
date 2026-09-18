@@ -29,16 +29,19 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<div
-	class="fixed inset-0 z-[100] bg-neutral-950/70 p-4 backdrop-blur-sm md:p-8"
-	role="dialog"
-	aria-modal="true"
-	aria-labelledby="project-modal-title"
-	onclick={onClose}
->
+<div class="fixed inset-0 z-[100] p-4 md:p-8">
+	<button
+		type="button"
+		class="absolute inset-0 h-full w-full bg-neutral-950/70 backdrop-blur-sm"
+		aria-label="Close project details"
+		onclick={onClose}
+	></button>
+
 	<div
-		class="mx-auto flex max-h-full max-w-6xl flex-col overflow-hidden rounded-[var(--radius-panel)] border border-white/20 bg-[var(--color-bg)] shadow-[0_32px_120px_rgba(0,0,0,0.35)]"
-		onclick={(event) => event.stopPropagation()}
+		class="relative mx-auto flex max-h-full max-w-6xl flex-col overflow-hidden rounded-[var(--radius-panel)] border border-white/20 bg-[var(--color-bg)] shadow-[0_32px_120px_rgba(0,0,0,0.35)]"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="project-modal-title"
 	>
 		<header
 			class="flex items-center justify-between gap-6 border-b border-[var(--color-border-soft)] bg-white/70 px-6 py-4 backdrop-blur-md"
@@ -64,7 +67,7 @@
 				class="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/60 px-4 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-white"
 			>
 				Close
-				<span class="material-symbols-rounded text-base">close</span>
+				<span aria-hidden="true" class="material-symbols-rounded text-base">close</span>
 			</button>
 		</header>
 
