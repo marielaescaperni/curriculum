@@ -1,15 +1,18 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { Project } from '$lib/types/project';
 
-	const items = [
-		{ id: 'context', label: 'Context' },
-		{ id: 'decisions', label: 'Decisions' },
-		{ id: 'solution', label: 'Solution' },
-		{ id: 'validation', label: 'Validation' },
-		{ id: 'impact', label: 'Impact' }
-	];
+	let { project } = $props<{ project: Project }>();
 
-	let activeId = $state(items[0].id);
+	const items = $derived([
+		{ id: 'context', label: 'Context', visible: true },
+		{ id: 'decisions', label: 'Decisions', visible: true },
+		{ id: 'solution', label: 'Solution', visible: true },
+		{ id: 'validation', label: 'Validation', visible: Boolean(project.validation) },
+		{ id: 'impact', label: 'Impact', visible: true }
+	].filter((item) => item.visible));
+
+	let activeId = $state('context');
 
 	onMount(() => {
 		const sections = items
