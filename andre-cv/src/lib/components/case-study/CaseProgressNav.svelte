@@ -41,19 +41,35 @@
 	});
 
 	function goToSection(id: string) {
-		document.getElementById(id)?.scrollIntoView({
-			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-			block: 'start'
+		const target = document.getElementById(id);
+		if (!target) return;
+
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		const header = document.querySelector<HTMLElement>('[data-case-study-header]');
+		const progressNav = document.querySelector<HTMLElement>('[data-case-progress-nav]');
+		const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+
+		const headerHeight = header?.getBoundingClientRect().height ?? 0;
+		const progressHeight = isDesktop ? (progressNav?.getBoundingClientRect().height ?? 0) : 0;
+		const stickyGap = isDesktop ? 16 : 16;
+		const topOffset = headerHeight + progressHeight + stickyGap;
+
+		const targetTop = window.scrollY + target.getBoundingClientRect().top - topOffset;
+
+		window.scrollTo({
+			top: targetTop,
+			behavior: reduceMotion ? 'auto' : 'smooth'
 		});
 	}
 </script>
 
 <nav
-	class="case-progress-nav z-40 max-w-4xl rounded-full border border-black/10 bg-white/80 px-2 py-2 shadow-[0_12px_36px_rgba(17,17,17,0.10)] backdrop-blur-xl"
+	data-case-progress-nav
+	class="case-progress-nav z-40 max-w-4xl rounded-[1.5rem] border border-black/10 bg-white/85 px-2 py-2 shadow-[0_12px_36px_rgba(17,17,17,0.10)] backdrop-blur-xl md:rounded-full"
 	aria-label="Case study sections"
 >
-	<div class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-		<div class="flex min-w-max items-center gap-1">
+	<div>
+		<div class="flex flex-wrap items-center justify-center gap-1 md:flex-nowrap">
 			{#each items as item, index}
 				<button
 					type="button"
@@ -82,7 +98,7 @@
 	@media (min-width: 768px) {
 		.case-progress-nav {
 			position: sticky;
-			top: 1.25rem;
+			top: calc(var(--case-header-height, 84px) + 1rem);
 			left: auto;
 			right: auto;
 			bottom: auto;
@@ -92,6 +108,7 @@
 	}
 
 	.case-progress-item {
+		flex: 0 0 auto;
 		color: var(--color-text-secondary);
 		transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
 	}
