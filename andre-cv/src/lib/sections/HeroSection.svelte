@@ -107,25 +107,3 @@
 	</div>
 </section>
 
-<style>
-	@keyframes float-soft {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-
-		50% {
-			transform: translateY(-10px);
-		}
-	}
-
-	.float-soft {
-		animation: float-soft 6s ease-in-out infinite;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.float-soft {
-			animation: none;
-		}
-	}
-</style>
