@@ -36,7 +36,7 @@
 
 				<h1
 					data-hero-reveal
-					class="font-display max-w-4xl text-balance text-5xl font-semibold leading-[0.92] tracking-tight text-[var(--color-text-primary)] md:text-6xl lg:text-[4.5rem] xl:text-[4.9rem]"
+					class="font-display max-w-4xl text-balance text-5xl font-semibold leading-[0.92] tracking-tight text-[var(--color-text-primary)] md:text-6xl lg:text-[4.25rem] xl:text-[4.65rem]"
 				>
 					I turn <span class="brand-gradient-text">complex products</span> into clear, accessible experiences.
 				</h1>
@@ -73,10 +73,10 @@
 							<img
 								src="/profile-photo.jpg"
 								alt=""
-								width="240"
-								height="300"
+								width="800"
+								height="1000"
 								decoding="async"
-								class="w-full max-w-[14rem] rounded-[2rem] border border-white/70 object-cover shadow-[0_20px_60px_rgba(17,17,17,0.16)]"
+								class="w-full max-w-[12.5rem] rounded-[2rem] md:max-w-[13.5rem] border border-white/70 object-cover shadow-[0_20px_60px_rgba(17,17,17,0.16)]"
 							/>
 						</div>
 
