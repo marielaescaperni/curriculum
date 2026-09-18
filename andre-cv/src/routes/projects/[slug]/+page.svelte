@@ -35,7 +35,7 @@
 	<meta name="twitter:description" content={project.seo.description} />
 </svelte:head>
 
-<div class="case-study-page bg-site min-h-screen text-primary">
+<div class="case-study-page bg-site min-h-screen pb-24 text-primary md:pb-0">
 	<CaseStudyHeader />
 	<CaseProgressNav {project} />
 	<CaseHero {project} />
