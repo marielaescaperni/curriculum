@@ -1,19 +1,29 @@
 <script lang="ts">
-type Variant = 'primary' | 'secondary' | 'terciary';
+	type Variant = 'primary' | 'secondary' | 'terciary';
+	type Size = 'default' | 'compact';
 
 	type Props = {
 		href: string;
 		label: string;
 		variant?: Variant;
+		size?: Size;
 		target?: '_blank' | '_self';
 		rel?: string;
 		onclick?: () => void;
 	};
 
-	let { href, label, variant = 'primary', target = '_self', rel, onclick }: Props = $props();
+	let {
+		href,
+		label,
+		variant = 'primary',
+		size = 'default',
+		target = '_self',
+		rel,
+		onclick
+	}: Props = $props();
 </script>
 
-<a class={`button button-${variant}`} {href} {target} {rel} {onclick}>
+<a class={`button button-${variant} button-${size}`} {href} {target} {rel} {onclick}>
 	{label}
 </a>
 
@@ -22,10 +32,7 @@ type Variant = 'primary' | 'secondary' | 'terciary';
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-width: 180px;
 		border-radius: 999px;
-		padding: 1rem 2rem;
-		font-size: 1rem;
 		font-weight: 800;
 		line-height: 1;
 		transition:
@@ -33,6 +40,18 @@ type Variant = 'primary' | 'secondary' | 'terciary';
 			background-color 240ms var(--ease-out-soft),
 			color 240ms var(--ease-out-soft),
 			box-shadow 240ms var(--ease-out-soft);
+	}
+
+	.button-default {
+		min-width: 180px;
+		padding: 1rem 2rem;
+		font-size: 1rem;
+	}
+
+	.button-compact {
+		min-width: 0;
+		padding: 0.8rem 1.15rem;
+		font-size: 0.875rem;
 	}
 
 	.button:hover {
@@ -46,17 +65,17 @@ type Variant = 'primary' | 'secondary' | 'terciary';
 
 	.button-primary:hover {
 		background: #a7e4ff;
-		color: #147ca6;
+		color: #0d4f68;
 		box-shadow: 0 18px 40px rgba(100, 199, 238, 0.28);
 	}
 
 	.button-secondary {
 		background: #ffffff;
-		color: #4abf9d;
+		color: #21745e;
 	}
 
 	.button-secondary:hover {
-		background: #4abf9d;
+		background: #21745e;
 		color: #ffffff;
 		box-shadow: 0 18px 40px rgba(74, 191, 157, 0.26);
 	}
@@ -80,7 +99,7 @@ type Variant = 'primary' | 'secondary' | 'terciary';
 	}
 
 	@media (max-width: 480px) {
-		.button {
+		.button-default {
 			width: 100%;
 		}
 	}

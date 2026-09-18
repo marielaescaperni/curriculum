@@ -26,7 +26,7 @@
 
 	--color-text-primary: #111111;
 	--color-text-secondary: #494641;
-	--color-text-muted: #7a746d;
+	--color-text-muted: #706a63;
 	--color-text-dark: #111111;
 	--color-text-inverse: #f8f5ef;
 
@@ -37,6 +37,7 @@
 	--gradient-blue: #64c7ee;
 	--gradient-purple: #a899ff;
 	--gradient-orange: #ffad5c;
+	--gradient-peach: #FFAE63;
 
 	--radius-pill: 999px;
 	--radius-card: 2rem;
@@ -53,7 +54,7 @@
 }
 
 html {
-	scroll-behavior: smooth;
+	scroll-padding-top: 90px;
 }
 
 body {
@@ -114,7 +115,10 @@ img {
 	);
 }
 
-html {
-	scroll-behavior: smooth;
-	scroll-padding-top: 90px;
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+	outline: 3px solid rgba(100, 199, 238, 0.55);
+	outline-offset: 4px;
 }

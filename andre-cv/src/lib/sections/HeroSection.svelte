@@ -2,13 +2,12 @@
 	import { profile } from '$lib/data/profile';
 	import Button from '$lib/components/Button.svelte';
 	import { animateOnView } from '$lib/actions/animateOnView';
-	import { scrambleOnView } from '$lib/actions/scrambleOnView';
 
-	const highlights = ['UX/UI Design', 'Front-End Development', 'Design Systems'];
+	const highlights = ['Product Design', 'Accessible UX', 'UX Engineering'];
 </script>
 
 <section
-	class="section-space relative overflow-hidden px-4 pt-44"
+	class="relative overflow-hidden px-6 pb-20 pt-36 md:pb-24 md:pt-40"
 	use:animateOnView={{
 		selector: '[data-hero-reveal]',
 		y: 24,
@@ -17,10 +16,14 @@
 		threshold: 0.16
 	}}
 >
-	<div class="container-page mt-10 md:mt-10 lg:mt-0">
-		<div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+	<div class="mx-auto max-w-6xl">
+		<div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
 			<div>
-				<div class="mb-8 flex flex-wrap gap-3">
+				<p data-hero-reveal class="mb-5 text-sm font-semibold text-secondary md:text-base">
+					{profile.role}
+				</p>
+
+				<div class="mb-7 flex flex-wrap gap-3">
 					{#each highlights as item}
 						<span
 							data-hero-reveal
@@ -32,72 +35,70 @@
 				</div>
 
 				<h1
-	data-hero-reveal
-					class="font-display text-6xl font-semibold leading-[0.86] tracking-tight text-[var(--color-text-primary)] md:text-8xl lg:text-9xl"
+					data-hero-reveal
+					class="font-display max-w-4xl text-balance text-5xl font-semibold leading-[0.92] tracking-tight text-[var(--color-text-primary)] md:text-6xl lg:text-[4.25rem] xl:text-[4.65rem]"
 				>
-					Creating <span class="brand-gradient-text">digital experiences</span>
+					I turn <span class="brand-gradient-text">complex products</span> into clear, accessible experiences.
 				</h1>
 
 				<p
 					data-hero-reveal
-					class="mt-8 max-w-2xl text-xl leading-relaxed text-secondary md:text-2xl"
+					class="mt-7 max-w-2xl text-lg leading-relaxed text-secondary md:text-xl"
 				>
-					{profile.tagline}
+					{profile.heroSummary}
 				</p>
 
-				<div data-hero-reveal class="mt-10 flex flex-wrap gap-4">
-					<Button href="#projects" label="my work ;D" variant="primary" />
-					<Button href="#contact" label="let’s talk!" variant="secondary" />
+				<div data-hero-reveal class="mt-9 flex flex-wrap gap-4">
+					<Button href="#projects" label="My work :)" variant="primary" />
+					<Button href="#contact" label="Let's talk" variant="secondary" />
 				</div>
 			</div>
 
 			<div data-hero-reveal class="relative flex justify-center lg:justify-end">
 				<div
-					class="absolute inset-x-8 top-14 h-72 rounded-full bg-[linear-gradient(135deg,var(--gradient-pink),var(--gradient-blue),var(--gradient-green))] opacity-30 blur-3xl"
+					class="absolute inset-x-8 top-14 h-64 rounded-full bg-[linear-gradient(135deg,var(--gradient-pink),var(--gradient-blue),var(--gradient-green))] opacity-30 blur-3xl"
 				></div>
 
-				<div class="surface-card relative w-full max-w-[34rem] overflow-hidden p-6 md:p-8">
+				<div class="surface-card relative w-full max-w-[26rem] overflow-hidden p-5 md:p-6">
 					<div
 						class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(17,17,17,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(17,17,17,0.04)_1px,transparent_1px)] bg-[size:3rem_3rem]"
 					></div>
 
 					<div class="relative z-10">
-						<div data-hero-reveal class="flex items-center justify-between">
-							<p class="text-xs font-semibold uppercase tracking-[0.24em] text-muted-custom">
-								Currently
-							</p>
+						<p data-hero-reveal class="text-xs font-semibold uppercase tracking-[0.24em] text-muted-custom">
+							Design + product + code
+						</p>
 
-							<span class="h-3 w-3 rounded-full bg-[#92e6ad]"></span>
-						</div>
-
-						<div data-hero-reveal class="mt-8 flex justify-center">
+						<div data-hero-reveal class="mt-6 flex justify-center">
 							<img
-	src="/avatar.png"
-	alt="Digital avatar of Andre"
-	class="float-soft w-full max-w-[22rem] drop-shadow-2xl"
-/>
+								src="/profile-photo.jpg"
+								alt=""
+								width="800"
+								height="1000"
+								decoding="async"
+								class="w-full max-w-[12.5rem] rounded-[2rem] md:max-w-[13.5rem] border border-white/70 object-cover shadow-[0_20px_60px_rgba(17,17,17,0.16)]"
+							/>
 						</div>
 
-						<div class="mt-8 grid gap-3 sm:grid-cols-3">
+						<div class="mt-6 grid gap-3 sm:grid-cols-3">
 							<div data-hero-reveal class="rounded-3xl border border-soft bg-surface p-4">
-								<p class="font-display text-4xl font-semibold leading-none">8+</p>
-								<p class="mt-2 text-sm text-secondary">Years</p>
+								<p class="font-display text-3xl font-semibold leading-none">8+</p>
+								<p class="mt-2 text-sm text-secondary">Years designing products</p>
 							</div>
 
 							<div data-hero-reveal class="rounded-3xl border border-soft bg-surface p-4">
-								<p class="font-display text-4xl font-semibold leading-none">UY</p>
-								<p class="mt-2 text-sm text-secondary">Remote</p>
+								<p class="font-display text-3xl font-semibold leading-none">E2E</p>
+								<p class="mt-2 text-sm text-secondary">Discovery → delivery</p>
 							</div>
 
 							<div data-hero-reveal class="rounded-3xl border border-soft bg-surface p-4">
-								<p class="font-display text-4xl font-semibold leading-none">UX</p>
-								<p class="mt-2 text-sm text-secondary">+ Front-end</p>
+								<p class="font-display text-3xl font-semibold leading-none">UX</p>
+								<p class="mt-2 text-sm text-secondary">Design + code</p>
 							</div>
 						</div>
 
-						<p data-hero-reveal class="mt-6 text-sm leading-relaxed text-secondary">
-							Working across UX/UI design and front-end development for products that need
-							to feel clear, usable and polished.
+						<p data-hero-reveal class="mt-5 text-sm leading-relaxed text-secondary">
+							I’m most useful where complex product thinking, thoughtful interaction design and implementation need to stay connected.
 						</p>
 					</div>
 				</div>
@@ -106,26 +107,3 @@
 	</div>
 </section>
 
-
-<style>
-	@keyframes float-soft {
-	0%,
-	100% {
-		transform: translateY(0);
-	}
-
-	50% {
-		transform: translateY(-10px);
-	}
-}
-
-.float-soft {
-	animation: float-soft 6s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.float-soft {
-		animation: none;
-	}
-}
-</style>
