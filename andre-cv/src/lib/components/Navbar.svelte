@@ -114,7 +114,7 @@
 			aria-expanded={isMenuOpen}
 			aria-controls="mobile-navigation"
 		>
-			<span class="material-symbols-rounded text-[26px] text-indigo-500">{isMenuOpen ? 'close' : 'menu'}</span>
+			<span aria-hidden="true" class="material-symbols-rounded text-[26px] text-indigo-500">{isMenuOpen ? 'close' : 'menu'}</span>
 		</button>
 	</nav>
 </header>
@@ -152,7 +152,7 @@
 					class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white"
 					aria-label="Close navigation menu"
 				>
-					<span class="material-symbols-rounded text-[28px]">close</span>
+					<span aria-hidden="true" class="material-symbols-rounded text-[28px]">close</span>
 				</button>
 			</div>
 
