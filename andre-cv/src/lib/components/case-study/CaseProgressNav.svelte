@@ -49,7 +49,7 @@
 </script>
 
 <nav
-	class="sticky top-3 z-40 mx-auto mt-4 w-[calc(100%-2rem)] max-w-4xl rounded-full border border-black/10 bg-white/75 px-2 py-2 shadow-[0_12px_36px_rgba(17,17,17,0.08)] backdrop-blur-xl md:top-5"
+	class="case-progress-nav z-40 max-w-4xl rounded-full border border-black/10 bg-white/80 px-2 py-2 shadow-[0_12px_36px_rgba(17,17,17,0.10)] backdrop-blur-xl"
 	aria-label="Case study sections"
 >
 	<div class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
@@ -70,6 +70,27 @@
 </nav>
 
 <style>
+	.case-progress-nav {
+		position: fixed;
+		left: 1rem;
+		right: 1rem;
+		bottom: max(0.75rem, env(safe-area-inset-bottom));
+		width: auto;
+		margin: 0 auto;
+	}
+
+	@media (min-width: 768px) {
+		.case-progress-nav {
+			position: sticky;
+			top: 1.25rem;
+			left: auto;
+			right: auto;
+			bottom: auto;
+			width: calc(100% - 2rem);
+			margin: 1rem auto 0;
+		}
+	}
+
 	.case-progress-item {
 		color: var(--color-text-secondary);
 		transition: background-color 220ms ease, color 220ms ease, transform 220ms ease;
