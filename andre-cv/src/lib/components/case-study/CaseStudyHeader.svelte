@@ -1,8 +1,11 @@
-<header class="border-b border-black/10 py-6 md:py-8">
-	<div class="case-shell flex items-center justify-between gap-6">
-		<a href="/" class="group min-w-0">
+<header
+	data-case-study-header
+	class="sticky top-0 z-50 border-b border-black/10 bg-[#f3f1ec]/90 py-3 backdrop-blur-xl md:py-5"
+>
+	<div class="case-shell flex items-center justify-start gap-6 md:justify-between">
+		<a href="/" class="group hidden min-w-0 md:block">
 			<p class="font-display text-xl font-bold tracking-[-0.02em] md:text-2xl">Mariela Escalante :)</p>
-			<p class="text-secondary mt-1 hidden text-xs font-medium sm:block">
+			<p class="text-secondary mt-1 text-xs font-medium">
 				Senior Product Designer · UX/UI Engineer
 			</p>
 		</a>
