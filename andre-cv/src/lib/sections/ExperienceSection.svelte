@@ -80,7 +80,10 @@
 			</div>
 		{/if}
 
-		<div data-experience-reveal class="surface-card p-6 md:p-8">
+		<div
+			data-experience-reveal
+			class="group rounded-[var(--radius-panel)] border border-white/70 bg-white/40 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/60 md:p-8"
+		>
 			<div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
 				<div>
 					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)]">Earlier experience</p>
@@ -91,9 +94,12 @@
 						Earlier work across digital products, campaigns and front-end development. Full chronology and details are available in my CV.
 					</p>
 				</div>
-				<a href="/cv" class="inline-flex shrink-0 items-center gap-2 font-semibold text-[var(--color-text-primary)] transition hover:translate-x-1">
+				<a
+					href="/cv"
+					class="inline-flex shrink-0 items-center gap-2 rounded-full border border-white/70 bg-white/45 px-4 py-2 font-semibold text-[var(--color-text-primary)] shadow-sm backdrop-blur-md transition duration-300 hover:bg-white/70 group-hover:translate-x-1"
+				>
 					Check my CV
-					<span aria-hidden="true" class="material-symbols-rounded text-lg">arrow_forward</span>
+					<span aria-hidden="true" class="material-symbols-rounded text-lg transition duration-300 group-hover:translate-x-1">arrow_forward</span>
 				</a>
 			</div>
 		</div>
