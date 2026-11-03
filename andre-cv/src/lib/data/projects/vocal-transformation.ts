@@ -9,8 +9,8 @@ export const vocalTransformation: Project = {
 	description:
 		'Improved a live education and mentorship website across workshop discovery, content management, sign-up flows and contact experiences.',
 	tags: ['SvelteKit', 'UX Engineering', 'CMS', 'Klaviyo', 'Web Accessibility'],
-	thumbnail: '/projects/vocal-transformation/vt-home.png.png',
-	heroMedia: '/projects/vocal-transformation/vt-home.png.png',
+	thumbnail: '/projects/vocal-transformation/vt-home.png',
+	heroMedia: '/projects/vocal-transformation/vt-home.png',
 	meta: {
 		role: 'Web Developer · UX Engineering',
 		company: 'Vocal Transformation',
@@ -72,9 +72,9 @@ export const vocalTransformation: Project = {
 			'Per-workshop contact information and CTAs can be edited through the CMS.',
 			'Mentorship registration connects with the intended email list.'
 		],
-		media: ['/projects/vocal-transformation/vt-membership.png.png']
+		media: ['/projects/vocal-transformation/vt-membershi.png']
 	},
-	evidenceMedia: ['/projects/vocal-transformation/vt-strapi-workshop.png.png'],
+	evidenceMedia: ['/projects/vocal-transformation/vt-strapi-workshop.png'],
 	impact: [
 		'Delivered approved improvements across navigation, content management and form integrations.',
 		'Reduced the need for developer involvement in routine workshop contact updates.',
@@ -106,6 +106,6 @@ export const vocalTransformation: Project = {
 		],
 		metrics: [],
 		tools: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Strapi', 'Klaviyo', 'Vimeo'],
-		gallery: ['/projects/vocal-transformation/vt-membership.png.png', '/projects/vocal-transformation/vt-strapi-workshop.png.png']
+		gallery: ['/projects/vocal-transformation/vt-membershi.png', '/projects/vocal-transformation/vt-strapi-workshop.png']
 	}
 };
