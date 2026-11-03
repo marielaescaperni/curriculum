@@ -22,18 +22,12 @@ export const animateOnView: Action<HTMLElement, AnimateOnViewOptions> = (node, o
 
 	let observer: IntersectionObserver | null = null;
 	let hasAnimated = false;
+	let destroyed = false;
+	const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 	const getTargets = () => {
 		const targets = Array.from(node.querySelectorAll<HTMLElement>(settings.selector));
 		return targets.length ? targets : [node];
-	};
-
-	const setInitialState = () => {
-		getTargets().forEach((target) => {
-			target.style.opacity = '0';
-			target.style.transform = `translateY(${settings.y}px)`;
-			target.style.willChange = 'opacity, transform';
-		});
 	};
 
 	const showWithoutMotion = () => {
@@ -44,56 +38,80 @@ export const animateOnView: Action<HTMLElement, AnimateOnViewOptions> = (node, o
 		});
 	};
 
+	const setInitialState = () => {
+		if (motionPreference.matches) return;
+		getTargets().forEach((target) => {
+			target.style.opacity = '0';
+			target.style.transform = `translateY(${settings.y}px)`;
+			target.style.willChange = 'opacity, transform';
+		});
+	};
+
 	const reveal = async () => {
 		if (hasAnimated && settings.once) return;
-
 		hasAnimated = true;
 
-		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-		if (prefersReducedMotion) {
+		if (motionPreference.matches) {
 			showWithoutMotion();
 			return;
 		}
 
-		const { animate, stagger } = await import('animejs');
-
-		animate(getTargets(), {
-			opacity: [0, 1],
-			y: [settings.y, 0],
-			duration: settings.duration,
-			delay: stagger(settings.delay),
-			ease: 'outExpo',
-			onComplete: () => {
-				getTargets().forEach((target) => {
-					target.style.willChange = 'auto';
-				});
+		try {
+			const { animate, stagger } = await import('animejs');
+			if (destroyed || motionPreference.matches) {
+				showWithoutMotion();
+				return;
 			}
-		});
+
+			animate(getTargets(), {
+				opacity: [0, 1],
+				y: [settings.y, 0],
+				duration: settings.duration,
+				delay: stagger(settings.delay),
+				ease: 'outExpo',
+				onComplete: () => {
+					getTargets().forEach((target) => {
+						target.style.willChange = 'auto';
+					});
+				}
+			});
+		} catch {
+			// Content must remain visible if the animation dependency fails to load.
+			showWithoutMotion();
+		}
 	};
 
-	setInitialState();
-
-	observer = new IntersectionObserver(
-		([entry]) => {
-			if (!entry?.isIntersecting) return;
-
-			reveal();
-
-			if (settings.once) {
-				observer?.disconnect();
-			}
-		},
-		{
-			threshold: settings.threshold
+	const onMotionChange = () => {
+		if (motionPreference.matches) {
+			observer?.disconnect();
+			showWithoutMotion();
 		}
-	);
+	};
 
-	observer.observe(node);
+	// Keep server-rendered content visible until the client can observe it.
+	if (typeof IntersectionObserver === 'undefined' || motionPreference.matches) {
+		showWithoutMotion();
+	} else {
+		setInitialState();
+		observer = new IntersectionObserver(
+			([entry]) => {
+				if (!entry?.isIntersecting) return;
+				void reveal();
+				if (settings.once) observer?.disconnect();
+			},
+			{ threshold: settings.threshold }
+		);
+		observer.observe(node);
+	}
+
+	motionPreference.addEventListener('change', onMotionChange);
 
 	return {
 		destroy() {
+			destroyed = true;
 			observer?.disconnect();
+			motionPreference.removeEventListener('change', onMotionChange);
+			showWithoutMotion();
 		}
 	};
 };
