@@ -6,12 +6,19 @@
 
 	let openSecondaryProject = $state<string | null>(null);
 
-	const projectAccents = [
-		'var(--gradient-pink)',
-		'var(--gradient-blue)',
-		'var(--gradient-green)',
-		'var(--gradient-purple)',
-		'var(--gradient-orange)'
+	const selectedWork = [
+		{
+			slug: mapperBpmRework.slug,
+			title: mapperBpmRework.title,
+			role: mapperBpmRework.meta.role,
+			period: mapperBpmRework.period,
+			description: mapperBpmRework.description,
+			tags: mapperBpmRework.tags,
+			accent: 'var(--gradient-orange)',
+			kind: 'case-study' as const
+		},
+		...secondaryProjects.map((project) => ({ ...project, kind: 'secondary' as const })),
+		...archiveProjects.map((project) => ({ ...project, kind: 'archive' as const }))
 	];
 </script>
 
@@ -71,41 +78,22 @@
 				</p>
 			</div>
 
-			<div class="grid auto-rows-auto gap-4 md:grid-cols-2 lg:grid-cols-4">
-				<a
-					href={`/projects/${mapperBpmRework.slug}`}
-					data-projects-reveal
-					class="group flex h-full flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1 md:col-span-2"
-				>
-					<div class="flex min-h-[270px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--gradient-orange)_28%,white)] p-6 sm:p-7">
-						<p class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">{mapperBpmRework.period} · {mapperBpmRework.meta.role}</p>
-						<h3 class="font-display mt-4 max-w-md text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary sm:text-4xl">{mapperBpmRework.title}</h3>
-						<p class="mt-4 max-w-lg text-sm leading-relaxed text-secondary sm:text-base">{mapperBpmRework.description}</p>
-						<div class="mt-auto flex flex-wrap gap-2 pt-6">
-							{#each mapperBpmRework.tags.slice(0, 4) as tag}
-								<span class="rounded-full bg-white/45 px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
-							{/each}
-						</div>
-					</div>
-					<div class="flex min-h-14 items-center justify-between px-5 py-3">
-						<span class="text-sm font-semibold text-primary">View case study</span>
-						<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
-							<span class="material-symbols-rounded">arrow_outward</span>
-						</span>
-					</div>
-				</a>
-
-				{#each secondaryProjects as project, index}
+			<div class="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3">
+				{#each selectedWork as project (project.slug)}
 					<article
 						data-projects-reveal
-						class={`flex h-full min-w-0 flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)] md:col-span-1 ${index === 2 ? 'lg:col-span-2' : ''}`}
+						class="flex min-w-0 flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)]"
 					>
 						<div
-							style:--card-accent={project.accent ?? projectAccents[index % projectAccents.length]}
-							class="flex min-h-[270px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--card-accent)_28%,white)] p-6"
+							style:--card-accent={project.accent ?? 'var(--gradient-purple)'}
+							class="flex min-h-[300px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--card-accent)_28%,white)] p-6"
 						>
-							<p class="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">{project.period} · {project.role}</p>
-							<h3 class="font-display mt-4 text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary">{project.title}</h3>
+							<p class="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
+								{project.period} · {project.role}
+							</p>
+							<h3 class="font-display mt-4 text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary">
+								{project.title}
+							</h3>
 							<p class="mt-4 text-sm leading-relaxed text-secondary">{project.description}</p>
 							<div class="mt-auto flex flex-wrap gap-2 pt-6">
 								{#each project.tags as tag}
@@ -114,45 +102,46 @@
 							</div>
 						</div>
 
-						<button
-							type="button"
-							aria-expanded={openSecondaryProject === project.slug}
-							aria-controls={`secondary-${project.slug}`}
-							onclick={() => {
-								openSecondaryProject = openSecondaryProject === project.slug ? null : project.slug;
-							}}
-							class="group flex min-h-14 w-full items-center justify-between rounded-b-[var(--radius-card)] px-5 py-3 text-left"
-						>
-							<span class="text-sm font-semibold text-primary">{openSecondaryProject === project.slug ? 'Show less' : 'Explore project'}</span>
-							<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary">
-								<span class="material-symbols-rounded">{openSecondaryProject === project.slug ? 'remove' : 'arrow_forward'}</span>
-							</span>
-						</button>
-						<div id={`secondary-${project.slug}`} hidden={openSecondaryProject !== project.slug} class="px-5 pb-5">
-							<p class="rounded-2xl bg-[var(--color-bg)] p-4 text-sm leading-relaxed text-secondary">{project.highlight}</p>
-						</div>
+						{#if project.kind === 'case-study'}
+							<a
+								href={`/projects/${project.slug}`}
+								class="group flex min-h-14 items-center justify-between rounded-b-[var(--radius-card)] px-5 py-3"
+							>
+								<span class="text-sm font-semibold text-primary">View case study</span>
+								<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
+									<span class="material-symbols-rounded">arrow_outward</span>
+								</span>
+							</a>
+						{:else}
+							<button
+								type="button"
+								aria-expanded={openSecondaryProject === project.slug}
+								aria-controls={`selected-work-${project.slug}`}
+								onclick={() => {
+									openSecondaryProject = openSecondaryProject === project.slug ? null : project.slug;
+								}}
+								class="group flex min-h-14 w-full items-center justify-between rounded-b-[var(--radius-card)] px-5 py-3 text-left"
+							>
+								<span class="text-sm font-semibold text-primary">
+									{openSecondaryProject === project.slug ? 'Show less' : 'Explore project'}
+								</span>
+								<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
+									<span class="material-symbols-rounded">{openSecondaryProject === project.slug ? 'remove' : 'arrow_forward'}</span>
+								</span>
+							</button>
+							<div
+								id={`selected-work-${project.slug}`}
+								hidden={openSecondaryProject !== project.slug}
+								class="px-5 pb-5"
+							>
+								<p class="rounded-2xl bg-[var(--color-bg)] p-4 text-sm leading-relaxed text-secondary">
+									{project.highlight}
+								</p>
+							</div>
+						{/if}
 					</article>
 				{/each}
 			</div>
-
-			{#if archiveProjects.length}
-				<div
-					data-projects-reveal
-					style:--project-accent={'var(--gradient-peach)'}
-					class="group rounded-[var(--radius-card)] border border-white/70 bg-white/45 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--project-accent)] md:p-8"
-				>
-					<p class="font-semibold text-[var(--color-text-primary)] transition duration-300">
-						Earlier web & visual work
-					</p>
-					<div class="mt-5 flex flex-wrap gap-2">
-						{#each archiveProjects as project}
-							<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-sm text-[var(--color-text-secondary)] transition duration-300 group-hover:border-black/10 group-hover:bg-white/70 group-hover:text-[var(--color-text-primary)]">
-								{project.title} · {project.period}
-							</span>
-						{/each}
-					</div>
-				</div>
-			{/if}
 		</div>
 	</div>
 </section>
