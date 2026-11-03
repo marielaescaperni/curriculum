@@ -70,14 +70,15 @@
 	}
 
 	.button-secondary {
-		background: #ffffff;
-		color: #21745e;
+		background: transparent;
+		border: 2px solid #111111;
+		color: #111111;
 	}
 
 	.button-secondary:hover {
-		background: #21745e;
+		background: #111111;
 		color: #ffffff;
-		box-shadow: 0 18px 40px rgba(74, 191, 157, 0.26);
+		box-shadow: 0 12px 30px rgba(17, 17, 17, 0.12);
 	}
 
 	.button-terciary {
