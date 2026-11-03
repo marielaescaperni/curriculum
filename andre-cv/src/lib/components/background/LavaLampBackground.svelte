@@ -13,27 +13,49 @@
 	];
 
 	onMount(() => {
-		icons.forEach((icon, index) => {
-			animate(icon, {
-				translateX: () => utils.random(-36, 36),
-				translateY: () => utils.random(-44, 44),
-				rotate: () => utils.random(-16, 16),
-				scale: () => utils.random(90, 112) / 100,
-				duration: 4800 + index * 650,
-				alternate: true,
-				loop: true,
-				ease: 'inOutSine'
+		const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+		let animations: ReturnType<typeof animate>[] = [];
+
+		const stop = () => {
+			animations.forEach((animation) => animation.cancel());
+			animations = [];
+			icons.forEach((icon) => {
+				if (icon) icon.style.transform = '';
 			});
-		});
+		};
+
+		const updateMotion = () => {
+			stop();
+			if (preference.matches) return;
+
+			animations = icons.filter(Boolean).map((icon, index) =>
+				animate(icon, {
+					translateX: () => utils.random(-36, 36),
+					translateY: () => utils.random(-44, 44),
+					rotate: () => utils.random(-16, 16),
+					scale: () => utils.random(90, 112) / 100,
+					duration: 4800 + index * 650,
+					alternate: true,
+					loop: true,
+					ease: 'inOutSine'
+				})
+			);
+		};
+
+		updateMotion();
+		preference.addEventListener('change', updateMotion);
+		return () => {
+			preference.removeEventListener('change', updateMotion);
+			stop();
+		};
 	});
 </script>
 
-<div class="floating-background">
+<div class="floating-background" aria-hidden="true">
 	{#each floatingIcons as icon, index}
 		<div
 			bind:this={icons[index]}
 			class={`floating-icon floating-icon-${index + 1} ${icon.className}`}
-			aria-hidden="true"
 		>
 			{#if icon.type === 'sparkle'}
 				✦
@@ -77,79 +99,27 @@
 		background: currentColor;
 	}
 
-	.icon-purple {
-		color: var(--gradient-purple);
-	}
+	.icon-purple { color: var(--gradient-purple); }
+	.icon-pink { color: var(--gradient-pink); }
+	.icon-green { color: var(--gradient-green); }
+	.icon-blue { color: var(--gradient-blue); }
+	.icon-orange { color: var(--gradient-orange); }
 
-	.icon-pink {
-		color: var(--gradient-pink);
-	}
-
-	.icon-green {
-		color: var(--gradient-green);
-	}
-
-	.icon-blue {
-		color: var(--gradient-blue);
-	}
-
-	.icon-orange {
-		color: var(--gradient-orange);
-	}
-
-	.floating-icon-1 {
-		top: 15%;
-		left: 14%;
-		font-size: 3.5rem;
-	}
-
-	.floating-icon-2 {
-		top: 13%;
-		right: 13%;
-		font-size: 1.8rem;
-	}
-
-	.floating-icon-3 {
-		bottom: 22%;
-		right: 20%;
-		font-size: 1rem;
-	}
-
-	.floating-icon-4 {
-		bottom: 15%;
-		left: 18%;
-		font-size: 2.5rem;
-		opacity: 0.3;
-	}
-
-	.floating-icon-5 {
-		top: 50%;
-		left: 58%;
-		font-size: 1.4rem;
-		opacity: 0.38;
-	}
+	.floating-icon-1 { top: 15%; left: 14%; font-size: 3.5rem; }
+	.floating-icon-2 { top: 13%; right: 13%; font-size: 1.8rem; }
+	.floating-icon-3 { bottom: 22%; right: 20%; font-size: 1rem; }
+	.floating-icon-4 { bottom: 15%; left: 18%; font-size: 2.5rem; opacity: 0.3; }
+	.floating-icon-5 { top: 50%; left: 58%; font-size: 1.4rem; opacity: 0.38; }
 
 	@media (max-width: 768px) {
-		.floating-icon-1 {
-			top: 16%;
-			left: 10%;
-			font-size: 2.8rem;
-		}
-
-		.floating-icon-2 {
-			top: 18%;
-			right: 12%;
-			font-size: 1.5rem;
-		}
-
-		.floating-icon-3 {
-			bottom: 24%;
-			right: 14%;
-		}
-
+		.floating-icon-1 { top: 16%; left: 10%; font-size: 2.8rem; }
+		.floating-icon-2 { top: 18%; right: 12%; font-size: 1.5rem; }
+		.floating-icon-3 { bottom: 24%; right: 14%; }
 		.floating-icon-4,
-		.floating-icon-5 {
-			display: none;
-		}
+		.floating-icon-5 { display: none; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.floating-icon { will-change: auto; }
 	}
 </style>
