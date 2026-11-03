@@ -44,6 +44,8 @@
 			<img
 				src={heroImage}
 				alt={`${project.title} product interface`}
+				loading="eager"
+				fetchpriority="high"
 				decoding="async"
 				class="w-full rounded-[1.5rem] object-cover"
 			/>
