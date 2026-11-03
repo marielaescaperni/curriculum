@@ -9,7 +9,7 @@ import { archiveProjects, secondaryProjects } from './secondary';
 export const featuredProjects = [telecomOpenApi, phreeli, connectorStudio, vocalTransformation];
 
 // Full case studies include the four featured projects plus additional deep dives.
-export const caseStudyProjects = [...featuredProjects, mapperBpmRework, occ];
+export const caseStudyProjects = [...featuredProjects, mapperBpmRework];
 
 // Legacy export name used by the current dynamic route.
 export const projects = caseStudyProjects;
