@@ -1,43 +1,46 @@
 <script lang="ts">
-	import { telecomOpenApi, phreeli, connectorStudio, vocalTransformation } from '$lib/data/projects';
+	import { telecomOpenApi } from '$lib/data/projects/telecom-open-api';
+	import { phreeli } from '$lib/data/projects/phreeli';
+	import { connectorStudio } from '$lib/data/projects/connector-studio';
+	import { vocalTransformation } from '$lib/data/projects/vocal-transformation';
 
 	const highlights = [
 		{
 			id: 'telecom',
-			slug: telecomOpenApi.slug,
+			slug: telecomOpenApi?.slug ?? 'telecom-open-api',
 			color: '#FFF0A9',
 			logo: '/logos/symphonica.png',
 			logoAlt: 'Symphonica',
 			brand: 'Symphonica',
-			metric: telecomOpenApi.proof?.value ?? '',
-			detail: telecomOpenApi.proof?.label ?? '',
+			metric: telecomOpenApi?.proof?.value ?? '',
+			detail: telecomOpenApi?.proof?.label ?? '',
 			className: ''
 		},
 		{
 			id: 'phreeli',
-			slug: phreeli.slug,
+			slug: phreeli?.slug ?? 'phreeli',
 			color: '#E8DFFF',
 			logo: '/logos/phreeli.png',
 			logoAlt: 'Phreeli',
 			brand: 'Phreeli',
-			metric: phreeli.proof?.value ?? '',
-			detail: phreeli.proof?.label ?? '',
+			metric: phreeli?.proof?.value ?? '',
+			detail: phreeli?.proof?.label ?? '',
 			className: ''
 		},
 		{
 			id: 'connector',
-			slug: connectorStudio.slug,
+			slug: connectorStudio?.slug ?? 'connector-studio',
 			color: '#D3F0D9',
 			logo: '/logos/symphonica.png',
 			logoAlt: 'Symphonica',
 			brand: 'Symphonica',
-			metric: connectorStudio.proof?.value ?? '',
-			detail: connectorStudio.proof?.label ?? '',
+			metric: connectorStudio?.proof?.value ?? '',
+			detail: connectorStudio?.proof?.label ?? '',
 			className: ''
 		},
 		{
 			id: 'vocal-transformation',
-			slug: vocalTransformation.slug,
+			slug: vocalTransformation?.slug ?? 'vocal-transformation',
 			color: '#FBDDE8',
 			logo: '/logos/vocal-transformation.png',
 			logoAlt: 'Vocal Transformation',
