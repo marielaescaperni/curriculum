@@ -42,6 +42,42 @@
 
 	let slider: HTMLDivElement | undefined = $state();
 	let activeIndex = $state(0);
+	let dragStartX = 0;
+	let dragStartScroll = 0;
+	let dragging = false;
+	let previousSnapType = '';
+
+	function startDrag(event: PointerEvent) {
+		if (event.pointerType !== 'mouse' || event.button !== 0 || !slider) return;
+		dragging = true;
+		dragStartX = event.clientX;
+		dragStartScroll = slider.scrollLeft;
+		previousSnapType = slider.style.scrollSnapType;
+		slider.style.scrollSnapType = 'none';
+		slider.setPointerCapture(event.pointerId);
+	}
+
+	function moveDrag(event: PointerEvent) {
+		if (!dragging || !slider) return;
+		slider.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+	}
+
+	function endDrag(event: PointerEvent) {
+		if (!dragging || !slider) return;
+		dragging = false;
+		if (slider.hasPointerCapture(event.pointerId)) slider.releasePointerCapture(event.pointerId);
+		slider.style.scrollSnapType = previousSnapType;
+		const slides = Array.from(slider.querySelectorAll<HTMLElement>('[data-skill-slide]'));
+		if (!slides.length) return;
+		const start = slides[0].offsetLeft;
+		const nearest = slides.reduce(
+			(best, slide, index) =>
+				Math.abs(slide.offsetLeft - start - slider!.scrollLeft) <
+				Math.abs(slides[best].offsetLeft - start - slider!.scrollLeft) ? index : best,
+			0
+		);
+		scrollToSlide(nearest);
+	}
 
 	function scrollToSlide(index: number) {
 		const nextIndex = Math.max(0, Math.min(index, skillGroups.length - 1));
@@ -92,11 +128,15 @@
 				<div
 					bind:this={slider}
 					onscroll={updateActiveSlide}
+					onpointerdown={startDrag}
+					onpointermove={moveDrag}
+					onpointerup={endDrag}
+					onpointercancel={endDrag}
 					role="region"
 					aria-roledescription="carousel"
 					aria-label="Skills and capabilities"
 					tabindex="0"
-					class="skill-slider flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-[var(--radius-card)] pb-3"
+					class="skill-slider flex cursor-grab snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain rounded-[var(--radius-card)] pb-3 active:cursor-grabbing"
 				>
 					{#each skillGroups as group, index}
 						<article
@@ -104,7 +144,7 @@
 							aria-roledescription="slide"
 							aria-label={`${index + 1} of ${skillGroups.length}: ${group.title}`}
 							style:--skill-accent={group.accent}
-							class="flex min-h-[360px] min-w-0 flex-[0_0_90%] snap-start flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/85 p-6 shadow-[0_14px_45px_rgba(17,17,17,0.06)] sm:flex-[0_0_82%] sm:p-8"
+							class="flex min-h-[360px] min-w-0 flex-[0_0_100%] select-none snap-start flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/85 p-6 shadow-[0_14px_45px_rgba(17,17,17,0.06)] sm:p-8"
 						>
 							<div class="flex items-start justify-between gap-4">
 								<p class="max-w-[75%] text-xs font-semibold uppercase tracking-[0.16em] text-muted-custom">{group.kicker}</p>
@@ -148,6 +188,7 @@
 <style>
 	.skill-slider {
 		scrollbar-width: none;
+		touch-action: pan-y;
 	}
 
 	.skill-slider::-webkit-scrollbar {
