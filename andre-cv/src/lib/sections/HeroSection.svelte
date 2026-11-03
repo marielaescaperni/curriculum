@@ -50,19 +50,5 @@
 			</div>
 		</div>
 
-		<div data-hero-reveal class="mt-16 grid gap-3 border-t border-soft pt-6 sm:grid-cols-3 md:mt-20">
-			<div class="flex items-baseline gap-3">
-				<p class="font-display text-3xl font-semibold leading-none">8+</p>
-				<p class="text-sm text-secondary">Years designing products</p>
-			</div>
-			<div class="flex items-baseline gap-3">
-				<p class="font-display text-3xl font-semibold leading-none">E2E</p>
-				<p class="text-sm text-secondary">Discovery → delivery</p>
-			</div>
-			<div class="flex items-baseline gap-3">
-				<p class="font-display text-3xl font-semibold leading-none">UX</p>
-				<p class="text-sm text-secondary">Design + code</p>
-			</div>
-		</div>
 	</div>
 </section>
