@@ -7,7 +7,7 @@
 </script>
 
 <section
-	class="relative overflow-hidden px-6 pb-20 pt-36 md:pb-28 md:pt-44"
+	class="relative isolate overflow-hidden px-6 pb-20 pt-36 md:pb-28 md:pt-44"
 	use:animateOnView={{
 		selector: '[data-hero-reveal]',
 		y: 24,
@@ -16,8 +16,30 @@
 		threshold: 0.16
 	}}
 >
-	<div class="mx-auto max-w-6xl">
-		<div class="mx-auto flex max-w-5xl flex-col items-center text-center">
+
+	<div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 hidden lg:block">
+		<img
+			src="/images/hero/creature-1.png"
+			alt=""
+			width="160"
+			height="160"
+			loading="lazy"
+			decoding="async"
+			class="absolute right-[max(1rem,calc((100vw-85rem)/2))] top-[13rem] w-28 xl:right-[max(1.5rem,calc((100vw-88rem)/2))] xl:w-36"
+		/>
+		<img
+			src="/images/hero/creature-2.png"
+			alt=""
+			width="160"
+			height="160"
+			loading="lazy"
+			decoding="async"
+			class="absolute bottom-3 left-[max(1rem,calc((100vw-85rem)/2))] w-28 xl:left-[max(1.5rem,calc((100vw-88rem)/2))] xl:w-36"
+		/>
+	</div>
+
+	<div class="relative z-10 mx-auto max-w-6xl">
+		<div class="mx-auto flex max-w-4xl flex-col items-center text-center">
 			<p data-hero-reveal class="mb-5 text-sm font-semibold text-secondary md:text-base">
 				{profile.role}
 			</p>
