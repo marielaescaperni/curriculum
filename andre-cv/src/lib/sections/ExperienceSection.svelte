@@ -5,25 +5,26 @@
 
 	type ExperienceItem = (typeof experience)[number];
 
-	const timelineExperience = experience.slice(0, 5);
-	const earlierExperience = experience.slice(5);
+	// Present the existing employment history from oldest to newest; Sitven is omitted only from this section.
+	const timelineExperience = experience.filter((item) => item.company !== 'Sitven').slice().reverse();
 	const timelineAccents = [
 		'var(--gradient-purple)',
 		'var(--gradient-blue)',
 		'var(--gradient-green)',
 		'var(--gradient-pink)',
-		'var(--gradient-orange)'
+		'var(--gradient-orange)',
+		'var(--gradient-blue)'
 	];
 </script>
 
 {#snippet experienceCard(item: ExperienceItem, compact = false)}
 	<article
-		class={`flex h-full min-w-0 flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/70 p-5 text-left shadow-[0_14px_40px_rgba(17,17,17,0.05)] ${compact ? 'gap-2' : 'gap-3 sm:p-6'}`}
+		class={`flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-card)] border border-white/80 bg-white/70 text-left shadow-[0_14px_40px_rgba(17,17,17,0.05)] ${compact ? 'h-[332px] gap-2 p-4' : 'h-full min-h-[380px] gap-3 p-6'}`}
 	>
 		<p class="text-xs font-semibold uppercase tracking-[0.12em] text-muted-custom">{item.period}</p>
 		<h3 class={`font-display font-semibold leading-[1.04] tracking-[-0.035em] text-primary ${compact ? 'text-[1.35rem]' : 'text-3xl'}`}>{item.role}</h3>
 		<p class="text-sm font-semibold text-primary">{item.company}</p>
-		<p class={`leading-relaxed text-secondary ${compact ? 'text-xs' : 'text-sm'}`}>{item.description}</p>
+		<p class={`min-h-0 overflow-y-auto leading-relaxed text-secondary ${compact ? 'text-xs' : 'text-sm'}`}>{item.description}</p>
 		{#if !compact && item.projects?.length}
 			<div class="mt-auto flex flex-wrap gap-2 pt-3">
 				{#each item.projects as project}
@@ -62,11 +63,11 @@
 			</p>
 		</div>
 
-		<!-- Each stop is part of the real employment history; chronology is newest to oldest. -->
+		<!-- Six employment stops in chronological order, oldest to newest. -->
 		<div class="hidden lg:block" data-experience-reveal>
-			<ol class="grid grid-cols-5 gap-3" aria-label="Career timeline, most recent first">
+			<ol class="grid grid-cols-6 gap-3" aria-label="Career timeline, oldest to newest">
 				{#each timelineExperience as item, index}
-					<li class="grid min-w-0 grid-rows-[minmax(290px,auto)_54px_minmax(290px,auto)]">
+					<li class="grid min-w-0 grid-rows-[352px_54px_352px]">
 						{#if index % 2 === 0}
 							<div class="flex min-w-0 flex-col justify-end pb-4">
 								{@render experienceCard(item, true)}
@@ -92,11 +93,7 @@
 					</li>
 				{/each}
 			</ol>
-			<div class="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/45 px-6 py-5">
-				<div>
-					<p class="text-xs font-semibold uppercase tracking-[0.15em] text-muted-custom">Earlier experience</p>
-					<p class="mt-2 text-sm font-semibold text-primary">{earlierExperience.map((item) => item.company).join(' · ')}</p>
-				</div>
+			<div class="mt-5 flex justify-end">
 				<a href="/cv" class="inline-flex min-h-11 items-center gap-2 rounded-full border border-soft bg-white/75 px-4 py-2 text-sm font-semibold text-primary hover:bg-white">
 					Check my CV <span aria-hidden="true">↗</span>
 				</a>
@@ -110,7 +107,7 @@
 				containerClassName="gap-4"
 				options={{ align: 'start', containScroll: 'trimSnaps', dragFree: false }}
 			>
-				{#each experience as item, index}
+				{#each timelineExperience as item, index}
 					<div class="flex min-w-0 flex-[0_0_100%] flex-col" style:--timeline-accent={timelineAccents[index % timelineAccents.length]}>
 						<div class="mb-3 flex items-center gap-3">
 							<span aria-hidden="true" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--timeline-accent)] text-xs font-bold text-[#111111]">{String(index + 1).padStart(2, '0')}</span>
