@@ -6,7 +6,7 @@
 
 <a
 	href={`/projects/${project.slug}`}
-	class="group relative flex h-full min-h-[390px] flex-col overflow-hidden rounded-[var(--radius-panel)] border border-white/70 bg-white/55 shadow-[0_18px_60px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_80px_rgba(0,0,0,0.1)] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4"
+	class="group relative flex h-full min-h-[390px] flex-col overflow-hidden rounded-[var(--radius-panel)] border border-white/70 bg-white/55  transition duration-300  focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4"
 	aria-label={`Go to ${project.title} case study`}
 >
 	<div class="relative h-[210px] overflow-hidden bg-[linear-gradient(135deg,var(--gradient-purple),var(--gradient-blue),var(--gradient-pink))] sm:h-[260px]">

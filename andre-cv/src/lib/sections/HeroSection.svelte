@@ -17,26 +17,6 @@
 	}}
 >
 
-	<div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 hidden xl:block">
-		<img
-			src="/images/hero/creature-1.png"
-			alt=""
-			width="160"
-			height="160"
-			loading="lazy"
-			decoding="async"
-			class="absolute right-[max(1rem,calc((100vw-85rem)/2))] top-[13rem] w-28 xl:right-[max(1.5rem,calc((100vw-88rem)/2))] xl:w-36"
-		/>
-		<img
-			src="/images/hero/creature-2.png"
-			alt=""
-			width="160"
-			height="160"
-			loading="lazy"
-			decoding="async"
-			class="absolute bottom-3 left-[max(1rem,calc((100vw-85rem)/2))] w-28 xl:left-[max(1.5rem,calc((100vw-88rem)/2))] xl:w-36"
-		/>
-	</div>
 
 	<div class="relative z-10 mx-auto max-w-6xl">
 		<div class="mx-auto flex max-w-4xl flex-col items-center text-center">
@@ -62,7 +42,7 @@
 				I turn <span class="brand-gradient-text">complex products</span> into clear, accessible experiences.
 			</h1>
 
-			<p data-hero-reveal class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-secondary md:text-xl">
+			<p data-hero-reveal class="mx-auto mt-2 max-w-2xl text-lg leading-relaxed text-secondary md:text-xl">
 				{profile.heroSummary}
 			</p>
 

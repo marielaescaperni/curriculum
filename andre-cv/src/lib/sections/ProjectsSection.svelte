@@ -38,8 +38,8 @@
 				<p data-projects-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-muted)]">
 					Featured case studies
 				</p>
-				<h2 data-projects-reveal class="font-display max-w-xl text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl">
-					Complex products, clearer experiences.
+				<h2 data-projects-reveal class="font-display max-w-xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">
+					Complex products,<br> clear experiences.
 				</h2>
 				<p data-projects-reveal class="max-w-md text-lg leading-relaxed text-[var(--color-text-secondary)]">
 					A selection of product design and UX engineering work across enterprise platforms, accessible telecom experiences and content-driven websites. Explore the projects to see the decisions, constraints and solutions behind each one.
@@ -63,7 +63,6 @@
 						</div>
 					{/each}
 				</EmblaCarousel>
-				<p class="mt-2 text-xs text-muted-custom">Explore projects with the arrows or swipe. Select a card to read the full case study.</p>
 			</div>
 		</div>
 

@@ -57,7 +57,7 @@
 <section aria-labelledby="proof-title" class="px-6 pb-8 md:pb-14">
 	<div class="mx-auto max-w-6xl">
 		<div class="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
-			<div class="flex flex-col justify-center gap-3 rounded-[var(--radius-card)] bg-white/55 p-6 md:col-span-2 lg:col-span-2">
+			<div class="flex flex-col justify-center gap-3 p-6 md:col-span-2 lg:col-span-2">
 				<p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-custom">Selected impact</p>
 				<h2 id="proof-title" class="font-display max-w-lg text-4xl font-semibold leading-[0.97] tracking-[-0.05em] text-primary sm:text-5xl">
 					Good design, measurable impact.
