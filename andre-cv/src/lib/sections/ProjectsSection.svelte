@@ -78,7 +78,22 @@
 				</p>
 			</div>
 
-			<div class="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3">
+			<div class="min-w-0 md:hidden" data-projects-reveal>
+				<EmblaCarousel
+					ariaLabel="Other selected work"
+					className="-mx-6 px-6 pb-3"
+					containerClassName="gap-4"
+					options={{ align: 'start', containScroll: 'trimSnaps', dragFree: false }}
+				>
+					{#each selectedWork as project (project.slug)}
+						<div class="min-w-0 flex-[0_0_100%]">
+							<SelectedWorkFlipCard {project} />
+						</div>
+					{/each}
+				</EmblaCarousel>
+			</div>
+
+			<div class="hidden items-stretch gap-5 md:grid md:grid-cols-2 xl:grid-cols-3">
 				{#each selectedWork as project (project.slug)}
 					<div data-projects-reveal class="min-w-0">
 						<SelectedWorkFlipCard {project} />
