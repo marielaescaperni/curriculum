@@ -188,7 +188,6 @@
 <style>
 	.skill-slider {
 		scrollbar-width: none;
-		touch-action: pan-y;
 	}
 
 	.skill-slider::-webkit-scrollbar {
