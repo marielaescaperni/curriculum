@@ -4,7 +4,7 @@
 	const highlights = [
 		{
 			id: 'telecom',
-			project: telecomOpenApi,
+			slug: telecomOpenApi.slug,
 			color: '#FFF0A9',
 			logo: '/logos/symphonica.png',
 			logoAlt: 'Symphonica',
@@ -15,7 +15,7 @@
 		},
 		{
 			id: 'phreeli',
-			project: phreeli,
+			slug: phreeli.slug,
 			color: '#E8DFFF',
 			logo: '/logos/phreeli.png',
 			logoAlt: 'Phreeli',
@@ -26,7 +26,7 @@
 		},
 		{
 			id: 'connector',
-			project: connectorStudio,
+			slug: connectorStudio.slug,
 			color: '#D3F0D9',
 			logo: '/logos/symphonica.png',
 			logoAlt: 'Symphonica',
@@ -37,7 +37,7 @@
 		},
 		{
 			id: 'vocal-transformation',
-			project: vocalTransformation,
+			slug: vocalTransformation.slug,
 			color: '#FBDDE8',
 			logo: '/logos/vocal-transformation.png',
 			logoAlt: 'Vocal Transformation',
@@ -64,39 +64,23 @@
 				</p>
 			</div>
 
-			<a href={`/projects/${highlights[0].project.slug}`} class="group flex min-h-[230px] flex-col rounded-[var(--radius-card)] p-5 transition-transform duration-300 hover:-translate-y-1" style:background={highlights[0].color}>
-				<p class="font-display text-3xl font-semibold leading-tight tracking-tight text-primary">{highlights[0].metric}</p>
-				<p class="mt-2 text-sm leading-relaxed text-secondary">{highlights[0].detail}</p>
-				<div class="mt-auto flex min-h-10 items-end justify-between gap-3 pt-8">
-					{#if !failedLogos.includes(highlights[0].id)}
-						<img src={highlights[0].logo} alt={highlights[0].logoAlt} loading="lazy" class="max-h-9 max-w-[65%] object-contain object-left" onerror={() => failedLogos = [...failedLogos, highlights[0].id]} />
-					{:else}
-						<span class="text-xs font-bold text-primary">{highlights[0].brand}</span>
-					{/if}
-					<span class="material-symbols-rounded text-xl text-primary transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_outward</span>
-				</div>
-			</a>
-
-			<a href={`/projects/${highlights[1].project.slug}`} class="group flex min-h-[230px] flex-col rounded-[var(--radius-card)] p-5 transition-transform duration-300 hover:-translate-y-1" style:background={highlights[1].color}>
-				<p class="font-display text-3xl font-semibold leading-tight tracking-tight text-primary">{highlights[1].metric}</p>
-				<p class="mt-2 text-sm leading-relaxed text-secondary">{highlights[1].detail}</p>
-				<div class="mt-auto flex min-h-10 items-end justify-between gap-3 pt-8">
-					{#if !failedLogos.includes(highlights[1].id)}
-						<img src={highlights[1].logo} alt={highlights[1].logoAlt} loading="lazy" class="max-h-9 max-w-[65%] object-contain object-left" onerror={() => failedLogos = [...failedLogos, highlights[1].id]} />
-					{:else}
-						<span class="text-xs font-bold text-primary">{highlights[1].brand}</span>
-					{/if}
-					<span class="material-symbols-rounded text-xl text-primary transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_outward</span>
-				</div>
-			</a>
-
-			{#each highlights.slice(2) as highlight (highlight.id)}
-				<a href={`/projects/${highlight.project.slug}`} class="group flex min-h-[230px] flex-col rounded-[var(--radius-card)] p-5 transition-transform duration-300 hover:-translate-y-1" style:background={highlight.color}>
+			{#each highlights as highlight (highlight.id)}
+				<a
+					href={`/projects/${highlight.slug}`}
+					class="group flex min-h-[230px] flex-col rounded-[var(--radius-card)] p-5 transition-transform duration-300 hover:-translate-y-1"
+					style:background={highlight.color}
+				>
 					<p class="font-display text-3xl font-semibold leading-tight tracking-tight text-primary">{highlight.metric}</p>
 					<p class="mt-2 text-sm leading-relaxed text-secondary">{highlight.detail}</p>
 					<div class="mt-auto flex min-h-10 items-end justify-between gap-3 pt-8">
 						{#if !failedLogos.includes(highlight.id)}
-							<img src={highlight.logo} alt={highlight.logoAlt} loading="lazy" class="max-h-9 max-w-[65%] object-contain object-left" onerror={() => failedLogos = [...failedLogos, highlight.id]} />
+							<img
+								src={highlight.logo}
+								alt={highlight.logoAlt}
+								loading="lazy"
+								class="max-h-9 max-w-[65%] object-contain object-left"
+								onerror={() => failedLogos = [...failedLogos, highlight.id]}
+							/>
 						{:else}
 							<span class="text-xs font-bold text-primary">{highlight.brand}</span>
 						{/if}
