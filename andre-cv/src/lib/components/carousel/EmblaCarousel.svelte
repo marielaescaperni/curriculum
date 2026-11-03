@@ -6,6 +6,7 @@
 	type Props = {
 		options?: EmblaOptionsType;
 		className?: string;
+		ariaLabel?: string;
 		containerClassName?: string;
 		children: Snippet;
 	};
@@ -17,6 +18,7 @@
 			dragFree: false
 		},
 		className = '',
+		ariaLabel = 'Featured project case studies',
 		containerClassName = '',
 		children
 	}: Props = $props();
@@ -47,7 +49,7 @@
 	});
 </script>
 
-<div role="region" aria-roledescription="carousel" aria-label="Featured project case studies">
+<div role="region" aria-roledescription="carousel" aria-label={ariaLabel}>
 	<div
 		class={`overflow-hidden ${className}`}
 		use:emblaCarouselSvelte={{ options, plugins: [] }}
