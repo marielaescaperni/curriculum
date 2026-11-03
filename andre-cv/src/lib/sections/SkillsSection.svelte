@@ -49,8 +49,8 @@
 		const target = slides?.[nextIndex];
 		if (!target || !slider) return;
 		slider.scrollTo({
-			left: target.offsetLeft - slides![0].offsetLeft,
-			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+			left: target.offsetLeft - slides[0].offsetLeft,
+			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
 		});
 		activeIndex = nextIndex;
 	}
@@ -88,7 +88,7 @@
 >
 	<div class="mx-auto max-w-6xl">
 		<div class="grid min-w-0 items-stretch gap-6 rounded-[var(--radius-panel)] bg-[color-mix(in_srgb,var(--gradient-blue)_20%,white)] p-4 sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10 lg:p-10">
-			<div data-skills-reveal class="min-w-0 lg:py-2">
+			<div data-skills-reveal class="order-2 min-w-0 lg:order-1 lg:py-2">
 				<div
 					bind:this={slider}
 					onscroll={updateActiveSlide}
@@ -132,7 +132,7 @@
 				</div>
 			</div>
 
-			<div data-skills-reveal class="flex flex-col justify-center px-2 py-7 text-center sm:px-6 lg:order-last lg:px-0 lg:text-left">
+			<div data-skills-reveal class="order-1 flex flex-col justify-center px-2 py-7 text-center sm:px-6 lg:order-2 lg:px-0 lg:text-left">
 				<p class="text-xs font-semibold uppercase tracking-[0.28em] text-muted-custom">Capabilities</p>
 				<h2 id="skills-heading" class="font-display mt-5 text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-primary sm:text-5xl lg:text-[3.5rem]">
 					What I bring to a product team.
