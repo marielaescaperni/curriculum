@@ -17,7 +17,7 @@
 	}}
 >
 
-	<div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 hidden lg:block">
+	<div aria-hidden="true" class="pointer-events-none absolute inset-0 z-0 hidden xl:block">
 		<img
 			src="/images/hero/creature-1.png"
 			alt=""
