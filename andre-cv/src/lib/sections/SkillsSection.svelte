@@ -123,7 +123,7 @@
 	aria-labelledby="skills-heading"
 >
 	<div class="mx-auto max-w-6xl">
-		<div class="grid min-w-0 items-stretch gap-6 rounded-[var(--radius-panel)] bg-[color-mix(in_srgb,var(--gradient-blue)_20%,white)] p-4 sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10 lg:p-10">
+		<div class="grid min-w-0 items-stretch gap-6 rounded-[var(--radius-panel)] bg-[var(--gradient-blue)] p-4 sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10 lg:p-10">
 			<div data-skills-reveal class="order-2 min-w-0 lg:order-1 lg:py-2">
 				<div
 					bind:this={slider}
@@ -148,7 +148,6 @@
 						>
 							<div class="flex items-start justify-between gap-4">
 								<p class="max-w-[75%] text-xs font-semibold uppercase tracking-[0.16em] text-muted-custom">{group.kicker}</p>
-								<span aria-hidden="true" class="material-symbols-rounded flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--skill-accent)_35%,white)] text-primary">{group.icon}</span>
 							</div>
 							<h3 class="font-display mt-7 text-4xl font-semibold leading-none tracking-[-0.04em] text-primary sm:text-5xl">{group.title}</h3>
 							<div class="mt-auto flex flex-wrap gap-2 pt-10">
@@ -173,11 +172,11 @@
 			</div>
 
 			<div data-skills-reveal class="order-1 flex flex-col justify-center px-2 py-7 text-center sm:px-6 lg:order-2 lg:px-0 lg:text-left">
-				<p class="text-xs font-semibold uppercase tracking-[0.28em] text-muted-custom">Capabilities</p>
-				<h2 id="skills-heading" class="font-display mt-5 text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-primary sm:text-5xl lg:text-[3.5rem]">
+				<p class="text-xs font-semibold uppercase tracking-[0.28em] text-white">Capabilities</p>
+				<h2 id="skills-heading" class="font-display mt-5 text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-5xl lg:text-[3.5rem]">
 					What I bring to a product team.
 				</h2>
-				<p class="mt-6 max-w-lg text-base leading-relaxed text-secondary sm:text-lg">
+				<p class="mt-6 max-w-lg text-base leading-relaxed text-white sm:text-lg">
 					A focused view of the capabilities I use most often. The full toolkit and technical stack are available in my CV.
 				</p>
 			</div>

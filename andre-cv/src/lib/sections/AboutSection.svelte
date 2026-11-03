@@ -87,12 +87,12 @@
 				<article
 					data-about-reveal
 					style:--card-accent={note.accent}
-					class="group rounded-3xl border border-white/70 bg-white/45 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] hover:border-transparent hover:bg-[var(--card-accent)]"
+					class="group rounded-2xl bg-white p-5 shadow-[0_18px_60px_rgba(0,0,0,0.05)] transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] hover:bg-[var(--card-accent)] text-black"
 				>
-					<p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-muted-custom transition duration-300 group-hover:text-black/65">
+					<p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] transition duration-300">
 						{note.label}
 					</p>
-					<p class="text-sm leading-relaxed text-secondary transition duration-300 group-hover:text-black">
+					<p class="text-sm leading-relaxed text-secondary transition duration-300 ">
 						{note.text}
 					</p>
 				</article>
