@@ -7,7 +7,7 @@
 </script>
 
 <section
-	class="relative overflow-hidden px-6 pb-20 pt-36 md:pb-24 md:pt-40"
+	class="relative overflow-hidden px-6 pb-20 pt-36 md:pb-28 md:pt-44"
 	use:animateOnView={{
 		selector: '[data-hero-reveal]',
 		y: 24,
@@ -17,12 +17,12 @@
 	}}
 >
 	<div class="mx-auto max-w-6xl">
-		<div class="max-w-5xl">
+		<div class="mx-auto flex max-w-5xl flex-col items-center text-center">
 			<p data-hero-reveal class="mb-5 text-sm font-semibold text-secondary md:text-base">
 				{profile.role}
 			</p>
 
-			<div class="mb-7 flex flex-wrap gap-3">
+			<div class="mb-7 flex flex-wrap justify-center gap-3">
 				{#each highlights as item}
 					<span
 						data-hero-reveal
@@ -35,16 +35,16 @@
 
 			<h1
 				data-hero-reveal
-				class="font-display max-w-5xl text-balance text-5xl font-semibold leading-[0.96] tracking-tight text-[var(--color-text-primary)] md:text-7xl lg:text-[5.5rem]"
+				class="font-display mx-auto max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-[var(--color-text-primary)] sm:text-6xl lg:text-[5.25rem]"
 			>
 				I turn <span class="brand-gradient-text">complex products</span> into clear, accessible experiences.
 			</h1>
 
-			<p data-hero-reveal class="mt-8 max-w-2xl text-lg leading-relaxed text-secondary md:text-xl">
+			<p data-hero-reveal class="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-secondary md:text-xl">
 				{profile.heroSummary}
 			</p>
 
-			<div data-hero-reveal class="mt-9 flex flex-wrap gap-4">
+			<div data-hero-reveal class="mt-9 flex w-full flex-wrap justify-center gap-4 sm:w-auto">
 				<Button href="#projects" label="My work :)" variant="primary" />
 				<Button href="#contact" label="Let's talk" variant="secondary" />
 			</div>
