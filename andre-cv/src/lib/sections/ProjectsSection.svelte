@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import FeaturedProjectSlide from '$lib/components/projects/FeaturedProjectSlide.svelte';
-	import { featuredProjects, secondaryProjects, archiveProjects } from '$lib/data/projects';
+	import { featuredProjects, secondaryProjects, archiveProjects, mapperBpmRework } from '$lib/data/projects';
 	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
 
 	let openSecondaryProject = $state<string | null>(null);
@@ -73,16 +73,16 @@
 
 			<div class="grid auto-rows-auto gap-4 md:grid-cols-2 lg:grid-cols-4">
 				<a
-					href="/projects/mapper-bpm-rework"
+					href={`/projects/${mapperBpmRework.slug}`}
 					data-projects-reveal
 					class="group flex h-full flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1 md:col-span-2"
 				>
 					<div class="flex min-h-[270px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--gradient-orange)_28%,white)] p-6 sm:p-7">
-						<p class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">2023 · UX/UI Designer</p>
-						<h3 class="font-display mt-4 max-w-md text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary sm:text-4xl">Mapper BPM Rework</h3>
-						<p class="mt-4 max-w-lg text-sm leading-relaxed text-secondary sm:text-base">Reworked a JSON-heavy BPM mapper into a clearer visual workflow for users with limited programming experience.</p>
+						<p class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">{mapperBpmRework.period} · {mapperBpmRework.meta.role}</p>
+						<h3 class="font-display mt-4 max-w-md text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary sm:text-4xl">{mapperBpmRework.title}</h3>
+						<p class="mt-4 max-w-lg text-sm leading-relaxed text-secondary sm:text-base">{mapperBpmRework.description}</p>
 						<div class="mt-auto flex flex-wrap gap-2 pt-6">
-							{#each ['Enterprise UX', 'Workflows', 'UI'] as tag}
+							{#each mapperBpmRework.tags.slice(0, 4) as tag}
 								<span class="rounded-full bg-white/45 px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
 							{/each}
 						</div>
@@ -90,7 +90,7 @@
 					<div class="flex min-h-14 items-center justify-between px-5 py-3">
 						<span class="text-sm font-semibold text-primary">View case study</span>
 						<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
-							<span class="material-symbols-rounded">arrow_upward</span>
+							<span class="material-symbols-rounded">arrow_outward</span>
 						</span>
 					</div>
 				</a>
