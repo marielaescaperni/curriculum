@@ -11,8 +11,8 @@
 	use:animateOnView={{
 		selector: '[data-hero-reveal]',
 		y: 24,
-		duration: 2200,
-		delay: 250,
+		duration: 850,
+		delay: 80,
 		threshold: 0.16
 	}}
 >
@@ -75,6 +75,8 @@
 								alt=""
 								width="800"
 								height="1000"
+								loading="eager"
+								fetchpriority="high"
 								decoding="async"
 								class="w-full max-w-[12.5rem] rounded-[2rem] md:max-w-[13.5rem] border border-white/70 object-cover shadow-[0_20px_60px_rgba(17,17,17,0.16)]"
 							/>
