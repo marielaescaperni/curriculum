@@ -1,29 +1,134 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
+	import { profile } from '$lib/data/profile';
+
+	let name = $state('');
+	let email = $state('');
+	let message = $state('');
+	let website = $state('');
+	let sending = $state(false);
+	let status = $state<'idle' | 'success' | 'error'>('idle');
+	let feedback = $state('');
+
+	async function submitContact(event: SubmitEvent) {
+		event.preventDefault();
+		if (sending) return;
+
+		sending = true;
+		status = 'idle';
+		feedback = '';
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ name, email, message, website })
+			});
+			const result: { message?: string } = await response.json();
+			if (!response.ok) throw new Error(result.message ?? 'Could not send your message.');
+
+			status = 'success';
+			feedback = result.message ?? 'Thanks! Your message has been sent.';
+			name = '';
+			email = '';
+			message = '';
+			website = '';
+		} catch (error) {
+			status = 'error';
+			feedback = error instanceof Error ? error.message : 'Could not send your message.';
+		} finally {
+			sending = false;
+		}
+	}
 </script>
 
 <section class="px-6 py-24">
-	<div
-		id="contact"
-		class="relative mx-auto max-w-6xl scroll-mt-4 overflow-hidden rounded-3xl bg-main-gradient p-10 text-black md:p-16"
-	>
-		<div class="bg-main-gradient absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-30 blur-3xl"></div>
-
-		<div class="relative z-10">
-			<p class="text-sm uppercase tracking-[0.3em] text-black">Let’s talk</p>
-
-			<h2 class="mt-4 max-w-4xl font-display text-4xl font-semibold leading-none md:text-6xl">
-				Hiring for a Senior Product Designer or someone who can bridge product design and implementation?
-			</h2>
-
-			<p class="mt-6 max-w-2xl text-base leading-7 md:text-lg">
-				I’m interested in product teams working on complex SaaS, enterprise, mobile or accessibility-heavy experiences. I’d love to hear what you’re building :)
+	<div id="contact" class="mx-auto max-w-6xl scroll-mt-[100px]">
+		<div class="mb-10 max-w-2xl space-y-4">
+			<p class="text-xs font-semibold uppercase tracking-[0.25em] text-muted-custom">Get in touch</p>
+			<h2 class="font-display text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-primary md:text-6xl">Let's talk about what you're building.</h2>
+			<p class="text-lg leading-relaxed text-secondary">
+				Hiring for a product designer or need someone who can connect design and implementation? I'd love to hear from you :)
 			</p>
+		</div>
 
-			<div class="mt-8 flex flex-col gap-3 sm:flex-row">
-				<Button href="mailto:marielaescalantep@gmail.com" label="Email me" variant="primary" />
-				<Button href="https://www.linkedin.com/in/mariela-escalante" label="LinkedIn" variant="secondary" target="_blank" rel="noreferrer" />
+		<div class="grid items-start gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+				<a
+					href={`mailto:${profile.email}`}
+					class="group flex min-h-32 items-start gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/60 p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1"
+				>
+					<span aria-hidden="true" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--gradient-purple)_35%,white)] text-primary">
+						<span class="material-symbols-rounded">mail</span>
+					</span>
+					<span class="min-w-0">
+						<span class="block text-xs font-semibold uppercase tracking-[0.14em] text-muted-custom">Email</span>
+						<span class="mt-2 block break-all text-sm font-semibold text-primary sm:text-base">{profile.email}</span>
+						<span class="mt-2 block text-xs text-secondary">Reach out directly</span>
+					</span>
+				</a>
+
+				<a
+					href={profile.socials.linkedin}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group flex min-h-32 items-start gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/60 p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1"
+				>
+					<span aria-hidden="true" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--gradient-blue)_35%,white)] text-primary">
+						<span class="material-symbols-rounded">work</span>
+					</span>
+					<span>
+						<span class="block text-xs font-semibold uppercase tracking-[0.14em] text-muted-custom">LinkedIn</span>
+						<span class="mt-2 block text-base font-semibold text-primary">Connect with me</span>
+						<span class="mt-2 block text-xs text-secondary">Professional opportunities and collaborations</span>
+					</span>
+				</a>
 			</div>
+
+			<form
+				onsubmit={submitContact}
+				class="rounded-[var(--radius-panel)] border border-white/70 bg-white/65 p-6 shadow-[0_24px_80px_rgba(17,17,17,0.07)] backdrop-blur-md sm:p-8"
+			>
+				<h3 class="font-display text-3xl font-semibold tracking-[-0.04em] text-primary">Send me a message</h3>
+				<p class="mt-2 text-sm leading-relaxed text-secondary">Tell me a little about your project or opportunity.</p>
+
+				<div class="mt-7 grid gap-5">
+					<div class="grid gap-2">
+						<label for="contact-name" class="text-sm font-semibold text-primary">Your name</label>
+						<input id="contact-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="100" bind:value={name}
+							class="min-h-12 w-full rounded-2xl border border-black/20 bg-white/80 px-4 py-3 text-base text-primary outline-offset-4 focus-visible:outline-3 focus-visible:outline-[#111111]"
+							placeholder="How should I call you?" />
+					</div>
+					<div class="grid gap-2">
+						<label for="contact-email" class="text-sm font-semibold text-primary">Email address</label>
+						<input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" bind:value={email}
+							class="min-h-12 w-full rounded-2xl border border-black/20 bg-white/80 px-4 py-3 text-base text-primary outline-offset-4 focus-visible:outline-3 focus-visible:outline-[#111111]"
+							placeholder="you@example.com" />
+					</div>
+					<div class="grid gap-2">
+						<label for="contact-message" class="text-sm font-semibold text-primary">Your message</label>
+						<textarea id="contact-message" name="message" required minlength="10" maxlength="5000" rows="5" bind:value={message}
+							class="w-full resize-y rounded-2xl border border-black/20 bg-white/80 px-4 py-3 text-base text-primary outline-offset-4 focus-visible:outline-3 focus-visible:outline-[#111111]"
+							placeholder="What would you like to work on together?"></textarea>
+					</div>
+					<div class="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+						<label for="contact-website">Leave this field empty</label>
+						<input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" bind:value={website} />
+					</div>
+					<button
+						type="submit"
+						disabled={sending}
+						class="flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#111111] px-6 py-3 text-base font-bold text-white transition-colors duration-200 hover:bg-[#274C47] disabled:cursor-wait disabled:opacity-60"
+					>
+						{sending ? 'Sending...' : 'Send message'}
+						<span class="material-symbols-rounded text-xl" aria-hidden="true">arrow_forward</span>
+					</button>
+					{#if feedback}
+						<p role={status === 'error' ? 'alert' : 'status'} class={status === 'error' ? 'text-sm font-medium text-[#A12C25]' : 'text-sm font-medium text-[#215B44]'}>
+							{feedback}
+						</p>
+					{/if}
+				</div>
+			</form>
 		</div>
 	</div>
 </section>
