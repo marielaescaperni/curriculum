@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
-	import ProjectCard from '$lib/components/projects/ProjectCard.svelte';
+	import FeaturedProjectSlide from '$lib/components/projects/FeaturedProjectSlide.svelte';
 	import { featuredProjects, secondaryProjects, archiveProjects } from '$lib/data/projects';
 	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
 
@@ -26,46 +26,37 @@
 	}}
 >
 	<div id="projects" class="mx-auto max-w-6xl scroll-mt-4 space-y-20">
-		<div class="space-y-10">
-			<div class="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
-				<div class="space-y-4">
-					<p data-projects-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-muted)]">Featured case studies</p>
-					<h2 data-projects-reveal class="max-w-xl font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl">
-						Complex products, clearer experiences.
-					</h2>
-				</div>
-
-				<p data-projects-reveal class="max-w-2xl text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl">
-					A selection of product-design work across accessibility, enterprise telecom, native mobile and UX engineering — with the decisions, constraints and outcomes behind each project.
+		<div class="grid items-start gap-10 lg:grid-cols-[minmax(0,0.68fr)_minmax(0,1.32fr)] lg:gap-12">
+			<div class="space-y-6 lg:sticky lg:top-32">
+				<p data-projects-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-muted)]">
+					Featured case studies
 				</p>
+				<h2 data-projects-reveal class="font-display max-w-xl text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-6xl">
+					Complex products, clearer experiences.
+				</h2>
+				<p data-projects-reveal class="max-w-md text-lg leading-relaxed text-[var(--color-text-secondary)]">
+					A selection of product design and UX engineering work across enterprise platforms, accessible telecom experiences and content-driven websites. Explore the projects to see the decisions, constraints and solutions behind each one.
+				</p>
+				<div class="flex flex-wrap gap-2" aria-label="Selected areas of expertise">
+					{#each ['Product Design', 'Accessible UX', 'UX Engineering'] as tag}
+						<span class="rounded-full border border-soft bg-surface px-3 py-2 text-xs font-semibold text-secondary">{tag}</span>
+					{/each}
+				</div>
 			</div>
 
-			<div class="md:hidden">
+			<div class="min-w-0" data-projects-reveal>
 				<EmblaCarousel
-					className="-mx-6 px-6 pb-4"
+					className="-mx-6 px-6 pb-3 lg:mx-0 lg:px-0"
 					containerClassName="gap-5"
 					options={{ align: 'start', containScroll: 'trimSnaps', dragFree: false }}
 				>
 					{#each featuredProjects as project, index}
-						<ProjectCard
-							className="min-w-0 flex-[0_0_84%]"
-							{project}
-							index={index + 1}
-							accent={projectAccents[index % projectAccents.length]}
-						/>
+						<div class="min-w-0 flex-[0_0_84%] sm:flex-[0_0_62%] lg:flex-[0_0_72%]">
+							<FeaturedProjectSlide {project} {index} />
+						</div>
 					{/each}
 				</EmblaCarousel>
-			</div>
-
-			<div class="hidden gap-6 md:grid md:grid-cols-2">
-				{#each featuredProjects as project, index}
-					<ProjectCard
-						className="w-full min-w-0"
-						{project}
-						index={index + 1}
-						accent={projectAccents[index % projectAccents.length]}
-					/>
-				{/each}
+				<p class="mt-2 text-xs text-muted-custom">Explore projects with the arrows or swipe. Select a card to read the full case study.</p>
 			</div>
 		</div>
 
