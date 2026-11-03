@@ -17,6 +17,7 @@
 	let manualFlip = $state(false);
 	let suppressHover = $state(false);
 	let flipped = $derived(manualFlip || (hovered && !suppressHover));
+	let touchStart: { x: number; y: number } | null = null;
 
 	function handlePointerEnter(event: PointerEvent) {
 		if (event.pointerType === 'mouse') hovered = true;
@@ -25,6 +26,20 @@
 	function handlePointerLeave() {
 		hovered = false;
 		suppressHover = false;
+	}
+
+	function handlePointerDown(event: PointerEvent) {
+		if (event.pointerType === 'touch') {
+			touchStart = { x: event.clientX, y: event.clientY };
+		}
+	}
+
+	function handlePointerUp(event: PointerEvent) {
+		if (event.pointerType !== 'touch' || !touchStart) return;
+		const moved = Math.hypot(event.clientX - touchStart.x, event.clientY - touchStart.y);
+		touchStart = null;
+		if (moved > 12 || (event.target as HTMLElement).closest('button, a')) return;
+		manualFlip = !manualFlip;
 	}
 
 	function showDetails() {
@@ -43,6 +58,9 @@
 	style:--card-accent={project.accent ?? 'var(--gradient-purple)'}
 	onpointerenter={handlePointerEnter}
 	onpointerleave={handlePointerLeave}
+	onpointerdown={handlePointerDown}
+	onpointerup={handlePointerUp}
+	onpointercancel={() => touchStart = null}
 	aria-label={project.title}
 >
 	<div class="flip-stage">
