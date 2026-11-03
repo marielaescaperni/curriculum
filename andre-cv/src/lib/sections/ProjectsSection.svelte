@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import FeaturedProjectSlide from '$lib/components/projects/FeaturedProjectSlide.svelte';
+	import SelectedWorkFlipCard from '$lib/components/projects/SelectedWorkFlipCard.svelte';
 	import { featuredProjects, secondaryProjects, archiveProjects, mapperBpmRework } from '$lib/data/projects';
 	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
 
-	let openSecondaryProject = $state<string | null>(null);
 
 	const selectedWork = [
 		{
@@ -13,6 +13,7 @@
 			role: mapperBpmRework.meta.role,
 			period: mapperBpmRework.period,
 			description: mapperBpmRework.description,
+			highlight: mapperBpmRework.details.overview,
 			tags: mapperBpmRework.tags,
 			accent: 'var(--gradient-orange)',
 			kind: 'case-study' as const
@@ -79,66 +80,9 @@
 
 			<div class="grid items-stretch gap-5 md:grid-cols-2 xl:grid-cols-3">
 				{#each selectedWork as project (project.slug)}
-					<article
-						data-projects-reveal
-						class="flex min-w-0 flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)]"
-					>
-						<div
-							style:--card-accent={project.accent ?? 'var(--gradient-purple)'}
-							class="flex min-h-[300px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--card-accent)_28%,white)] p-6"
-						>
-							<p class="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">
-								{project.period} · {project.role}
-							</p>
-							<h3 class="font-display mt-4 text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary">
-								{project.title}
-							</h3>
-							<p class="mt-4 text-sm leading-relaxed text-secondary">{project.description}</p>
-							<div class="mt-auto flex flex-wrap gap-2 pt-6">
-								{#each project.tags as tag}
-									<span class="rounded-full bg-white/50 px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
-								{/each}
-							</div>
-						</div>
-
-						{#if project.kind === 'case-study'}
-							<a
-								href={`/projects/${project.slug}`}
-								class="group flex min-h-14 items-center justify-between rounded-b-[var(--radius-card)] px-5 py-3"
-							>
-								<span class="text-sm font-semibold text-primary">View case study</span>
-								<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
-									<span class="material-symbols-rounded">arrow_outward</span>
-								</span>
-							</a>
-						{:else}
-							<button
-								type="button"
-								aria-expanded={openSecondaryProject === project.slug}
-								aria-controls={`selected-work-${project.slug}`}
-								onclick={() => {
-									openSecondaryProject = openSecondaryProject === project.slug ? null : project.slug;
-								}}
-								class="group flex min-h-14 w-full items-center justify-between rounded-b-[var(--radius-card)] px-5 py-3 text-left"
-							>
-								<span class="text-sm font-semibold text-primary">
-									{openSecondaryProject === project.slug ? 'Show less' : 'Explore project'}
-								</span>
-								<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
-									<span class="material-symbols-rounded">{openSecondaryProject === project.slug ? 'remove' : 'arrow_forward'}</span>
-								</span>
-							</button>
-							<div
-								id={`selected-work-${project.slug}`}
-								hidden={openSecondaryProject !== project.slug}
-								class="px-5 pb-5"
-							>
-								<p class="rounded-2xl bg-[var(--color-bg)] p-4 text-sm leading-relaxed text-secondary">
-									{project.highlight}
-								</p>
-							</div>
-						{/if}
-					</article>
+					<div data-projects-reveal class="min-w-0">
+						<SelectedWorkFlipCard {project} />
+					</div>
 				{/each}
 			</div>
 		</div>
