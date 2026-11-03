@@ -71,56 +71,67 @@
 				</p>
 			</div>
 
-			<div class="grid gap-4 md:grid-cols-2">
+			<div class="grid auto-rows-auto gap-4 md:grid-cols-2 lg:grid-cols-4">
 				<a
 					href="/projects/mapper-bpm-rework"
 					data-projects-reveal
-					style:--project-accent={'var(--gradient-orange)'}
-					class="group relative overflow-hidden rounded-[var(--radius-card)] border border-white/70 bg-white/45 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--project-accent)]"
+					class="group flex h-full flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1 md:col-span-2"
 				>
-					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition group-hover:text-black/65">2023 · UX/UI Designer · Full case study</p>
-					<div class="mt-4 flex items-start justify-between gap-4">
-						<h3 class="font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition group-hover:text-black">Mapper BPM Rework</h3>
-						<span aria-hidden="true" class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 transition group-hover:bg-white/20 group-hover:text-black">arrow_outward</span>
+					<div class="flex min-h-[270px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--gradient-orange)_28%,white)] p-6 sm:p-7">
+						<p class="text-xs font-semibold uppercase tracking-[0.16em] text-secondary">2023 · UX/UI Designer</p>
+						<h3 class="font-display mt-4 max-w-md text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary sm:text-4xl">Mapper BPM Rework</h3>
+						<p class="mt-4 max-w-lg text-sm leading-relaxed text-secondary sm:text-base">Reworked a JSON-heavy BPM mapper into a clearer visual workflow for users with limited programming experience.</p>
+						<div class="mt-auto flex flex-wrap gap-2 pt-6">
+							{#each ['Enterprise UX', 'Workflows', 'UI'] as tag}
+								<span class="rounded-full bg-white/45 px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
+							{/each}
+						</div>
 					</div>
-					<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition group-hover:text-black/80">Reworked a JSON-heavy BPM mapper into a clearer visual workflow for users with limited programming experience.</p>
+					<div class="flex min-h-14 items-center justify-between px-5 py-3">
+						<span class="text-sm font-semibold text-primary">View case study</span>
+						<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary transition-transform duration-300 group-hover:translate-x-1">
+							<span class="material-symbols-rounded">arrow_upward</span>
+						</span>
+					</div>
 				</a>
 
 				{#each secondaryProjects as project, index}
-					<button
-						type="button"
+					<article
 						data-projects-reveal
-						aria-expanded={openSecondaryProject === project.slug}
-						aria-controls={`secondary-${project.slug}`}
-						style:--project-accent={project.accent ?? projectAccents[index % projectAccents.length]}
-						onclick={() => {
-							openSecondaryProject = openSecondaryProject === project.slug ? null : project.slug;
-						}}
-						class="group relative overflow-hidden rounded-[var(--radius-card)] border border-white/70 bg-white/45 p-6 text-left shadow-[0_18px_60px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-[var(--project-accent)]"
+						class={`flex h-full min-w-0 flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)] md:col-span-1 ${index === 2 ? 'lg:col-span-2' : ''}`}
 					>
-						<div class="relative z-10">
-							<div class="flex items-start justify-between gap-4">
-								<div>
-									<p class="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-muted)] transition duration-300 group-hover:text-black/65">{project.period} · {project.role}</p>
-									<h3 class="mt-4 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)] transition duration-300 group-hover:text-black">{project.title}</h3>
-								</div>
-								<span aria-hidden="true" class="material-symbols-rounded rounded-full border border-white/70 bg-white/45 p-2 text-[var(--color-text-primary)] transition duration-300 group-hover:bg-white/20 group-hover:text-black">{openSecondaryProject === project.slug ? 'remove' : 'add'}</span>
+						<div
+							style:--card-accent={project.accent ?? projectAccents[index % projectAccents.length]}
+							class="flex min-h-[270px] flex-1 flex-col rounded-[calc(var(--radius-card)-0.375rem)] bg-[color-mix(in_srgb,var(--card-accent)_28%,white)] p-6"
+						>
+							<p class="text-xs font-semibold uppercase tracking-[0.12em] text-secondary">{project.period} · {project.role}</p>
+							<h3 class="font-display mt-4 text-3xl font-semibold leading-[1.05] tracking-[-0.04em] text-primary">{project.title}</h3>
+							<p class="mt-4 text-sm leading-relaxed text-secondary">{project.description}</p>
+							<div class="mt-auto flex flex-wrap gap-2 pt-6">
+								{#each project.tags as tag}
+									<span class="rounded-full bg-white/50 px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
+								{/each}
 							</div>
-
-							<p class="mt-4 text-sm leading-relaxed text-[var(--color-text-secondary)] transition duration-300 group-hover:text-black/80">{project.description}</p>
-
-							{#if openSecondaryProject === project.slug}
-								<div id={`secondary-${project.slug}`} class="mt-6 space-y-5">
-									<p class="rounded-2xl border border-white/60 bg-white/45 p-4 text-sm leading-relaxed text-[var(--color-text-secondary)] backdrop-blur-md transition duration-300 group-hover:border-white/20 group-hover:bg-white/15 group-hover:text-black">{project.highlight}</p>
-									<div class="flex flex-wrap gap-2">
-										{#each project.tags as tag}
-											<span class="rounded-full border border-white/70 bg-white/55 px-3 py-1.5 text-xs font-medium text-[var(--color-text-secondary)] shadow-sm backdrop-blur-md transition duration-300 group-hover:border-white/25 group-hover:bg-white/20 group-hover:text-black">{tag}</span>
-										{/each}
-									</div>
-								</div>
-							{/if}
 						</div>
-					</button>
+
+						<button
+							type="button"
+							aria-expanded={openSecondaryProject === project.slug}
+							aria-controls={`secondary-${project.slug}`}
+							onclick={() => {
+								openSecondaryProject = openSecondaryProject === project.slug ? null : project.slug;
+							}}
+							class="group flex min-h-14 w-full items-center justify-between rounded-b-[var(--radius-card)] px-5 py-3 text-left"
+						>
+							<span class="text-sm font-semibold text-primary">{openSecondaryProject === project.slug ? 'Show less' : 'Explore project'}</span>
+							<span aria-hidden="true" class="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-bg)] text-primary">
+								<span class="material-symbols-rounded">{openSecondaryProject === project.slug ? 'remove' : 'arrow_forward'}</span>
+							</span>
+						</button>
+						<div id={`secondary-${project.slug}`} hidden={openSecondaryProject !== project.slug} class="px-5 pb-5">
+							<p class="rounded-2xl bg-[var(--color-bg)] p-4 text-sm leading-relaxed text-secondary">{project.highlight}</p>
+						</div>
+					</article>
 				{/each}
 			</div>
 
