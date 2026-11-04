@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { profile } from '$lib/data/profile';
+	import Button from '$lib/components/Button.svelte';
 
 	let name = $state('');
 	let email = $state('');
@@ -114,14 +115,9 @@
 						<label for="contact-website">Leave this field empty</label>
 						<input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" bind:value={website} />
 					</div>
-					<button
-						type="submit"
-						disabled={sending}
-						class="flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#111111] px-6 py-3 text-base font-bold text-white transition-colors duration-200 hover:bg-[#274C47] disabled:cursor-wait disabled:opacity-60"
-					>
-						{sending ? 'Sending...' : 'Send message'}
-						<span class="material-symbols-rounded text-xl" aria-hidden="true">arrow_forward</span>
-					</button>
+					<div class="flex justify-stretch sm:justify-end">
+						<Button type="submit" label={sending ? 'Sending...' : 'Send message'} variant="primary" disabled={sending} />
+					</div>
 					{#if feedback}
 						<p role={status === 'error' ? 'alert' : 'status'} class={status === 'error' ? 'text-sm font-medium text-[#A12C25]' : 'text-sm font-medium text-[#215B44]'}>
 							{feedback}
