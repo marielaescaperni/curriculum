@@ -57,10 +57,10 @@
 		<div class="mx-auto max-w-3xl space-y-4 text-center" data-experience-reveal>
 			<p class="text-xs font-semibold uppercase tracking-[0.28em] text-muted-custom">Experience</p>
 			<h2 id="experience-heading" class="font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-primary md:text-6xl">
-				Where I’ve designed, built and shipped products.
+				Amazing places I’ve <span class="brand-gradient-text">worked</span> in.
 			</h2>
 			<p class="text-lg leading-relaxed text-secondary">
-				Recent roles where product design, research, accessibility and implementation increasingly came together.
+				Roles where product design, research, accessibility and implementation increasingly came together.
 			</p>
 		</div>
 

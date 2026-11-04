@@ -60,7 +60,7 @@
 			<div class="flex flex-col justify-center gap-3 p-6 md:col-span-2 lg:col-span-2">
 				<p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-custom">Selected impact</p>
 				<h2 id="proof-title" class="font-display max-w-lg text-4xl font-semibold leading-[0.97] tracking-[-0.05em] text-primary sm:text-5xl">
-					Good design, measurable impact.
+					Good design, <span class="brand-gradient-text">measurable impact.</span>
 				</h2>
 				<p class="max-w-md text-sm leading-relaxed text-secondary sm:text-base">
 					Outcomes and delivery highlights from products I've helped design and build.

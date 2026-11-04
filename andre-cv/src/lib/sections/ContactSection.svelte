@@ -46,9 +46,9 @@
 	<div id="contact" class="mx-auto max-w-6xl scroll-mt-[100px]">
 		<div class="mb-10 max-w-2xl space-y-4">
 			<p class="text-xs font-semibold uppercase tracking-[0.25em] text-muted-custom">Get in touch</p>
-			<h2 class="font-display text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-primary md:text-6xl">Let's talk about what you're building.</h2>
+			<h2 class="font-display text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-primary md:text-6xl">Let's <span class="brand-gradient-text">create something amazing</span> together!</h2>
 			<p class="text-lg leading-relaxed text-secondary">
-				Hiring a Senior Product Designer or looking for help with UX/UI, accessibility or front-end implementation? Tell me about the opportunity — I'd love to hear from you :)
+				Hiring a Senior Product Designer or looking for help with UX/UI, accessibility or front-end implementation? I'd love to hear from you :)
 			</p>
 		</div>
 

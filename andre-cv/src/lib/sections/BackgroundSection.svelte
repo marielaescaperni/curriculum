@@ -20,13 +20,13 @@
 		<div class="space-y-4">
 			<p data-background-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-black">Background</p>
 			<h2 data-background-reveal class="max-w-sm font-display text-4xl font-semibold leading-[0.92] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">
-				Learning, recognition and languages.
+				A little bit more about <span class="brand-gradient-text">my background.</span>
 			</h2>
 		</div>
 
 		<div class="space-y-10">
 			<div data-background-reveal class="grid gap-4 sm:grid-cols-2">
-				<div class="rounded-[var(--radius-card)]  bg-[var(--gradient-pink)] p-6 backdrop-blur-md">
+				<div class="rounded-[var(--radius-card)]  bg-white p-6 backdrop-blur-md">
 					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-black">Education</p>
 					{#each education as item}
 						<h3 class="mt-4 font-display text-2xl font-semibold tracking-[-0.04em]">{item.title}</h3>
@@ -35,7 +35,7 @@
 					{/each}
 				</div>
 
-				<div class="rounded-[var(--radius-card)] bg-[var(--gradient-peach)] p-6 backdrop-blur-md">
+				<div class="rounded-[var(--radius-card)] bg-white p-6 backdrop-blur-md">
 					<p class="text-xs font-semibold uppercase tracking-[0.22em] text-black">Languages</p>
 					<div class="mt-4 space-y-4">
 						{#each languages as language}
@@ -55,7 +55,7 @@
 				</div>
 
 				{#each awards as item}
-					<article class="rounded-[var(--radius-card)]  bg-[var(--gradient-blue)] p-6 backdrop-blur-md">
+					<article class="rounded-[var(--radius-card)]  bg-white p-6 backdrop-blur-md">
 						<h4 class="font-display text-2xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)]">{item.title}</h4>
 						<p class="mt-3 text-sm text-black">{item.location}</p>
 						<p class="mt-4 text-base leading-relaxed text-black">{item.description}</p>

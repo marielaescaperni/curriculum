@@ -40,7 +40,7 @@
 					Featured case studies
 				</p>
 				<h2 data-projects-reveal class="font-display max-w-xl text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">
-					Complex products,<br> clear experiences.
+					Complex products,<br> <span class="brand-gradient-text">clear experiences.</span>
 				</h2>
 				<p data-projects-reveal class="max-w-md text-lg leading-relaxed text-[var(--color-text-secondary)]">
 					Explore product design case studies across enterprise SaaS, telecom and education platforms. Each project shows the UX decisions, accessibility considerations and engineering constraints behind the finished experience.
@@ -71,7 +71,7 @@
 			<div class="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
 				<div class="space-y-4">
 					<p data-projects-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-text-muted)]">More product work</p>
-					<h2 data-projects-reveal class="font-display text-4xl font-semibold leading-none tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">Other selected work</h2>
+					<h2 data-projects-reveal class="font-display text-4xl font-semibold leading-none tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">More of my work <span class="brand-gradient-text">:)</span> </h2>
 				</div>
 				<p data-projects-reveal class="max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)]">
 					More UX/UI and web design work, from complex enterprise workflows to partner portals, onboarding and visual experiences.

@@ -128,7 +128,7 @@
 	aria-labelledby="skills-heading"
 >
 	<div class="mx-auto max-w-6xl">
-		<div class="grid min-w-0 items-stretch gap-6 rounded-[var(--radius-panel)] bg-[var(--gradient-blue)] p-4 sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10 lg:p-10">
+		<div class="grid min-w-0 items-stretch gap-6 rounded-[var(--radius-panel)] bg-main-gradient p-4 sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-10 lg:p-10">
 			<div data-skills-reveal class="order-2 min-w-0 lg:order-1 lg:py-2">
 				<div
 					bind:this={slider}
@@ -165,7 +165,7 @@
 					{/each}
 				</div>
 				<div class="mt-4 flex items-center justify-between gap-4">
-					<p class="text-xs font-semibold tracking-[0.12em] text-white" aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}</p>
+					<p class="text-xs font-semibold tracking-[0.12em] text-black" aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}</p>
 					<div class="flex gap-2">
 						<button type="button" aria-label="Previous capability" disabled={activeIndex === 0} onclick={() => scrollToSlide(activeIndex - 1)} class="flex h-11 w-11 items-center justify-center rounded-full  bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
 							<span aria-hidden="true" class="material-symbols-rounded">arrow_back</span>
@@ -178,11 +178,11 @@
 			</div>
 
 			<div data-skills-reveal class="order-1 flex flex-col justify-center px-2 py-7 text-center sm:px-6 lg:order-2 lg:px-0 lg:text-left">
-				<p class="text-xs font-semibold uppercase tracking-[0.28em] text-white">Capabilities</p>
-				<h2 id="skills-heading" class="font-display mt-5 text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-5xl lg:text-[3.5rem]">
+				<p class="text-xs font-semibold uppercase tracking-[0.28em] text-black">Capabilities</p>
+				<h2 id="skills-heading" class="font-display mt-5 text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.5rem]">
 					What I bring to a product team.
 				</h2>
-				<p class="mt-6 max-w-lg text-base leading-relaxed text-white sm:text-lg">
+				<p class="mt-6 max-w-lg text-base leading-relaxed text-black sm:text-lg">
 					A focused view of the capabilities I use most often. The full toolkit and technical stack are available in my CV.
 				</p>
 			</div>

@@ -63,10 +63,10 @@
 						data-about-reveal
 						class="font-display max-w-2xl text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl"
 					>
-						Get to know me!
+						Get to <span class="brand-gradient-text">know me</span> :)
 					</h2>
 					<p data-about-reveal class="max-w-2xl text-lg font-medium leading-relaxed text-primary">
-						I believe good design should feel like someone cared before you even noticed :)
+						I believe good design should feel like someone cared before you even noticed :3
 					</p>
 				</div>
 
