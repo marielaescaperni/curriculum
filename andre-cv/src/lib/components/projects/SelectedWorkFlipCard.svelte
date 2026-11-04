@@ -53,7 +53,7 @@
 </script>
 
 <article
-	class="selected-work-card min-w-0 rounded-[var(--radius-card)] border border-white/80 bg-white/75 p-1.5 shadow-[0_18px_60px_rgba(17,17,17,0.05)]"
+	class="selected-work-card min-w-0"
 	class:flipped
 	style:--card-accent={project.accent ?? 'var(--gradient-purple)'}
 	onpointerenter={handlePointerEnter}
@@ -132,6 +132,11 @@
 		display: flex;
 		min-width: 0;
 		flex-direction: column;
+		padding: 0.375rem;
+		border: 1px solid rgba(255, 255, 255, 0.8);
+		border-radius: var(--radius-card);
+		background: rgba(255, 255, 255, 0.75);
+		box-shadow: 0 18px 60px rgba(17, 17, 17, 0.05);
 		backface-visibility: hidden;
 		-webkit-backface-visibility: hidden;
 	}
