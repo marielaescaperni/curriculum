@@ -144,7 +144,7 @@
 							aria-roledescription="slide"
 							aria-label={`${index + 1} of ${skillGroups.length}: ${group.title}`}
 							style:--skill-accent={group.accent}
-							class="flex min-h-[360px] min-w-0 flex-[0_0_100%] select-none snap-start flex-col rounded-[var(--radius-card)] border border-white/80 bg-white/85 p-6 shadow-[0_14px_45px_rgba(17,17,17,0.06)] sm:p-8"
+							class="flex min-h-[360px] min-w-0 flex-[0_0_100%] select-none snap-start flex-col rounded-[var(--radius-card)] border border-white bg-white p-6 shadow-[0_14px_45px_rgba(17,17,17,0.06)] sm:p-8"
 						>
 							<div class="flex items-start justify-between gap-4">
 								<p class="max-w-[75%] text-xs font-semibold uppercase tracking-[0.16em] text-muted-custom">{group.kicker}</p>
@@ -161,10 +161,10 @@
 				<div class="mt-4 flex items-center justify-between gap-4">
 					<p class="text-xs font-semibold tracking-[0.12em] text-muted-custom" aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}</p>
 					<div class="flex gap-2">
-						<button type="button" aria-label="Previous capability" disabled={activeIndex === 0} onclick={() => scrollToSlide(activeIndex - 1)} class="flex h-11 w-11 items-center justify-center rounded-full border border-black/20 bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+						<button type="button" aria-label="Previous capability" disabled={activeIndex === 0} onclick={() => scrollToSlide(activeIndex - 1)} class="flex h-11 w-11 items-center justify-center rounded-full  bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
 							<span aria-hidden="true" class="material-symbols-rounded">arrow_back</span>
 						</button>
-						<button type="button" aria-label="Next capability" disabled={activeIndex === skillGroups.length - 1} onclick={() => scrollToSlide(activeIndex + 1)} class="flex h-11 w-11 items-center justify-center rounded-full border border-black/20 bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+						<button type="button" aria-label="Next capability" disabled={activeIndex === skillGroups.length - 1} onclick={() => scrollToSlide(activeIndex + 1)} class="flex h-11 w-11 items-center justify-center rounded-full  bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
 							<span aria-hidden="true" class="material-symbols-rounded">arrow_forward</span>
 						</button>
 					</div>
