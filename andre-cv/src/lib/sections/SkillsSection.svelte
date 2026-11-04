@@ -5,6 +5,7 @@
 	const skillGroups = [
 		{
 			title: 'Product & UX',
+			description: 'I turn ambiguous requirements into intuitive product flows, balancing user needs, business goals and implementation constraints.',
 			kicker: 'From messy problems to clear product direction',
 			items: capabilities.productUx.slice(0, 6),
 			accent: 'var(--gradient-pink)',
@@ -12,6 +13,7 @@
 		},
 		{
 			title: 'Research & Validation',
+			description: 'I use interviews, usability testing and behavioral data to understand friction, validate ideas and guide iteration.',
 			kicker: 'Grounding decisions in evidence',
 			items: capabilities.researchValidation.slice(0, 6),
 			accent: 'var(--gradient-purple)',
@@ -19,6 +21,7 @@
 		},
 		{
 			title: 'Systems & Accessibility',
+			description: 'I build consistent design patterns and inclusive experiences that support different users, devices and ways of interacting.',
 			kicker: 'Making experiences scalable and inclusive',
 			items: capabilities.systemsAccessibility.slice(0, 6),
 			accent: 'var(--gradient-green)',
@@ -26,6 +29,7 @@
 		},
 		{
 			title: 'UX Engineering',
+			description: 'I bridge Figma and production code, working closely with engineers to deliver responsive, maintainable interfaces.',
 			kicker: 'Keeping design decisions connected to production',
 			items: capabilities.uxEngineering.slice(0, 6),
 			accent: 'var(--gradient-blue)',
@@ -33,6 +37,7 @@
 		},
 		{
 			title: 'AI-assisted workflow',
+			description: 'I use AI tools to accelerate exploration and routine work while keeping critical thinking, usability and design quality at the center.',
 			kicker: 'Faster exploration, same design judgment',
 			items: capabilities.aiWorkflow,
 			accent: 'var(--gradient-peach)',
@@ -150,6 +155,7 @@
 								<p class="max-w-[75%] text-xs font-semibold uppercase tracking-[0.16em] text-muted-custom">{group.kicker}</p>
 							</div>
 							<h3 class="font-display mt-7 text-4xl font-semibold leading-none tracking-[-0.04em] text-primary sm:text-5xl">{group.title}</h3>
+							<p class="mt-5 max-w-xl text-sm leading-relaxed text-secondary sm:text-base">{group.description}</p>
 							<div class="mt-auto flex flex-wrap gap-2 pt-10">
 								{#each group.items as skill}
 									<span class="rounded-full border border-white/70 bg-[color-mix(in_srgb,var(--skill-accent)_17%,white)] px-3 py-2 text-sm font-medium text-secondary">{skill}</span>
