@@ -48,7 +48,7 @@
 			<p class="text-xs font-semibold uppercase tracking-[0.25em] text-muted-custom">Get in touch</p>
 			<h2 class="font-display text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-primary md:text-6xl">Let's talk about what you're building.</h2>
 			<p class="text-lg leading-relaxed text-secondary">
-				Hiring for a product designer or need someone who can connect design and implementation? I'd love to hear from you :)
+				Hiring a Senior Product Designer or looking for help with UX/UI, accessibility or front-end implementation? Tell me about the opportunity — I'd love to hear from you :)
 			</p>
 		</div>
 
