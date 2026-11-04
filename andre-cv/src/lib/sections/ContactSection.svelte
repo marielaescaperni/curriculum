@@ -31,21 +31,46 @@
 		feedback = '';
 
 		try {
-			const response = await fetch('/api/contact', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify({ name, email, message, website })
-			});
-			const result: { message?: string } = await response.json();
-			if (!response.ok) throw new Error(result.message ?? 'Could not send your message.');
+			// The Vercel endpoint supplies our public Web3Forms form identifier.
+			const configResponse = await fetch('/api/contact', { cache: 'no-store' });
+			const config: { access_key?: string; message?: string } = await configResponse.json();
+			if (!configResponse.ok || !config.access_key) {
+				throw new Error(config.message ?? 'The form is temporarily unavailable.');
+			}
 
-			showToast('success', result.message ?? 'Thanks! Your message has been sent.');
+			// Web3Forms free tier expects submissions from the visitor's browser.
+			const response = await fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+				body: JSON.stringify({
+					access_key: config.access_key,
+					name: name.trim(),
+					email: email.trim(),
+					message: message.trim(),
+					subject: 'New portfolio contact message',
+					from_name: 'Mariela Portfolio',
+					botcheck: Boolean(website)
+				})
+			});
+			const result: {
+				success?: boolean;
+				message?: string;
+				body?: { message?: string };
+			} = await response.json();
+
+			if (!response.ok || !result.success) {
+				console.error('Web3Forms submission rejected:', response.status, result.message ?? result.body?.message);
+				throw new Error('Could not send your message. Please try again or use the email link.');
+			}
+
+			showToast('success', 'Thanks! Your message has been sent.');
 			name = '';
 			email = '';
 			message = '';
 			website = '';
 		} catch (error) {
 			showToast('error', error instanceof Error ? error.message : 'Could not send your message.');
+
 		} finally {
 			sending = false;
 		}
