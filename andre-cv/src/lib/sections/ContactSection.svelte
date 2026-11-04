@@ -54,10 +54,7 @@
 
 		<div class="grid items-start gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-8">
 			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-				<a
-					href={`mailto:${profile.email}`}
-					class="group flex min-h-32 items-start gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/60 p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1"
-				>
+				<div class="flex min-h-32 items-start gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/60 p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)]">
 					<span aria-hidden="true" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--gradient-purple)_35%,white)] text-primary">
 						<span class="material-symbols-rounded">mail</span>
 					</span>
@@ -65,15 +62,11 @@
 						<span class="block text-xs font-semibold uppercase tracking-[0.14em] text-muted-custom">Email</span>
 						<span class="mt-2 block break-all text-sm font-semibold text-primary sm:text-base">{profile.email}</span>
 						<span class="mt-2 block text-xs text-secondary">Reach out directly</span>
+						<span class="mt-4 block"><Button href={`mailto:${profile.email}`} label="Email me" variant="secondary" size="compact" /></span>
 					</span>
-				</a>
+				</div>
 
-				<a
-					href={profile.socials.linkedin}
-					target="_blank"
-					rel="noopener noreferrer"
-					class="group flex min-h-32 items-start gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/60 p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)] transition-transform duration-300 hover:-translate-y-1"
-				>
+				<div class="flex min-h-32 items-start gap-4 rounded-[var(--radius-card)] border border-white/70 bg-white/60 p-6 shadow-[0_18px_60px_rgba(17,17,17,0.05)]">
 					<span aria-hidden="true" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--gradient-blue)_35%,white)] text-primary">
 						<span class="material-symbols-rounded">work</span>
 					</span>
@@ -81,8 +74,9 @@
 						<span class="block text-xs font-semibold uppercase tracking-[0.14em] text-muted-custom">LinkedIn</span>
 						<span class="mt-2 block text-base font-semibold text-primary">Connect with me</span>
 						<span class="mt-2 block text-xs text-secondary">Professional opportunities and collaborations</span>
+						<span class="mt-4 block"><Button href={profile.socials.linkedin} label="LinkedIn" variant="secondary" size="compact" target="_blank" rel="noopener noreferrer" /></span>
 					</span>
-				</a>
+				</div>
 			</div>
 
 			<form
