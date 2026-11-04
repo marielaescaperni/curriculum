@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { profile } from '$lib/data/profile';
 	import Button from '$lib/components/Button.svelte';
+	import Toast from '$lib/components/Toast.svelte';
 
 	let name = $state('');
 	let email = $state('');
@@ -9,6 +10,17 @@
 	let sending = $state(false);
 	let status = $state<'idle' | 'success' | 'error'>('idle');
 	let feedback = $state('');
+	let toastId = $state(0);
+
+	function dismissToast() {
+		dismissToast();
+	}
+
+	function showToast(nextStatus: 'success' | 'error', message: string) {
+		status = nextStatus;
+		feedback = message;
+		toastId += 1;
+	}
 
 	async function submitContact(event: SubmitEvent) {
 		event.preventDefault();
@@ -27,15 +39,13 @@
 			const result: { message?: string } = await response.json();
 			if (!response.ok) throw new Error(result.message ?? 'Could not send your message.');
 
-			status = 'success';
-			feedback = result.message ?? 'Thanks! Your message has been sent.';
+			showToast('success', result.message ?? 'Thanks! Your message has been sent.');
 			name = '';
 			email = '';
 			message = '';
 			website = '';
 		} catch (error) {
-			status = 'error';
-			feedback = error instanceof Error ? error.message : 'Could not send your message.';
+			showToast('error', error instanceof Error ? error.message : 'Could not send your message.');
 		} finally {
 			sending = false;
 		}
@@ -112,13 +122,17 @@
 					<div class="flex justify-stretch sm:justify-end">
 						<Button type="submit" label={sending ? 'Sending...' : 'Send message'} variant="primary" disabled={sending} />
 					</div>
-					{#if feedback}
-						<p role={status === 'error' ? 'alert' : 'status'} class={status === 'error' ? 'text-sm font-medium text-[#A12C25]' : 'text-sm font-medium text-[#215B44]'}>
-							{feedback}
-						</p>
-					{/if}
+
 				</div>
 			</form>
 		</div>
 	</div>
 </section>
+
+{#if status !== 'idle' && feedback}
+	<div class="pointer-events-none fixed inset-x-4 bottom-4 z-[110] sm:inset-x-auto sm:right-6 sm:w-[min(24rem,calc(100vw-3rem))]">
+		{#key toastId}
+			<Toast kind={status} message={feedback} onDismiss={dismissToast} />
+		{/key}
+	</div>
+{/if}
