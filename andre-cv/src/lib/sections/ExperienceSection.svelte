@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { animateOnView } from '$lib/actions/animateOnView';
 	import EmblaCarousel from '$lib/components/carousel/EmblaCarousel.svelte';
+	import Button from '$lib/components/Button.svelte';
 	import { experience } from '$lib/data/experience';
 
 	type ExperienceItem = (typeof experience)[number];
@@ -93,11 +94,6 @@
 					</li>
 				{/each}
 			</ol>
-			<div class="mt-5 flex justify-end">
-				<a href="/cv" class="inline-flex min-h-11 items-center gap-2 rounded-full border border-soft bg-white/75 px-4 py-2 text-sm font-semibold text-primary hover:bg-white">
-					Check my CV <span aria-hidden="true">↗</span>
-				</a>
-			</div>
 		</div>
 
 		<div class="lg:hidden" data-experience-reveal>
@@ -117,9 +113,13 @@
 					</div>
 				{/each}
 			</EmblaCarousel>
-			<a href="/cv" class="mt-4 inline-flex min-h-11 items-center gap-2 rounded-full border border-soft bg-white/75 px-4 py-2 text-sm font-semibold text-primary">
-				See full experience in my CV <span aria-hidden="true">↗</span>
-			</a>
+		</div>
+
+		<div data-experience-reveal class="mx-auto flex max-w-xl flex-col items-center gap-5 pt-2 text-center">
+			<p class="font-display text-xl font-semibold leading-snug text-primary sm:text-2xl">
+				Want a more detailed view of my background?
+			</p>
+			<Button href="/cv" label="Check my CV" variant="primary" />
 		</div>
 	</div>
 </section>
