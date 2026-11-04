@@ -76,7 +76,7 @@
 	}
 
 	.button-secondary:hover {
-		background: #111111;
+		background: #a899ff;
 		color: #ffffff;
 		box-shadow: 0 12px 30px rgba(17, 17, 17, 0.12);
 	}
