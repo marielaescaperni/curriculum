@@ -159,7 +159,7 @@
 					{/each}
 				</div>
 				<div class="mt-4 flex items-center justify-between gap-4">
-					<p class="text-xs font-semibold tracking-[0.12em] text-muted-custom" aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}</p>
+					<p class="text-xs font-semibold tracking-[0.12em] text-white" aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(skillGroups.length).padStart(2, '0')}</p>
 					<div class="flex gap-2">
 						<button type="button" aria-label="Previous capability" disabled={activeIndex === 0} onclick={() => scrollToSlide(activeIndex - 1)} class="flex h-11 w-11 items-center justify-center rounded-full  bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
 							<span aria-hidden="true" class="material-symbols-rounded">arrow_back</span>

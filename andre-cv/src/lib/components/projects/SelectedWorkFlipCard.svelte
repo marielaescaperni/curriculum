@@ -75,7 +75,7 @@
 				<p class="mt-4 text-sm leading-relaxed text-secondary">{project.description}</p>
 				<div class="mt-auto flex flex-wrap gap-2 pt-6">
 					{#each project.tags as tag}
-						<span class="rounded-full bg-white/50 px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
+						<span class="rounded-full bg-white px-3 py-1.5 text-xs font-medium text-primary">{tag}</span>
 					{/each}
 				</div>
 			</div>
@@ -178,7 +178,7 @@
 		justify-content: center;
 		flex-shrink: 0;
 		border-radius: 0.75rem;
-		background: var(--color-bg);
+		background: var(--color-white);
 	}
 
 	@media (prefers-reduced-motion: reduce) {
