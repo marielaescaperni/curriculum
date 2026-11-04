@@ -138,19 +138,19 @@
 			role="dialog"
 			aria-modal="true"
 			aria-label="Mobile navigation"
-			class="absolute inset-x-0 top-0 min-h-screen bg-white px-6 pb-10 pt-6 text-[#111111]"
+			class="absolute inset-x-0 top-0 h-dvh overflow-y-auto bg-white px-6 pb-10 pt-6 text-[#111111]"
 			class:animate-slide-down={!isClosing}
 			class:animate-slide-up={isClosing}
 		>
 			<div class="flex items-center justify-between">
-				<a href="/" aria-label="Mariela Escalante home" onclick={closeMenu} class="flex items-center gap-3">
+				<a href="/" aria-label="Mariela Escalante home" onclick={() => closeMenu(false)} class="flex items-center gap-3">
 					<img src="/mariela-logo.svg" alt="" class="h-10 w-auto" />
 				</a>
 
 				<button
 					bind:this={closeButton}
 					type="button"
-					onclick={closeMenu}
+					onclick={() => closeMenu(false)}
 					class="flex h-12 w-12 items-center justify-center rounded-full border border-black/15 bg-[#F3F1EC] text-[#111111]"
 					aria-label="Close navigation menu"
 				>
@@ -158,18 +158,18 @@
 				</button>
 			</div>
 
-			<div class="mt-14 flex flex-col gap-5 font-display text-6xl font-semibold leading-none tracking-[-0.06em]">
+			<div class="mt-10 flex flex-col gap-5 font-display text-4xl font-semibold leading-none tracking-[-0.06em] sm:text-5xl">
 				{#each navItems as item}
-					<a href={item.href} onclick={closeMenu} class="text-[#111111] hover:text-[#6043CC]">{item.title}</a>
+					<a href={item.href} onclick={() => closeMenu(false)} class="text-[#111111] hover:text-[#6043CC]">{item.title}</a>
 				{/each}
 			</div>
 
 			<div class="mt-12 flex flex-col gap-3 border-t border-black/15 pt-8">
-				<Button href="/cv" label="Check my CV" variant="secondary" onclick={closeMenu} />
-				<Button href="/#contact" label="Let's talk" variant="secondary" onclick={closeMenu} />
+				<Button href="/cv" label="Check my CV" variant="secondary" onclick={() => closeMenu(false)} />
+				<Button href="/#contact" label="Let's talk" variant="primary" onclick={() => closeMenu(false)} />
 			</div>
 
-			<div class="absolute bottom-10 right-6">
+			<div class="mt-10 flex justify-end">
 				<p class="text-right text-sm font-medium leading-relaxed text-[#6043CC]">
 					Mariela Escalante<br />
 					Senior Product Designer · UX/UI Engineer
