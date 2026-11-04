@@ -43,39 +43,33 @@ export const POST: RequestHandler = async ({ request, fetch, url }) => {
 		return json({ message: 'Please check your name, email and message.' }, { status: 400 });
 	}
 
-	const apiKey = env.RESEND_API_KEY;
-	const sender = env.CONTACT_FROM_EMAIL;
-	const recipient = env.CONTACT_TO_EMAIL;
-
-	if (!apiKey || !sender || !recipient) {
-		console.error('Contact form: Resend environment variables are not configured.');
+	const accessKey = env.WEB3FORMS_ACCESS_KEY;
+	if (!accessKey) {
+		console.error('Contact form: Web3Forms access key is not configured.');
 		return json({ message: 'The form is temporarily unavailable. Please contact me directly by email.' }, { status: 503 });
 	}
 
 	try {
-		const response = await fetch('https://api.resend.com/emails', {
+		const response = await fetch('https://api.web3forms.com/submit', {
 			method: 'POST',
-			headers: {
-				Authorization: `Bearer ${apiKey}`,
-				'Content-Type': 'application/json'
-			},
+			headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
 			body: JSON.stringify({
-				from: sender,
-				to: [recipient],
-				reply_to: email,
-				subject: 'New portfolio message',
-				text: `New message from your portfolio\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+				access_key: accessKey,
+				name,
+				email,
+				message,
+				subject: 'New portfolio contact message',
+				from_name: 'Mariela Portfolio'
 			})
 		});
-
-		if (!response.ok) {
-			console.error('Contact form: Resend rejected the request.', response.status);
+		const result: { success?: boolean; message?: string } = await response.json();
+		if (!response.ok || !result.success) {
+			console.error('Contact form: Web3Forms rejected submission.', response.status);
 			return json({ message: 'Could not send your message. Please try again or use the email link.' }, { status: 502 });
 		}
-
 		return json({ message: 'Thanks! Your message has been sent.' });
 	} catch {
-		console.error('Contact form: Email service could not be reached.');
+		console.error('Contact form: Web3Forms service could not be reached.');
 		return json({ message: 'Could not send your message. Please try again or use the email link.' }, { status: 502 });
 	}
 };
