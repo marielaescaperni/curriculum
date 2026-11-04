@@ -13,7 +13,8 @@
 	let toastId = $state(0);
 
 	function dismissToast() {
-		dismissToast();
+		status = 'idle';
+		feedback = '';
 	}
 
 	function showToast(nextStatus: 'success' | 'error', message: string) {
@@ -70,7 +71,6 @@
 			website = '';
 		} catch (error) {
 			showToast('error', error instanceof Error ? error.message : 'Could not send your message.');
-
 		} finally {
 			sending = false;
 		}
