@@ -21,7 +21,7 @@ Inspect the homepage and each project URL, then run Lighthouse mobile and deskto
 The beacon is loaded only when this variable is set. It tracks page views and web performance, including SvelteKit client-side navigation. Cloudflare Web Analytics does not currently support custom events, so it cannot report contact-form submissions as conversions.
 
 ## 3. Web3Forms contact form (no owned domain required)
-The frontend POSTs to `/api/contact`. The server validates the inputs and relays them to Web3Forms, which delivers messages to the verified receiving email.
+The frontend GETs the public Web3Forms access key from `/api/contact`, then POSTs directly to Web3Forms from the visitor's browser. Server-side submissions require a paid Web3Forms plan and are not supported on the free tier.
 
 1. Visit https://web3forms.com/ and enter your destination Gmail address to request an access key.
 2. Verify that address through the email they send you, and copy the access key.
@@ -31,7 +31,7 @@ The frontend POSTs to `/api/contact`. The server validates the inputs and relays
 
 The access key is not a Resend-style secret, but keeping it server-side lets us retain existing validation and avoid exposing the recipient mapping in browser code. Do not put it in source files. For local testing, set it in `.env.local`; do not commit that file.
 
-The endpoint includes input validation and a honeypot, and Web3Forms provides built-in spam controls. For stronger abuse protection add rate limiting or hCaptcha and verify the mobile UX.
+Browser-side form fields use native HTML validation and a honeypot, and Web3Forms provides built-in spam controls. For stronger abuse protection add rate limiting or hCaptcha and verify the mobile UX.
 
 ## 4. Search presence
 - Verify the property in Google Search Console.
