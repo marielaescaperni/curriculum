@@ -1,27 +1,108 @@
 <script lang="ts">
-	import { featuredProjects } from '$lib/data/projects';
+	import { telecomOpenApi } from '$lib/data/projects/telecom-open-api';
+	import { phreeli } from '$lib/data/projects/phreeli';
+	import { connectorStudio } from '$lib/data/projects/connector-studio';
+	import { vocalTransformation } from '$lib/data/projects/vocal-transformation';
 
-	const proofProjects = featuredProjects.filter((project) => project.proof).slice(0, 3);
+	const highlights = [
+		{
+			id: 'telecom',
+			slug: telecomOpenApi?.slug ?? 'telecom-open-api',
+			color: '#FFF0A9',
+			logo: '/logos/symphonica.png',
+			logoAlt: 'Symphonica',
+			brand: 'Symphonica',
+			metric: telecomOpenApi?.proof?.value ?? '',
+			detail: telecomOpenApi?.proof?.label ?? '',
+			className: ''
+		},
+		{
+			id: 'phreeli',
+			slug: phreeli?.slug ?? 'phreeli',
+			color: '#E8DFFF',
+			logo: '/logos/phreeli.png',
+			logoAlt: 'Phreeli',
+			brand: 'Phreeli',
+			metric: phreeli?.proof?.value ?? '',
+			detail: phreeli?.proof?.label ?? '',
+			className: ''
+		},
+		{
+			id: 'connector',
+			slug: connectorStudio?.slug ?? 'connector-studio',
+			color: '#D3F0D9',
+			logo: '/logos/symphonica.png',
+			logoAlt: 'Symphonica',
+			brand: 'Symphonica',
+			metric: connectorStudio?.proof?.value ?? '',
+			detail: connectorStudio?.proof?.label ?? '',
+			className: ''
+		},
+		{
+			id: 'vocal-transformation',
+			slug: vocalTransformation?.slug ?? 'vocal-transformation',
+			color: '#FBDDE8',
+			logo: '/logos/vocal-transformation.png',
+			logoAlt: 'Vocal Transformation',
+			brand: 'Vocal Transformation',
+			metric: 'CMS + signups',
+			detail: 'Workshop editing and mentorship integrations',
+			className: ''
+		}
+	];
+
+	let failedLogos = $state<string[]>([]);
 </script>
 
-<section class="px-6 pb-4 md:pb-8">
+<section aria-labelledby="proof-title" class="px-6 pb-8 md:pb-14">
 	<div class="mx-auto max-w-6xl">
-		<div class="grid gap-3 md:grid-cols-3">
-			{#each proofProjects as project}
+		<div class="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+			<div class="flex flex-col justify-center gap-3 p-6 md:col-span-2 lg:col-span-2">
+				<p class="text-xs font-semibold uppercase tracking-[0.2em] text-muted-custom">Selected impact</p>
+				<h2 id="proof-title" class="font-display max-w-lg text-4xl font-semibold leading-[0.97] tracking-[-0.05em] text-primary sm:text-5xl">
+					Good design, <span class="brand-gradient-text">measurable impact.</span>
+				</h2>
+				<p class="max-w-md text-sm leading-relaxed text-secondary sm:text-base">
+					Outcomes and delivery highlights from products I've helped design and build.
+				</p>
+			</div>
+
+			{#each highlights as highlight (highlight.id)}
 				<a
-					href={`/projects/${project.slug}`}
-					class="group rounded-[1.75rem] border border-white/70 bg-white/45 p-5 shadow-[0_16px_50px_rgba(0,0,0,0.04)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/70"
+					href={`/projects/${highlight.slug}`}
+					class="group flex min-h-[230px] flex-col rounded-[var(--radius-card)] p-5 transition-transform duration-300 hover:-translate-y-1"
+					style:background={highlight.color}
 				>
-					<p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-text-muted)]">{project.title}</p>
-					<p class="mt-3 font-display text-3xl font-semibold leading-none tracking-[-0.04em] text-[var(--color-text-primary)]">
-						{project.proof?.value}
-					</p>
-					<div class="mt-3 flex items-center justify-between gap-4">
-						<p class="text-sm text-[var(--color-text-secondary)]">{project.proof?.label}</p>
-						<span class="material-symbols-rounded text-lg transition group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+					<p class="font-display text-3xl font-semibold leading-tight tracking-tight text-primary">{highlight.metric}</p>
+					<p class="mt-2 text-sm leading-relaxed text-secondary">{highlight.detail}</p>
+					<div class="mt-auto flex min-h-10 items-end justify-between gap-3 pt-8">
+						{#if !failedLogos.includes(highlight.id)}
+							<img
+								src={highlight.logo}
+								alt={highlight.logoAlt}
+								loading="lazy"
+								class="max-h-9 max-w-[65%] object-contain object-left"
+								onerror={() => failedLogos = [...failedLogos, highlight.id]}
+							/>
+						{:else}
+							<span class="text-xs font-bold text-primary">{highlight.brand}</span>
+						{/if}
+						<span class="material-symbols-rounded text-xl text-primary transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_outward</span>
 					</div>
 				</a>
 			{/each}
+
+			<div class="flex min-h-[230px] flex-col rounded-[var(--radius-card)] bg-[#DCEBF8] p-5">
+				<p class="font-display text-4xl font-semibold tracking-tight text-primary">8+</p>
+				<p class="mt-2 text-sm text-secondary">Years designing digital products</p>
+				<p class="mt-auto pt-8 text-xs font-semibold text-primary">Product design · UX engineering</p>
+			</div>
+
+			<div class="flex min-h-[230px] flex-col rounded-[var(--radius-card)] bg-[#FCE6D2] p-5">
+				<p class="font-display text-4xl font-semibold tracking-tight text-primary">E2E</p>
+				<p class="mt-2 text-sm text-secondary">From discovery through delivery</p>
+				<p class="mt-auto pt-8 text-xs font-semibold text-primary">Design + code</p>
+			</div>
 		</div>
 	</div>
 </section>

@@ -9,9 +9,11 @@
 	let mobileMenu = $state<HTMLDivElement>();
 
 	const navItems = [
-		{ title: 'Case Studies', href: '/#projects' },
+		{ title: 'Work', href: '/#projects' },
+		{ title: 'Capabilities', href: '/#skills' },
 		{ title: 'Experience', href: '/#experience' },
-		{ title: 'About me', href: '/#about' }
+		{ title: 'About', href: '/#about' },
+		{ title: 'Contact', href: '/#contact' }
 	];
 
 	async function openMenu() {
@@ -20,12 +22,12 @@
 		closeButton?.focus();
 	}
 
-	function closeMenu() {
+	function closeMenu(restoreFocus = true) {
 		isClosing = true;
 		setTimeout(() => {
 			isMenuOpen = false;
 			isClosing = false;
-			menuButton?.focus();
+			if (restoreFocus) menuButton?.focus();
 		}, 300);
 	}
 
@@ -80,9 +82,9 @@
 
 <svelte:window onkeydown={handleKeydown} />
 
-<header class="fixed left-0 top-6 z-50 w-full px-4">
+<header class="fixed left-0 top-4 z-50 w-full px-4">
 	<nav
-		class="mx-auto flex w-full max-w-[min(100%,74rem)] items-center justify-between rounded-full border-transparent bg-white/10 px-3 py-3 shadow-[0_24px_80px_rgba(17,17,17,0.12)] backdrop-blur-2xl md:max-w-fit md:justify-center md:gap-8"
+		class="mx-auto flex w-full max-w-[min(100%,74rem)] items-center justify-between rounded-full border border-black/10 bg-white px-3 py-3 shadow-[0_10px_30px_rgba(17,17,17,0.08)] md:max-w-fit md:justify-center md:gap-5 lg:gap-7"
 		aria-label="Main navigation"
 	>
 		<a href="/" aria-label="Mariela Escalante home" class="motion-base flex items-center gap-3 rounded-full bg-white px-3 py-2">
@@ -109,7 +111,7 @@
 			bind:this={menuButton}
 			type="button"
 			onclick={toggleMenu}
-			class="motion-base flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary backdrop-blur-xl md:hidden"
+			class="motion-base flex h-11 w-11 items-center justify-center rounded-full bg-white text-primary md:hidden"
 			aria-label="Toggle navigation menu"
 			aria-expanded={isMenuOpen}
 			aria-controls="mobile-navigation"
@@ -127,7 +129,7 @@
 			class:animate-fade-in={!isClosing}
 			class:animate-fade-out={isClosing}
 			aria-label="Close menu overlay"
-			onclick={closeMenu}
+			onclick={() => closeMenu()}
 		></button>
 
 		<div
@@ -136,39 +138,39 @@
 			role="dialog"
 			aria-modal="true"
 			aria-label="Mobile navigation"
-			class="absolute inset-x-0 top-0 min-h-screen bg-[#111111] px-6 pb-10 pt-6 text-white"
+			class="absolute inset-x-0 top-0 h-dvh overflow-y-auto bg-white px-6 pb-10 pt-6 text-[#111111]"
 			class:animate-slide-down={!isClosing}
 			class:animate-slide-up={isClosing}
 		>
 			<div class="flex items-center justify-between">
-				<a href="/" aria-label="Mariela Escalante home" onclick={closeMenu} class="flex items-center gap-3">
+				<a href="/" aria-label="Mariela Escalante home" onclick={() => closeMenu(false)} class="flex items-center gap-3">
 					<img src="/mariela-logo.svg" alt="" class="h-10 w-auto" />
 				</a>
 
 				<button
 					bind:this={closeButton}
 					type="button"
-					onclick={closeMenu}
-					class="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white"
+					onclick={() => closeMenu(false)}
+					class="flex h-12 w-12 items-center justify-center rounded-full border border-black/15 bg-[#F3F1EC] text-[#111111]"
 					aria-label="Close navigation menu"
 				>
 					<span aria-hidden="true" class="material-symbols-rounded text-[28px]">close</span>
 				</button>
 			</div>
 
-			<div class="mt-14 flex flex-col gap-5 font-display text-6xl font-semibold leading-none tracking-[-0.06em]">
+			<div class="mt-10 flex flex-col gap-5 font-display text-4xl font-semibold leading-none tracking-[-0.06em] sm:text-5xl">
 				{#each navItems as item}
-					<a href={item.href} onclick={closeMenu} class="brand-gradient-text">{item.title}</a>
+					<a href={item.href} onclick={() => closeMenu(false)} class="text-[#111111] hover:text-[#6043CC]">{item.title}</a>
 				{/each}
 			</div>
 
-			<div class="mt-12 flex flex-col gap-3 border-t border-white/15 pt-8">
-				<Button href="/cv" label="Check my CV" variant="secondary" onclick={closeMenu} />
-				<Button href="/#contact" label="Let's talk" variant="secondary" onclick={closeMenu} />
+			<div class="mt-12 flex flex-col gap-3 border-t border-black/15 pt-8">
+				<Button href="/cv" label="Check my CV" variant="secondary" onclick={() => closeMenu(false)} />
+				<Button href="/#contact" label="Let's talk" variant="primary" onclick={() => closeMenu(false)} />
 			</div>
 
-			<div class="absolute bottom-10 right-6">
-				<p class="text-right text-sm font-medium leading-relaxed text-cyan-400">
+			<div class="mt-10 flex justify-end">
+				<p class="text-right text-sm font-medium leading-relaxed text-[#6043CC]">
 					Mariela Escalante<br />
 					Senior Product Designer · UX/UI Engineer
 				</p>

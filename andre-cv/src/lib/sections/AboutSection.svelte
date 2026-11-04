@@ -34,47 +34,69 @@
 		threshold: 0.18
 	}}
 >
-	<div id="about" class="mx-auto grid max-w-6xl scroll-mt-4 gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16">
-		<div class="space-y-5">
-			<p data-about-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-neutral-500">
-				About me
-			</p>
+	<div id="about" class="mx-auto max-w-6xl scroll-mt-[100px]">
+		<div class="grid items-center gap-8 md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:gap-12 lg:gap-16">
+			<div data-about-reveal class="relative mx-auto w-full max-w-[25rem] md:max-w-none">
+				<div
+					aria-hidden="true"
+					class="absolute -inset-4 rounded-[3rem] bg-[linear-gradient(135deg,var(--gradient-purple),var(--gradient-blue),var(--gradient-pink))] opacity-25 blur-3xl"
+				></div>
+				<div class="surface-card relative overflow-hidden rounded-[2.5rem] p-3 sm:p-4">
+					<img
+						src="/profile-photo.jpg"
+						alt="Portrait of Mariela Escalante"
+						width="800"
+						height="1000"
+						loading="lazy"
+						decoding="async"
+						class="aspect-[4/5] w-full rounded-[1.75rem] object-cover"
+					/>
+				</div>
+			</div>
 
-			<h2
-				data-about-reveal
-				class="max-w-sm text-4xl font-semibold leading-[0.95] tracking-[-0.05em] text-neutral-950 md:text-5xl"
-			>
-				I believe good design should feel like someone cared before you even noticed :)
-			</h2>
+			<div class="space-y-6">
+				<div class="space-y-4">
+					<p data-about-reveal class="text-xs font-semibold uppercase tracking-[0.28em] text-muted-custom">
+						About me
+					</p>
+					<h2
+						data-about-reveal
+						class="font-display max-w-2xl text-4xl font-semibold leading-[0.98] tracking-[-0.05em] text-primary sm:text-5xl lg:text-6xl"
+					>
+						Get to <span class="brand-gradient-text">know me</span> :)
+					</h2>
+					<p data-about-reveal class="max-w-2xl text-lg font-medium leading-relaxed text-primary">
+						I believe good design should feel like someone cared before you even noticed :3
+					</p>
+				</div>
+
+				<div class="space-y-4 text-base leading-relaxed text-secondary md:text-lg">
+					{#each introParagraphs as paragraph}
+						<p data-about-reveal>{paragraph.trim()}</p>
+					{/each}
+
+					{#each aboutParagraphs as paragraph}
+						<p data-about-reveal>{paragraph.trim()}</p>
+					{/each}
+				</div>
+			</div>
 		</div>
 
-		<div class="space-y-8">
-			<div class="space-y-5 text-lg leading-relaxed text-neutral-700 md:text-xl">
-				{#each introParagraphs as paragraph}
-					<p data-about-reveal>{paragraph.trim()}</p>
-				{/each}
-
-				{#each aboutParagraphs as paragraph}
-					<p data-about-reveal>{paragraph.trim()}</p>
-				{/each}
-			</div>
-
-			<div class="grid gap-3 md:grid-cols-3">
-				{#each notes as note}
-					<article
-						data-about-reveal
-						style:--card-accent={note.accent}
-						class="group rounded-3xl border border-white/70 bg-white/45 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.05)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] hover:border-transparent hover:bg-[var(--card-accent)]"
-					>
-						<p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500 transition duration-300 group-hover:text-black/65">
-							{note.label}
-						</p>
-						<p class="text-sm leading-relaxed text-neutral-700 transition duration-300 group-hover:text-black">
-							{note.text}
-						</p>
-					</article>
-				{/each}
-			</div>
+		<div class="mt-10 grid gap-3 md:mt-14 md:grid-cols-3">
+			{#each notes as note}
+				<article
+					data-about-reveal
+					style:--card-accent={note.accent}
+					class="group rounded-2xl bg-white p-5 shadow-[0_18px_60px_rgba(0,0,0,0.05)] transition duration-300 hover:-translate-y-1 hover:rotate-[-1deg] hover:bg-[var(--card-accent)] text-black"
+				>
+					<p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] transition duration-300">
+						{note.label}
+					</p>
+					<p class="text-sm leading-relaxed text-secondary transition duration-300 ">
+						{note.text}
+					</p>
+				</article>
+			{/each}
 		</div>
 	</div>
 </section>

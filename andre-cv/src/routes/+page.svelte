@@ -13,18 +13,36 @@
 </script>
 
 <svelte:head>
-	<title>Mariela Escalante | Senior Product Designer & UX/UI Engineer</title>
-	<meta name="description" content="Senior Product Designer and UX/UI Engineer with 8+ years designing SaaS, enterprise, native mobile and responsive web products from discovery through delivery." />
+	<title>Mariela Escalante | Senior Product Designer Portfolio & Case Studies</title>
+	<meta name="description" content="Explore Mariela Escalante’s product design portfolio: SaaS and enterprise UX case studies, accessibility, design systems and front-end engineering." />
 	<link rel="canonical" href="https://mariela-escalante.vercel.app/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://mariela-escalante.vercel.app/" />
-	<meta property="og:title" content="Mariela Escalante | Senior Product Designer & UX/UI Engineer" />
-	<meta property="og:description" content="Product design, accessibility, research, design systems and UX engineering across complex digital products." />
+	<meta property="og:title" content="Mariela Escalante | Senior Product Designer Portfolio" />
+	<meta property="og:description" content="Senior Product Designer portfolio featuring real SaaS and enterprise UX case studies, accessibility work, and production-ready interfaces." />
 	<meta property="og:image" content="https://mariela-escalante.vercel.app/og-image.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Mariela Escalante | Senior Product Designer & UX/UI Engineer" />
 	<meta name="twitter:description" content="Product design, accessibility, research, design systems and UX engineering across complex digital products." />
 	<meta name="twitter:image" content="https://mariela-escalante.vercel.app/og-image.png" />
+	<script type="application/ld+json">
+		{JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'ProfilePage',
+			'@id': 'https://mariela-escalante.vercel.app/#profile',
+			url: 'https://mariela-escalante.vercel.app/',
+			mainEntity: {
+				'@type': 'Person',
+				'@id': 'https://mariela-escalante.vercel.app/#person',
+				name: 'Mariela Escalante',
+				jobTitle: 'Senior Product Designer & UX/UI Engineer',
+				description: 'Product designer specializing in SaaS, enterprise UX, accessibility, research and front-end implementation.',
+				url: 'https://mariela-escalante.vercel.app/',
+				image: 'https://mariela-escalante.vercel.app/profile-photo.jpg',
+				sameAs: ['https://www.linkedin.com/in/mariela-escalante']
+			}
+		})}
+	</script>
 </svelte:head>
 
 <Navbar />

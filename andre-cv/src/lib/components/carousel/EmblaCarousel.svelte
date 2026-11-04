@@ -6,6 +6,7 @@
 	type Props = {
 		options?: EmblaOptionsType;
 		className?: string;
+		ariaLabel?: string;
 		containerClassName?: string;
 		children: Snippet;
 	};
@@ -17,6 +18,7 @@
 			dragFree: false
 		},
 		className = '',
+		ariaLabel = 'Featured project case studies',
 		containerClassName = '',
 		children
 	}: Props = $props();
@@ -47,7 +49,7 @@
 	});
 </script>
 
-<div role="region" aria-roledescription="carousel" aria-label="Featured project case studies">
+<div role="region" aria-roledescription="carousel" aria-label={ariaLabel}>
 	<div
 		class={`overflow-hidden ${className}`}
 		use:emblaCarouselSvelte={{ options, plugins: [] }}
@@ -61,17 +63,17 @@
 	<div class="mt-4 flex justify-end gap-3">
 		<button
 			type="button"
-			class="flex h-11 w-11 items-center justify-center rounded-full border border-black/20 bg-white text-lg disabled:cursor-not-allowed disabled:opacity-40"
+			class="flex h-11 w-11 items-center justify-center rounded-full  bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
 			aria-label="Previous project"
 			disabled={!canScrollPrev}
 			onclick={() => emblaApi?.scrollPrev()}
-		>←</button>
+		><span aria-hidden="true" class="material-symbols-rounded">arrow_back</span></button>
 		<button
 			type="button"
-			class="flex h-11 w-11 items-center justify-center rounded-full border border-black/20 bg-white text-lg disabled:cursor-not-allowed disabled:opacity-40"
+			class="flex h-11 w-11 items-center justify-center rounded-full  bg-white/80 text-primary transition-colors hover:bg-white disabled:cursor-not-allowed disabled:opacity-40"
 			aria-label="Next project"
 			disabled={!canScrollNext}
 			onclick={() => emblaApi?.scrollNext()}
-		>→</button>
+		><span aria-hidden="true" class="material-symbols-rounded">arrow_forward</span></button>
 	</div>
 </div>

@@ -1,11 +1,12 @@
 import { phreeli } from './phreeli';
 import { telecomOpenApi } from './telecom-open-api';
 import { occ } from './occ';
+import { vocalTransformation } from './vocal-transformation';
 import { connectorStudio } from './connector-studio';
 import { mapperBpmRework } from './mapper-bpm-rework';
 import { archiveProjects, secondaryProjects } from './secondary';
 
-export const featuredProjects = [telecomOpenApi, phreeli, connectorStudio, occ];
+export const featuredProjects = [telecomOpenApi, phreeli, connectorStudio, vocalTransformation];
 
 // Full case studies include the four featured projects plus additional deep dives.
 export const caseStudyProjects = [...featuredProjects, mapperBpmRework];
@@ -17,6 +18,7 @@ export {
 	phreeli,
 	telecomOpenApi,
 	occ,
+	vocalTransformation,
 	connectorStudio,
 	mapperBpmRework,
 	secondaryProjects,

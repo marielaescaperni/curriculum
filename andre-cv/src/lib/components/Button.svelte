@@ -3,7 +3,9 @@
 	type Size = 'default' | 'compact';
 
 	type Props = {
-		href: string;
+		href?: string;
+		type?: 'button' | 'submit' | 'reset';
+		disabled?: boolean;
 		label: string;
 		variant?: Variant;
 		size?: Size;
@@ -14,6 +16,8 @@
 
 	let {
 		href,
+		type = 'button',
+		disabled = false,
 		label,
 		variant = 'primary',
 		size = 'default',
@@ -23,9 +27,15 @@
 	}: Props = $props();
 </script>
 
-<a class={`button button-${variant} button-${size}`} {href} {target} {rel} {onclick}>
-	{label}
-</a>
+{#if href}
+	<a class={`button button-${variant} button-${size}`} {href} {target} {rel} {onclick}>
+		{label}
+	</a>
+{:else}
+	<button class={`button button-${variant} button-${size}`} {type} {disabled} {onclick}>
+		{label}
+	</button>
+{/if}
 
 <style>
 	.button {
@@ -35,6 +45,8 @@
 		border-radius: 999px;
 		font-weight: 800;
 		line-height: 1;
+		cursor: pointer;
+		min-height: 44px;
 		transition:
 			transform 240ms var(--ease-out-soft),
 			background-color 240ms var(--ease-out-soft),
@@ -54,30 +66,37 @@
 		font-size: 0.875rem;
 	}
 
-	.button:hover {
+	.button:disabled {
+		cursor: wait;
+		opacity: 0.6;
+	}
+
+	.button:not(:disabled):hover {
 		transform: translateY(-2px);
 	}
 
 	.button-primary {
 		background: #111111;
 		color: #ffffff;
+		border: 2px solid #111111;
 	}
 
 	.button-primary:hover {
 		background: #a7e4ff;
-		color: #0d4f68;
+		color: #111111;
 		box-shadow: 0 18px 40px rgba(100, 199, 238, 0.28);
 	}
 
 	.button-secondary {
-		background: #ffffff;
-		color: #21745e;
+		background: transparent;
+		border: 2px solid #111111;
+		color: #111111;
 	}
 
 	.button-secondary:hover {
-		background: #21745e;
-		color: #ffffff;
-		box-shadow: 0 18px 40px rgba(74, 191, 157, 0.26);
+		background: #a899ff;
+		color: #111111;
+		box-shadow: 0 12px 30px rgba(17, 17, 17, 0.12);
 	}
 
 	.button-terciary {
