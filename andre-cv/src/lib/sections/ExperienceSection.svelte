@@ -117,7 +117,7 @@
 
 		<div data-experience-reveal class="mx-auto flex max-w-xl flex-col items-center gap-5 pt-2 text-center">
 			<p class="font-display text-xl font-semibold leading-snug text-primary sm:text-2xl">
-				Want a more detailed view of my background?
+				Interested in learning more about my experience?
 			</p>
 			<Button href="/cv" label="Check my CV" variant="primary" />
 		</div>
