@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
@@ -13,6 +14,9 @@
 </script>
 
 <svelte:head>
+	{#if env.PUBLIC_GOOGLE_SITE_VERIFICATION}
+		<meta name="google-site-verification" content={env.PUBLIC_GOOGLE_SITE_VERIFICATION} />
+	{/if}
 	<title>Mariela Escalante | Senior Product Designer Portfolio & Case Studies</title>
 	<meta name="description" content="Explore Mariela Escalante’s product design portfolio: SaaS and enterprise UX case studies, accessibility, design systems and front-end engineering." />
 	<link rel="canonical" href="https://mariela-escalante.vercel.app/" />
