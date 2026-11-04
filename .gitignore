@@ -1,0 +1,7 @@
+# Never commit dependency installation artifacts.
+node_modules/
+
+# Local environment and machine artifacts.
+.env
+.env.local
+.DS_Store
