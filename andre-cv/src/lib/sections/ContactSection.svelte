@@ -132,7 +132,7 @@
 {#if status !== 'idle' && feedback}
 	<div class="pointer-events-none fixed inset-x-4 bottom-4 z-[110] sm:inset-x-auto sm:right-6 sm:w-[min(24rem,calc(100vw-3rem))]">
 		{#key toastId}
-			<Toast kind={status} message={feedback} onDismiss={dismissToast} />
+			<Toast kind={status === 'error' ? 'error' : 'success'} message={feedback} onDismiss={dismissToast} />
 		{/key}
 	</div>
 {/if}
