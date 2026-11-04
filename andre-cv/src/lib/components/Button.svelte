@@ -78,11 +78,12 @@
 	.button-primary {
 		background: #111111;
 		color: #ffffff;
+		border: 2px solid #111111;
 	}
 
 	.button-primary:hover {
 		background: #a7e4ff;
-		color: #0d4f68;
+		color: #111111;
 		box-shadow: 0 18px 40px rgba(100, 199, 238, 0.28);
 	}
 
