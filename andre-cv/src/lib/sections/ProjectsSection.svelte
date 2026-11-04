@@ -43,7 +43,7 @@
 					Complex products,<br> clear experiences.
 				</h2>
 				<p data-projects-reveal class="max-w-md text-lg leading-relaxed text-[var(--color-text-secondary)]">
-					A selection of product design and UX engineering work across enterprise platforms, accessible telecom experiences and content-driven websites. Explore the projects to see the decisions, constraints and solutions behind each one.
+					Explore product design case studies across enterprise SaaS, telecom and education platforms. Each project shows the UX decisions, accessibility considerations and engineering constraints behind the finished experience.
 				</p>
 				<div class="flex flex-wrap gap-2" aria-label="Selected areas of expertise">
 					{#each ['Product Design', 'Accessible UX', 'UX Engineering'] as tag}
@@ -74,7 +74,7 @@
 					<h2 data-projects-reveal class="font-display text-4xl font-semibold leading-none tracking-[-0.05em] text-[var(--color-text-primary)] md:text-5xl">Other selected work</h2>
 				</div>
 				<p data-projects-reveal class="max-w-2xl text-base leading-relaxed text-[var(--color-text-secondary)]">
-					Additional product work that reinforces the same strengths shown in the featured case studies.
+					More UX/UI and web design work, from complex enterprise workflows to partner portals, onboarding and visual experiences.
 				</p>
 			</div>
 
