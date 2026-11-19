@@ -1,9 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { animate, utils } from 'animejs';
-
-	let icons: HTMLDivElement[] = [];
-
 	const floatingIcons = [
 		{ type: 'sparkle', className: 'icon-purple' },
 		{ type: 'plus', className: 'icon-pink' },
@@ -11,50 +6,11 @@
 		{ type: 'sparkle', className: 'icon-blue' },
 		{ type: 'plus', className: 'icon-orange' }
 	];
-
-	onMount(() => {
-		const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-		let animations: ReturnType<typeof animate>[] = [];
-
-		const stop = () => {
-			animations.forEach((animation) => animation.cancel());
-			animations = [];
-			icons.forEach((icon) => {
-				if (icon) icon.style.transform = '';
-			});
-		};
-
-		const updateMotion = () => {
-			stop();
-			if (preference.matches) return;
-
-			animations = icons.filter(Boolean).map((icon, index) =>
-				animate(icon, {
-					translateX: () => utils.random(-36, 36),
-					translateY: () => utils.random(-44, 44),
-					rotate: () => utils.random(-16, 16),
-					scale: () => utils.random(90, 112) / 100,
-					duration: 4800 + index * 650,
-					alternate: true,
-					loop: true,
-					ease: 'inOutSine'
-				})
-			);
-		};
-
-		updateMotion();
-		preference.addEventListener('change', updateMotion);
-		return () => {
-			preference.removeEventListener('change', updateMotion);
-			stop();
-		};
-	});
 </script>
 
 <div class="floating-background" aria-hidden="true">
 	{#each floatingIcons as icon, index}
 		<div
-			bind:this={icons[index]}
 			class={`floating-icon floating-icon-${index + 1} ${icon.className}`}
 		>
 			{#if icon.type === 'sparkle'}
@@ -89,7 +45,7 @@
 		font-weight: 800;
 		line-height: 1;
 		opacity: 0.72;
-		will-change: transform;
+		animation: drift var(--drift-duration, 5s) ease-in-out infinite alternate;
 	}
 
 	.floating-icon span {
@@ -105,11 +61,15 @@
 	.icon-blue { color: var(--gradient-blue); }
 	.icon-orange { color: var(--gradient-orange); }
 
-	.floating-icon-1 { top: 15%; left: 14%; font-size: 3.5rem; }
-	.floating-icon-2 { top: 13%; right: 13%; font-size: 1.8rem; }
-	.floating-icon-3 { bottom: 22%; right: 20%; font-size: 1rem; }
-	.floating-icon-4 { bottom: 15%; left: 18%; font-size: 2.5rem; opacity: 0.3; }
-	.floating-icon-5 { top: 50%; left: 58%; font-size: 1.4rem; opacity: 0.38; }
+	.floating-icon-1 { --drift-x: 28px; --drift-y: 18px; top: 15%; left: 14%; font-size: 3.5rem; }
+	.floating-icon-2 { --drift-x: -24px; --drift-y: 32px; --drift-duration: 5.6s; top: 13%; right: 13%; font-size: 1.8rem; }
+	.floating-icon-3 { --drift-x: 21px; --drift-y: -34px; --drift-duration: 6.2s; bottom: 22%; right: 20%; font-size: 1rem; }
+	.floating-icon-4 { --drift-x: -30px; --drift-y: -22px; --drift-duration: 6.8s; bottom: 15%; left: 18%; font-size: 2.5rem; opacity: 0.3; }
+	.floating-icon-5 { --drift-x: 26px; --drift-y: 36px; --drift-duration: 7.4s; top: 50%; left: 58%; font-size: 1.4rem; opacity: 0.38; }
+
+	@keyframes drift {
+		to { transform: translate(var(--drift-x), var(--drift-y)) rotate(12deg); }
+	}
 
 	@media (max-width: 768px) {
 		.floating-icon-1 { top: 16%; left: 10%; font-size: 2.8rem; }
@@ -120,6 +80,6 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.floating-icon { will-change: auto; }
+		.floating-icon { animation: none; }
 	}
 </style>

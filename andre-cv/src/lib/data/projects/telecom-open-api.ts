@@ -13,7 +13,7 @@ export const telecomOpenApi: Project = {
 		value: '20–30 → 2.5 min',
 		label: 'Validation completion time'
 	},
-	thumbnail: '/projects/telecom-open-api/hero.png',
+	thumbnail: '/projects/telecom-open-api/preview.webp',
 	heroMedia: '/projects/telecom-open-api/final-product.png',
 	meta: {
 		role: 'Product / UX/UI Designer',

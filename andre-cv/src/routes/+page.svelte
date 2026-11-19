@@ -13,6 +13,7 @@
 </script>
 
 <svelte:head>
+	<link rel="preload" href="/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 	<title>Mariela Escalante | Senior Product Designer Portfolio & Case Studies</title>
 	<meta name="description" content="Explore Mariela Escalante’s product design portfolio: SaaS and enterprise UX case studies, accessibility, design systems and front-end engineering." />
 	<link rel="canonical" href="https://mariela-escalante.vercel.app/" />

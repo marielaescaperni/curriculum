@@ -88,7 +88,7 @@
 		aria-label="Main navigation"
 	>
 		<a href="/" aria-label="Mariela Escalante home" class="motion-base flex items-center gap-3 rounded-full bg-white px-3 py-2">
-			<img src="/mariela-logo.svg" alt="" class="h-9 w-7.5" />
+			<img src="/mariela-logo.svg" alt="" width="176" height="180" class="h-9 w-7.5" />
 		</a>
 
 		<div class="hidden items-center gap-6 md:flex">
@@ -144,7 +144,7 @@
 		>
 			<div class="flex items-center justify-between">
 				<a href="/" aria-label="Mariela Escalante home" onclick={() => closeMenu(false)} class="flex items-center gap-3">
-					<img src="/mariela-logo.svg" alt="" class="h-10 w-auto" />
+					<img src="/mariela-logo.svg" alt="" width="176" height="180" class="h-10 w-auto" />
 				</a>
 
 				<button
