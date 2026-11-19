@@ -9,8 +9,8 @@ export const vocalTransformation: Project = {
 	description:
 		'Improved a live education and mentorship website across workshop discovery, content management, sign-up flows and contact experiences.',
 	tags: ['SvelteKit', 'UX Engineering', 'CMS', 'Klaviyo', 'Web Accessibility'],
-	thumbnail: '/projects/vocal-transformation/vt-home.png',
-	heroMedia: '/projects/vocal-transformation/vt-home.png',
+	thumbnail: '/projects/vocal-transformation/preview.webp',
+	heroMedia: '/projects/vocal-transformation/vt-home.webp',
 	meta: {
 		role: 'Web Developer · UX Engineering',
 		company: 'Vocal Transformation',
@@ -72,7 +72,7 @@ export const vocalTransformation: Project = {
 			'Per-workshop contact information and CTAs can be edited through the CMS.',
 			'Mentorship registration connects with the intended email list.'
 		],
-		media: ['/projects/vocal-transformation/vt-membershi.png']
+		media: ['/projects/vocal-transformation/vt-membershi.webp']
 	},
 	evidenceMedia: ['/projects/vocal-transformation/vt-strapi-workshop.png'],
 	impact: [
@@ -106,6 +106,6 @@ export const vocalTransformation: Project = {
 		],
 		metrics: [],
 		tools: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Strapi', 'Klaviyo', 'Vimeo'],
-		gallery: ['/projects/vocal-transformation/vt-membershi.png', '/projects/vocal-transformation/vt-strapi-workshop.png']
+		gallery: ['/projects/vocal-transformation/vt-membershi.webp', '/projects/vocal-transformation/vt-strapi-workshop.png']
 	}
 };

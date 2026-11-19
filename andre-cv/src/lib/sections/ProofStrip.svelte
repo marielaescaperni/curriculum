@@ -9,7 +9,8 @@
 			id: 'telecom',
 			slug: telecomOpenApi?.slug ?? 'telecom-open-api',
 			color: '#FFF0A9',
-			logo: '/logos/symphonica.png',
+			logo: '/logos/symphonica.webp',
+			logoHeight: 107,
 			logoAlt: 'Symphonica',
 			brand: 'Symphonica',
 			metric: telecomOpenApi?.proof?.value ?? '',
@@ -20,7 +21,8 @@
 			id: 'phreeli',
 			slug: phreeli?.slug ?? 'phreeli',
 			color: '#E8DFFF',
-			logo: '/logos/phreeli.png',
+			logo: '/logos/phreeli.webp',
+			logoHeight: 126,
 			logoAlt: 'Phreeli',
 			brand: 'Phreeli',
 			metric: phreeli?.proof?.value ?? '',
@@ -31,7 +33,8 @@
 			id: 'connector',
 			slug: connectorStudio?.slug ?? 'connector-studio',
 			color: '#D3F0D9',
-			logo: '/logos/symphonica.png',
+			logo: '/logos/symphonica.webp',
+			logoHeight: 107,
 			logoAlt: 'Symphonica',
 			brand: 'Symphonica',
 			metric: connectorStudio?.proof?.value ?? '',
@@ -42,7 +45,8 @@
 			id: 'vocal-transformation',
 			slug: vocalTransformation?.slug ?? 'vocal-transformation',
 			color: '#FBDDE8',
-			logo: '/logos/vocal-transformation.png',
+			logo: '/logos/vocal-transformation.webp',
+			logoHeight: 107,
 			logoAlt: 'Vocal Transformation',
 			brand: 'Vocal Transformation',
 			metric: 'CMS + signups',
@@ -80,8 +84,11 @@
 							<img
 								src={highlight.logo}
 								alt={highlight.logoAlt}
+								width="320"
+								height={highlight.logoHeight}
 								loading="lazy"
-								class="max-h-9 max-w-[65%] object-contain object-left"
+								decoding="async"
+								class="h-auto w-auto max-h-9 max-w-[65%] object-contain object-left"
 								onerror={() => failedLogos = [...failedLogos, highlight.id]}
 							/>
 						{:else}

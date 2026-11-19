@@ -13,7 +13,7 @@ export const connectorStudio: Project = {
 		value: '10–14 → 27–35',
 		label: 'Monthly users after early releases'
 	},
-	thumbnail: '/projects/connector-studio/hero.png',
+	thumbnail: '/projects/connector-studio/preview.webp',
 	heroMedia: '/projects/connector-studio/create-connector.png',
 	meta: {
 		role: 'Product / UX/UI Designer',

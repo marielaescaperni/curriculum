@@ -4,6 +4,27 @@
 @import './lib/styles/utilities.css';
 @import './lib/styles/motion.css';
 
+@font-face {
+	font-family: 'Inter';
+	src: url('/fonts/inter-latin.woff2') format('woff2');
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'League Spartan';
+	src: url('/fonts/league-spartan-latin.woff2') format('woff2');
+	font-weight: 100 900;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Material Symbols Rounded';
+	src: url('/fonts/material-symbols-rounded.woff2') format('woff2');
+	font-weight: 400;
+	font-display: block;
+}
+
 @theme {
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-display: 'League Spartan', 'Inter', ui-sans-serif, system-ui, sans-serif;

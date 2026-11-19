@@ -13,7 +13,7 @@ export const phreeli: Project = {
 		value: 'WCAG + NVDA',
 		label: 'Accessibility validation'
 	},
-	thumbnail: '/projects/phreeli/hero.png',
+	thumbnail: '/projects/phreeli/preview.webp',
 	heroMedia: '/projects/phreeli/phreeli-1.png',
 	meta: {
 		role: 'Product Design · UX Engineering',

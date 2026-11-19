@@ -14,6 +14,8 @@
 			<img
 				src={project.thumbnail}
 				alt=""
+				width="900"
+				height="750"
 				loading="lazy"
 				decoding="async"
 				class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
